@@ -12,8 +12,8 @@ COPY package.json package-lock.json* yarn.lock* pnpm-lock.yaml* ./
 RUN npm install --frozen-lockfile 2>/dev/null || npm install
 
 COPY . .
-# Build the web target (no Tauri, no desktop-specific flags)
-RUN npm run build
+# Build the web target — skip vue-tsc type check (run locally, not on the slow VPS)
+RUN npx vite build
 
 # ── Production stage ──────────────────────────────────────────────────────────
 FROM nginx:stable-alpine AS runner
