@@ -1,0 +1,37 @@
+services:
+  # ── Backend API (Hono + Bun + SQLite) ─────────────────────────────────────
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      DB_PATH: /data/plant-care.db
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_SECRET: ${ADMIN_SECRET}
+      CORS_ORIGIN: ${CORS_ORIGIN}
+      PORT: "3000"
+    volumes:
+      - db_data:/data
+    expose:
+      - "3000"
+
+  # ── Frontend (Vue SPA served by Nginx) ────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        VITE_API_URL: ${VITE_API_URL}
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - server
+    volumes:
+      # Mount Let's Encrypt certs if you enable HTTPS later
+      - ./nginx/certs:/etc/nginx/certs:ro
+
+volumes:
+  db_data:
