@@ -362,7 +362,7 @@ export default {
     name: 'Name',
     name_placeholder: 'Your name',
     email: 'Email',
-    email_placeholder: 'you@example.com',
+    email_placeholder: "you{'@'}example.com",
     password: 'Password',
     password_placeholder: '••••••••',
     password_hint: 'At least 8 characters.',
