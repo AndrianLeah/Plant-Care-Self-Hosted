@@ -1,0 +1,800 @@
+[
+  {
+    "id": "monstera-deliciosa",
+    "scientificName": "Monstera deliciosa",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 15,
+      "max": 30
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "pothos",
+    "scientificName": "Epipremnum aureum",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "low",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 15,
+      "max": 30
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "fiddle-leaf-fig",
+    "scientificName": "Ficus lyrata",
+    "difficulty": "hard",
+    "idealMoisture": "moist",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 10
+    },
+    "temperatureRange": {
+      "min": 16,
+      "max": 27
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tree"
+  },
+  {
+    "id": "peace-lily",
+    "scientificName": "Spathiphyllum wallisii",
+    "difficulty": "easy",
+    "idealMoisture": "moist",
+    "light": "low",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 5,
+      "max": 10
+    },
+    "temperatureRange": {
+      "min": 16,
+      "max": 27
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "snake-plant",
+    "scientificName": "Dracaena trifasciata",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "indirect",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 14,
+      "max": 28
+    },
+    "temperatureRange": {
+      "min": 10,
+      "max": 32
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "succulent"
+  },
+  {
+    "id": "calathea",
+    "scientificName": "Calathea ornata / medallion",
+    "difficulty": "hard",
+    "idealMoisture": "moist",
+    "light": "indirect",
+    "waterHardnessTolerance": "soft-only",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 5,
+      "max": 9
+    },
+    "temperatureRange": {
+      "min": 18,
+      "max": 27
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "rubber-plant",
+    "scientificName": "Ficus elastica",
+    "difficulty": "medium",
+    "idealMoisture": "slightly-dry",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 15,
+      "max": 30
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tree"
+  },
+  {
+    "id": "spider-plant",
+    "scientificName": "Chlorophytum comosum",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "indirect",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 13,
+      "max": 27
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "aloe-vera",
+    "scientificName": "Aloe vera",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 14,
+      "max": 21
+    },
+    "temperatureRange": {
+      "min": 10,
+      "max": 30
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "succulent"
+  },
+  {
+    "id": "zz-plant",
+    "scientificName": "Zamioculcas zamiifolia",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "low",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 14,
+      "max": 28
+    },
+    "temperatureRange": {
+      "min": 15,
+      "max": 30
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "succulent"
+  },
+  {
+    "id": "weeping-fig",
+    "scientificName": "Ficus benjamina",
+    "difficulty": "medium",
+    "idealMoisture": "slightly-dry",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 16,
+      "max": 28
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tree"
+  },
+  {
+    "id": "jade-plant",
+    "scientificName": "Crassula ovata",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 14,
+      "max": 21
+    },
+    "temperatureRange": {
+      "min": 10,
+      "max": 27
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "succulent"
+  },
+  {
+    "id": "dragon-tree",
+    "scientificName": "Dracaena marginata",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "indirect",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 10,
+      "max": 21
+    },
+    "temperatureRange": {
+      "min": 15,
+      "max": 28
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tree"
+  },
+  {
+    "id": "heartleaf-philodendron",
+    "scientificName": "Philodendron hederaceum",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 15,
+      "max": 30
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "syngonium",
+    "scientificName": "Syngonium podophyllum",
+    "difficulty": "easy",
+    "idealMoisture": "moist",
+    "light": "indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 16,
+      "max": 28
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "dieffenbachia",
+    "scientificName": "Dieffenbachia seguine",
+    "difficulty": "medium",
+    "idealMoisture": "moist",
+    "light": "indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 18,
+      "max": 30
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "aglaonema",
+    "scientificName": "Aglaonema commutatum",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "low",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 18,
+      "max": 30
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "kentia-palm",
+    "scientificName": "Howea forsteriana",
+    "difficulty": "medium",
+    "idealMoisture": "slightly-dry",
+    "light": "indirect",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 16,
+      "max": 27
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "ornamental",
+    "subcategory": "palm"
+  },
+  {
+    "id": "yucca",
+    "scientificName": "Yucca elephantipes",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 14,
+      "max": 21
+    },
+    "temperatureRange": {
+      "min": 10,
+      "max": 30
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tree"
+  },
+  {
+    "id": "schefflera",
+    "scientificName": "Schefflera arboricola",
+    "difficulty": "medium",
+    "idealMoisture": "slightly-dry",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 16,
+      "max": 27
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tree"
+  },
+  {
+    "id": "anthurium",
+    "scientificName": "Anthurium andraeanum",
+    "difficulty": "medium",
+    "idealMoisture": "moist",
+    "light": "indirect",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 18,
+      "max": 27
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "tradescantia",
+    "scientificName": "Tradescantia zebrina",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 13,
+      "max": 27
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "ceropegia",
+    "scientificName": "Ceropegia woodii",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 14,
+      "max": 21
+    },
+    "temperatureRange": {
+      "min": 10,
+      "max": 25
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "ornamental",
+    "subcategory": "succulent"
+  },
+  {
+    "id": "pilea",
+    "scientificName": "Pilea peperomioides",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 15,
+      "max": 27
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "strelitzia",
+    "scientificName": "Strelitzia reginae",
+    "difficulty": "medium",
+    "idealMoisture": "slightly-dry",
+    "light": "direct",
+    "waterHardnessTolerance": "tolerant",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 10,
+      "max": 35
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "begonia-maculata",
+    "scientificName": "Begonia maculata",
+    "difficulty": "medium",
+    "idealMoisture": "slightly-dry",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 10
+    },
+    "temperatureRange": {
+      "min": 18,
+      "max": 28
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "begonia-ferox",
+    "scientificName": "Begonia ferox",
+    "difficulty": "hard",
+    "idealMoisture": "moist",
+    "light": "indirect",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 5,
+      "max": 9
+    },
+    "temperatureRange": {
+      "min": 18,
+      "max": 28
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "ornamental",
+    "subcategory": "tropical"
+  },
+  {
+    "id": "phalaenopsis",
+    "scientificName": "Phalaenopsis hybrid",
+    "difficulty": "medium",
+    "idealMoisture": "moist",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "soft-preferred",
+    "coldWaterSensitive": true,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 18,
+      "max": 28
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "ornamental",
+    "subcategory": "orchid"
+  },
+  {
+    "id": "delosperma",
+    "scientificName": "Delosperma cooperi",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 14,
+      "max": 21
+    },
+    "temperatureRange": {
+      "min": -10,
+      "max": 35
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "ornamental",
+    "subcategory": "succulent"
+  },
+  {
+    "id": "carpobrotus-edulis",
+    "scientificName": "Carpobrotus edulis",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 14,
+      "max": 28
+    },
+    "temperatureRange": {
+      "min": 5,
+      "max": 35
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "ornamental",
+    "subcategory": "succulent"
+  },
+  {
+    "id": "basil",
+    "scientificName": "Ocimum basilicum",
+    "difficulty": "easy",
+    "idealMoisture": "moist",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 2,
+      "max": 3
+    },
+    "temperatureRange": {
+      "min": 18,
+      "max": 30
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "culinary",
+    "subcategory": "herb"
+  },
+  {
+    "id": "rosemary",
+    "scientificName": "Salvia rosmarinus",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 5,
+      "max": 28
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "culinary",
+    "subcategory": "herb"
+  },
+  {
+    "id": "parsley",
+    "scientificName": "Petroselinum crispum",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "bright-indirect",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 2,
+      "max": 4
+    },
+    "temperatureRange": {
+      "min": 10,
+      "max": 25
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "culinary",
+    "subcategory": "herb"
+  },
+  {
+    "id": "thyme",
+    "scientificName": "Thymus vulgaris",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 5,
+      "max": 28
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "culinary",
+    "subcategory": "herb"
+  },
+  {
+    "id": "dill",
+    "scientificName": "Anethum graveolens",
+    "difficulty": "easy",
+    "idealMoisture": "slightly-dry",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 3,
+      "max": 5
+    },
+    "temperatureRange": {
+      "min": 10,
+      "max": 25
+    },
+    "safeCats": true,
+    "safeDogs": true,
+    "category": "culinary",
+    "subcategory": "herb"
+  },
+  {
+    "id": "mint",
+    "scientificName": "Mentha spicata",
+    "difficulty": "easy",
+    "idealMoisture": "moist",
+    "light": "indirect",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 2,
+      "max": 4
+    },
+    "temperatureRange": {
+      "min": 10,
+      "max": 25
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "culinary",
+    "subcategory": "herb"
+  },
+  {
+    "id": "oregano",
+    "scientificName": "Origanum vulgare",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 5,
+      "max": 28
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "culinary",
+    "subcategory": "herb"
+  },
+  {
+    "id": "sage",
+    "scientificName": "Salvia officinalis",
+    "difficulty": "easy",
+    "idealMoisture": "dry",
+    "light": "direct",
+    "waterHardnessTolerance": "any",
+    "coldWaterSensitive": false,
+    "wateringFrequencyDays": {
+      "min": 7,
+      "max": 14
+    },
+    "temperatureRange": {
+      "min": 5,
+      "max": 28
+    },
+    "safeCats": false,
+    "safeDogs": false,
+    "category": "culinary",
+    "subcategory": "herb"
+  }
+]

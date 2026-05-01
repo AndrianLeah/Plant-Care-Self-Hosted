@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <!-- Rich radial green background: leaf-700 center → leaf-900 edge -->
+    <radialGradient id="bg" cx="38%" cy="35%" r="70%">
+      <stop offset="0%"   stop-color="#059669"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </radialGradient>
+
+    <!-- Subtle inner glow rim -->
+    <radialGradient id="rim" cx="50%" cy="50%" r="50%">
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0.18"/>
+    </radialGradient>
+
+    <!-- Leaf white fill gradient: pure white top, slightly warm at base -->
+    <linearGradient id="leafFill" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+
+    <!-- Warm gold drop gradient for water-drop accent -->
+    <linearGradient id="dropFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#d9954a"/>
+    </linearGradient>
+
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect width="1024" height="1024" rx="224" ry="224" fill="url(#bg)"/>
+  <!-- Rim glow overlay -->
+  <rect width="1024" height="1024" rx="224" ry="224" fill="url(#rim)"/>
+
+  <!--
+    MDI leaf path (mdi-leaf) scaled to ~780×780 and centered at (512,512).
+    Original viewBox 0 0 24 24 → scale factor = 780/24 = 32.5
+    Translate so center of scaled icon lands at (512,512):
+      original center ≈ (12,12) → scaled (390,390) → translate(122, 110)
+  -->
+  <g transform="translate(122,108) scale(32.5)">
+    <path
+      fill="url(#leafFill)"
+      d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20
+         C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5
+         C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"
+    />
+  </g>
+
+  <!--
+    Water-drop accent — bottom-right, warm gold. Drawn as a teardrop:
+    circle base + triangle tip pointing up.
+    Center ~(770, 800), radius 72.
+  -->
+  <g>
+    <path
+      fill="url(#dropFill)"
+      d="M770,670 C770,670 838,750 838,800 C838,839 807,869 770,869
+         C733,869 702,839 702,800 C702,750 770,670 770,670Z"
+    />
+  </g>
+</svg>

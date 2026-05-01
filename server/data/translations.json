@@ -1,0 +1,1138 @@
+[
+  {
+    "speciesId": "monstera-deliciosa",
+    "lang": "en",
+    "name": "Monstera",
+    "description": "The iconic split-leaf philodendron. One of the most popular leafy houseplants. Dramatic, fast-growing and forgiving.",
+    "moistureNotes": "Let the top 2–3 cm of soil dry out between waterings. Overwatering is the #1 killer. Roots rot quickly in soggy soil.",
+    "lightNotes": "Thrives in bright, indirect light. Can tolerate lower light but growth will slow. Avoid harsh direct sun which scorches leaves.",
+    "waterTips": "Can handle moderately hard water but will benefit from filtered or rainwater over time. In Rimini (very hard tap water ~400 mg/L) consider using filtered water or letting tap water sit overnight to dissipate chlorine.",
+    "commonProblems": [
+      "Yellow leaves → overwatering or too much direct sun",
+      "Brown leaf tips → low humidity or fluoride in hard water",
+      "No splits in new leaves → insufficient light",
+      "Root rot → waterlogged soil"
+    ]
+  },
+  {
+    "speciesId": "pothos",
+    "lang": "en",
+    "name": "Pothos",
+    "description": "Nearly indestructible trailing vine. Perfect for beginners. Tolerates neglect, low light and irregular watering.",
+    "moistureNotes": "Water when the top half of the soil is dry. Very drought tolerant. It is much better to underwater than overwater.",
+    "lightNotes": "Adapts to almost any light level, including low light. Golden variegation fades in very low light.",
+    "waterTips": "Very tolerant of hard water. Rimini tap water is fine, though the leaves may occasionally show white mineral spots. Wipe with a damp cloth.",
+    "commonProblems": [
+      "Yellow leaves → overwatering or root bound",
+      "Pale/washed-out leaves → too much direct sun",
+      "Leggy, sparse growth → not enough light"
+    ]
+  },
+  {
+    "speciesId": "fiddle-leaf-fig",
+    "lang": "en",
+    "name": "Fiddle-Leaf Fig",
+    "description": "Stunning large-leaved statement plant. Notoriously finicky. Hates being moved and is sensitive to drafts and temperature changes.",
+    "moistureNotes": "Keep soil evenly moist but never waterlogged. Water thoroughly then allow the top 2–3 cm to dry before watering again. Use a moisture meter. Do not guess.",
+    "lightNotes": "Needs bright, indirect light. Place near a window but out of harsh direct sun. Once you find its happy spot, do NOT move it.",
+    "waterTips": "Very sensitive to fluoride and salt buildup from hard water. Can cause brown spots and leaf drop. In Rimini, strongly recommended to use filtered or distilled water. At minimum, let tap water sit overnight.",
+    "commonProblems": [
+      "Brown spots → root rot from overwatering, or fluoride toxicity from hard water",
+      "Leaf drop → cold draft, moved location, or underwatering",
+      "Brown edges → low humidity or hard water minerals",
+      "Yellowing lower leaves → overwatering"
+    ]
+  },
+  {
+    "speciesId": "peace-lily",
+    "lang": "en",
+    "name": "Peace Lily",
+    "description": "Elegant white-flowering plant that dramatically droops when thirsty. Making it a great self-watering-indicator.",
+    "moistureNotes": "Keep consistently moist but not soggy. The plant will visibly droop when it needs water. An unmistakable signal. Water immediately when you see this.",
+    "lightNotes": "One of the best plants for low light. Tolerates shade well. Bright indirect light encourages flowering.",
+    "waterTips": "Sensitive to chlorine and fluoride in hard water, which causes brown leaf tips. In Rimini, use filtered water or leave tap water out for 24 hours before use.",
+    "commonProblems": [
+      "Brown tips → fluoride/chlorine from hard water, or low humidity",
+      "Yellow leaves → overwatering or too much direct sun",
+      "Drooping despite moist soil → root rot",
+      "Not flowering → insufficient light"
+    ]
+  },
+  {
+    "speciesId": "snake-plant",
+    "lang": "en",
+    "name": "Snake Plant",
+    "description": "Practically immortal succulent-like plant. Extremely drought tolerant and thrives on neglect. Perfect for beginners or forgetful owners.",
+    "moistureNotes": "Let the soil dry out COMPLETELY between waterings. Water very sparingly in winter (once a month is enough). Root rot from overwatering is almost the only way to kill this plant.",
+    "lightNotes": "Adapts to any light from low to bright indirect. Grows fastest in medium to bright light.",
+    "waterTips": "Extremely tolerant of hard water. Rimini tap water is absolutely fine.",
+    "commonProblems": [
+      "Mushy base → root rot from overwatering (most common problem)",
+      "Wrinkling leaves → very severe underwatering (rare)",
+      "Brown tips → inconsistent watering or very low humidity"
+    ]
+  },
+  {
+    "speciesId": "calathea",
+    "lang": "en",
+    "name": "Calathea",
+    "description": "Stunning patterned leaves that fold up at night. Beautiful but demanding. Very sensitive to water quality and humidity.",
+    "moistureNotes": "Keep soil consistently moist but never waterlogged. Very unforgiving of both under- and over-watering. Check moisture every 2–3 days.",
+    "lightNotes": "Prefers medium to bright indirect light. Never direct sun. It fades and scorches the decorative leaves.",
+    "waterTips": "Extremely sensitive to hard water, chlorine, and fluoride. Rimini tap water (very hard, ~400 mg/L) WILL cause brown crispy edges and leaf damage. Always use distilled or filtered water. Rainwater is ideal.",
+    "commonProblems": [
+      "Crispy brown edges → hard water minerals, low humidity (keep above 50%)",
+      "Yellow leaves → overwatering",
+      "Curling leaves → underwatering or low humidity",
+      "Fading pattern → too much light",
+      "Leaves not moving → temperature too cold or plant stressed"
+    ]
+  },
+  {
+    "speciesId": "rubber-plant",
+    "lang": "en",
+    "name": "Rubber Plant",
+    "description": "Bold, glossy-leaved tree that grows tall. One of the easier Ficus species. More forgiving than the fiddle-leaf fig.",
+    "moistureNotes": "Allow the top half of the soil to dry out between waterings. Wipe leaves with a damp cloth occasionally to keep them clean and photosynthesising well.",
+    "lightNotes": "Prefers bright indirect light. Variegated varieties need more light to maintain their coloring.",
+    "waterTips": "Fairly tolerant of hard water. In Rimini, you may notice occasional white mineral deposits on the pot rim. Wipe these off. Consider filtered water to keep leaf shine and avoid tip browning.",
+    "commonProblems": [
+      "Yellow leaves → overwatering or sudden temperature change",
+      "Leaf drop → drafts, cold, or moved location",
+      "Brown spots → cold water shock or sunburn",
+      "Leggy growth → insufficient light"
+    ]
+  },
+  {
+    "speciesId": "spider-plant",
+    "lang": "en",
+    "name": "Spider Plant",
+    "description": "Cheerful arching plant that produces cascading \"spiderettes\". Extremely easy, adaptable and great for hanging baskets.",
+    "moistureNotes": "Water when the top 3–4 cm of soil is dry. Very forgiving of occasional missed waterings.",
+    "lightNotes": "Grows in any light from low to bright indirect. Bright indirect light produces the most vigorous spiderettes.",
+    "waterTips": "Somewhat sensitive to fluoride in hard water. Can cause brown tips. In Rimini, using filtered water will keep leaf tips green. However the plant will survive with tap water; just trim brown tips as they appear.",
+    "commonProblems": [
+      "Brown tips → fluoride sensitivity from hard water (most common)",
+      "Pale leaves → too much direct sun",
+      "No spiderettes → needs to be slightly root-bound"
+    ]
+  },
+  {
+    "speciesId": "aloe-vera",
+    "lang": "en",
+    "name": "Aloe Vera",
+    "description": "Succulent with thick, fleshy leaves filled with gel. One of the most forgiving houseplants. Tolerates neglect, drought and is practically indestructible.",
+    "moistureNotes": "Water deeply but infrequently. Let the soil dry out completely between waterings. In winter, once a month is enough. Overwatering is the main cause of death.",
+    "lightNotes": "Loves bright light and some direct sun. A south or west-facing windowsill is ideal. Survives lower light but won't thrive. Leaves will become pale and floppy.",
+    "waterTips": "Very tolerant of hard water. Rimini tap water is absolutely fine. The thick leaves buffer against mineral sensitivity.",
+    "commonProblems": [
+      "Mushy leaves or brown base → overwatering or root rot",
+      "Wrinkly leaves → severe underwatering (water immediately)",
+      "Browning tips → too much direct sun or very dry air",
+      "Pale, stretched plant → insufficient light"
+    ]
+  },
+  {
+    "speciesId": "zz-plant",
+    "lang": "en",
+    "name": "ZZ Plant",
+    "description": "Glossy, dark-leaved beauty that thrives in almost any conditions. Stores water in thick rhizomes. Nearly impossible to kill from neglect.",
+    "moistureNotes": "Allow the soil to dry out completely between waterings. Water every 2–4 weeks in the growing season, monthly in winter. The rhizomes store water. Overwatering is the main risk.",
+    "lightNotes": "Adapts to very low light. Ideal for darker rooms and offices. Grows best in medium indirect light. Will tolerate even fluorescent-lit spaces.",
+    "waterTips": "Unfazed by hard water. Rimini tap water is perfectly fine.",
+    "commonProblems": [
+      "Yellow leaves → overwatering (most common issue)",
+      "Dropping leaves → overwatering or sudden cold",
+      "Leggy growth → insufficient light",
+      "Slow growth → normal. This plant just grows slowly"
+    ]
+  },
+  {
+    "speciesId": "weeping-fig",
+    "lang": "en",
+    "name": "Weeping Fig",
+    "description": "Classic tree with delicate, glossy leaves. Sheds leaves dramatically when stressed. Especially when moved. Once settled, it's elegant and long-lived.",
+    "moistureNotes": "Allow the top 2–3 cm of soil to dry between waterings. Consistent moisture is key. Both overwatering and underwatering cause leaf drop.",
+    "lightNotes": "Needs bright indirect light. South or west-facing windows are ideal. Avoid moving it. Even a small position change triggers leaf drop.",
+    "waterTips": "Tolerates hard water but does better with filtered water over time. In Rimini, flush the soil with plenty of water every few months to remove mineral buildup.",
+    "commonProblems": [
+      "Sudden leaf drop → moved location, drafts, temperature change, or dry air",
+      "Yellow leaves → overwatering or insufficient light",
+      "Brown crispy leaves → underwatering or very dry air",
+      "Scale insects → check stem nodes for small brown bumps"
+    ]
+  },
+  {
+    "speciesId": "jade-plant",
+    "lang": "en",
+    "name": "Jade Plant",
+    "description": "Long-lived succulent tree with thick, fleshy leaves. Believed to bring good fortune. A staple in Italian homes for generations. Can live for decades.",
+    "moistureNotes": "Water thoroughly then allow the soil to dry out completely. In winter, reduce to once a month. Fat, plump leaves mean a happy plant. Wrinkled leaves mean it's thirsty.",
+    "lightNotes": "Prefers bright light with some direct sun. South-facing windows are ideal. Without enough light the stems become leggy and pale.",
+    "waterTips": "Tolerates hard water well. Rimini tap water is acceptable, though filtered water prevents white mineral deposits on the leaves.",
+    "commonProblems": [
+      "Mushy stem or root rot → overwatering",
+      "Wrinkled, shrivelled leaves → severe underwatering",
+      "Leggy, pale growth → not enough light",
+      "Leaf drop → sudden temperature change or overwatering"
+    ]
+  },
+  {
+    "speciesId": "dragon-tree",
+    "lang": "en",
+    "name": "Dragon Tree",
+    "description": "Striking narrow-leaved tree with red-edged foliage. Low maintenance, dramatic, and one of the most popular Italian household plants for decades.",
+    "moistureNotes": "Water when the top half of the soil is dry. Do not overwater. The roots sit in pots for years and rot easily in soggy soil.",
+    "lightNotes": "Adapts to indirect to bright indirect light. Better leaf colouring in brighter light, but tolerates lower levels. Avoid harsh direct sun which scorches the narrow leaves.",
+    "waterTips": "Sensitive to fluoride and salt from hard water. Classic symptom is brown leaf tips. In Rimini, filtered or rainwater is recommended. At minimum, let tap water sit overnight.",
+    "commonProblems": [
+      "Brown tips → fluoride toxicity from hard water (very common in Rimini)",
+      "Yellow leaves → overwatering or root rot",
+      "Leaf drop → cold draft or temperature below 15°C",
+      "Pale leaves → not enough light"
+    ]
+  },
+  {
+    "speciesId": "heartleaf-philodendron",
+    "lang": "en",
+    "name": "Heartleaf Philodendron",
+    "description": "Classic trailing or climbing plant with heart-shaped leaves. Fast-growing, unfussy, and perfect for shelves or hanging baskets. A close cousin of Pothos.",
+    "moistureNotes": "Water when the top 2–3 cm of soil are dry. Much more forgiving of underwatering than overwatering. Yellowing leaves are almost always a sign of too much water.",
+    "lightNotes": "Thrives in medium to bright indirect light. Tolerates lower light better than most but grows fastest in bright indirect. Etiolates in very low light.",
+    "waterTips": "Tolerates hard water well. Rimini tap water is fine. An occasional wipe of leaves with a damp cloth prevents mineral dust buildup.",
+    "commonProblems": [
+      "Yellow leaves → overwatering or root rot",
+      "Brown, crispy leaves → underwatering or very low humidity",
+      "Leggy vines → not enough light",
+      "Small new leaves → needs feeding or more light"
+    ]
+  },
+  {
+    "speciesId": "syngonium",
+    "lang": "en",
+    "name": "Arrowhead Plant",
+    "description": "Compact, fast-growing plant with arrow-shaped leaves that change as the plant matures. Climbs or trails gracefully. A versatile and popular Italian favourite.",
+    "moistureNotes": "Keep soil consistently moist but not waterlogged. Allow only the top centimetre to dry between waterings. Tolerates slightly drier conditions in winter.",
+    "lightNotes": "Does best in medium to bright indirect light. Tolerates low light but grows slowly. Variegated varieties need more light to keep their colour.",
+    "waterTips": "Fairly tolerant of hard water. Rimini tap water is acceptable, though filtered water maintains leaf colour better long-term.",
+    "commonProblems": [
+      "Yellow leaves → overwatering",
+      "Brown leaf edges → low humidity or fluoride in hard water",
+      "Pale leaves → too much direct sun",
+      "Leggy plant → not enough light"
+    ]
+  },
+  {
+    "speciesId": "dieffenbachia",
+    "lang": "en",
+    "name": "Dumb Cane",
+    "description": "Bold tropical plant with large patterned leaves. Very common in Italian homes and offices. Handle with gloves. The sap is irritating to skin and toxic if ingested.",
+    "moistureNotes": "Keep consistently moist, allowing only the top centimetre to dry out. Avoid soggy soil. Yellow lower leaves usually signal overwatering.",
+    "lightNotes": "Prefers medium to bright indirect light. Tolerates lower light but leaf patterns fade. Avoid direct sun which scorches leaves.",
+    "waterTips": "Tolerates moderately hard water. In Rimini, flush the soil every few months to remove mineral buildup that can cause tip browning.",
+    "commonProblems": [
+      "Yellow lower leaves → overwatering or natural aging",
+      "Brown leaf tips → dry air, hard water minerals, or drafts",
+      "Drooping leaves → underwatering or root bound",
+      "Pale, bleached leaves → too much direct sun"
+    ]
+  },
+  {
+    "speciesId": "aglaonema",
+    "lang": "en",
+    "name": "Chinese Evergreen",
+    "description": "Beautifully patterned leaves in green, silver, and red tones. One of the most adaptable houseplants. Tolerates low light, drought, and near-neglect.",
+    "moistureNotes": "Water when the top half of the soil is dry. Very tolerant of irregular watering. Avoid overwatering, especially in winter when growth slows.",
+    "lightNotes": "Excellent low-light plant. Green varieties thrive in near-shade; variegated and red varieties need brighter indirect light to maintain their colour.",
+    "waterTips": "Tolerates hard water well. Rimini tap water is fine. Wipe leaves occasionally to remove mineral dust and keep them glossy.",
+    "commonProblems": [
+      "Yellow leaves → overwatering or root rot",
+      "Brown leaf tips → dry air, cold drafts, or fluoride in water",
+      "Fading colour → insufficient light (especially red varieties)",
+      "Root rot → cold, wet soil in winter"
+    ]
+  },
+  {
+    "speciesId": "kentia-palm",
+    "lang": "en",
+    "name": "Kentia Palm",
+    "description": "Elegant, slow-growing palm with graceful arching fronds. A timeless classic in Italian homes and hotels. One of the most tolerant palms for indoor growing.",
+    "moistureNotes": "Allow the top few centimetres of soil to dry between waterings. Water thoroughly but never leave in standing water. Yellowing fronds usually mean overwatering.",
+    "lightNotes": "Adapts to medium indirect light but grows best in bright indirect. Tolerates lower light well. Ideal for spaces away from windows. Avoid harsh direct sun.",
+    "waterTips": "Sensitive to fluoride and chlorine in hard water. Causes brown frond tips. In Rimini, filtered or rainwater is preferred. At minimum, let tap water sit overnight.",
+    "commonProblems": [
+      "Brown frond tips → fluoride sensitivity, dry air, or inconsistent watering",
+      "Yellow fronds → overwatering or root rot",
+      "Brown lower fronds → natural aging. Remove cleanly at the base",
+      "Very slow growth → normal for Kentia palms, be patient"
+    ]
+  },
+  {
+    "speciesId": "yucca",
+    "lang": "en",
+    "name": "Yucca",
+    "description": "Bold architectural plant with sword-like leaves on a chunky stem. Thrives in sunny spots with minimal care. One of the most drought-tolerant houseplants.",
+    "moistureNotes": "Allow the soil to dry out completely between waterings. Very drought tolerant. Water every 2–4 weeks in summer, even less in winter. Overwatering causes root rot.",
+    "lightNotes": "Loves bright light and direct sun. South or west-facing windows are ideal. Can handle less light but grows slowly and may look pale and droopy.",
+    "waterTips": "Very tolerant of hard water. Rimini tap water is absolutely fine.",
+    "commonProblems": [
+      "Brown tips → cosmetic from dry air. Trim with clean scissors",
+      "Mushy stem or base → overwatering and root rot",
+      "Yellow leaves → overwatering or natural drop of lower leaves",
+      "Pale, drooping leaves → not enough light"
+    ]
+  },
+  {
+    "speciesId": "schefflera",
+    "lang": "en",
+    "name": "Umbrella Plant",
+    "description": "Glossy compound leaves that radiate like an umbrella. Fast-growing and forgiving. A classic Italian living room plant that can grow into an impressive tree.",
+    "moistureNotes": "Allow the top half of soil to dry between waterings. Hates waterlogged soil. Check with a finger before watering. When in doubt, wait another day.",
+    "lightNotes": "Best in bright indirect light. Tolerates medium light but growth slows and any variegation fades. Avoid harsh direct sun which scorches the leaves.",
+    "waterTips": "Tolerates hard water well. Rimini tap water is fine. Flush the soil occasionally to prevent salt buildup around the roots.",
+    "commonProblems": [
+      "Leaf drop → overwatering, cold draft, or sudden position change",
+      "Yellow leaves → overwatering or root rot",
+      "Brown leaf edges → dry air or underwatering",
+      "Pale, leggy growth → insufficient light"
+    ]
+  },
+  {
+    "speciesId": "anthurium",
+    "lang": "en",
+    "name": "Anthurium",
+    "description": "Stunning tropical plant with glossy heart-shaped flowers in red, pink, or white. Long-blooming and popular in Italian homes for its continuous colour.",
+    "moistureNotes": "Keep moist but not soggy. Allow only the top centimetre to dry between waterings. Anthuriums are sensitive to both over- and underwatering. Good drainage is essential.",
+    "lightNotes": "Bright indirect light produces the most flowers. Tolerates medium light. Avoid direct sun which bleaches and burns the waxy spathes.",
+    "waterTips": "Sensitive to salt and mineral buildup from hard water. Causes brown tips and weakens flowering. In Rimini, use filtered or rainwater and flush the soil every few months.",
+    "commonProblems": [
+      "Brown leaf tips → hard water minerals, low humidity, or cold drafts",
+      "Yellow leaves → overwatering or root rot",
+      "No flowers → insufficient light or temperature too cold",
+      "Green spathes → normal aging of older blooms"
+    ]
+  },
+  {
+    "speciesId": "tradescantia",
+    "lang": "en",
+    "name": "Tradescantia",
+    "description": "Fast-growing trailing plant with striking purple and silver striped leaves. Easy and rewarding. One of the most colourful and low-maintenance plants you can grow indoors.",
+    "moistureNotes": "Water when the top 2–3 cm of soil are dry. Fairly drought tolerant. Tolerates missed waterings. Overwatering causes root rot and mushy stems.",
+    "lightNotes": "Best colour in bright indirect light. Purple intensity fades in low light. Tolerates medium light. A little morning direct sun enhances the purple tones.",
+    "waterTips": "Tolerates hard water well. Rimini tap water is fine. The plant grows so fast that mineral sensitivity is rarely a visible issue.",
+    "commonProblems": [
+      "Fading colour → insufficient light (needs bright indirect for best purple)",
+      "Leggy, bare stems → normal. Trim regularly and propagate cuttings",
+      "Mushy stems → overwatering",
+      "Brown leaf tips → dry air or underwatering"
+    ]
+  },
+  {
+    "speciesId": "ceropegia",
+    "lang": "en",
+    "name": "String of Hearts",
+    "description": "Delicate trailing succulent with heart-shaped leaves patterned in silver and green. Grows fast, looks stunning in hanging pots, and is very easy to care for.",
+    "moistureNotes": "Allow the soil to dry out completely between waterings. Treat it like a succulent — it stores water in its tuberous roots and leaves. Overwatering is the main risk.",
+    "lightNotes": "Thrives in bright indirect light. Can tolerate a few hours of gentle direct sun which intensifies the silver leaf pattern. Avoid deep shade which causes sparse growth.",
+    "waterTips": "Very tolerant of tap water. Not fussy about water quality. In Rimini, tap water is fine to use directly. Water sparingly — less is more.",
+    "commonProblems": [
+      "Yellow, mushy stems → overwatering or waterlogged soil",
+      "Pale, washed-out leaves → too little light",
+      "Sparse, widely spaced leaves → insufficient light or underwatering",
+      "Shrivelled leaves → underwatering or very dry air"
+    ]
+  },
+  {
+    "speciesId": "pilea",
+    "lang": "en",
+    "name": "Chinese Money Plant",
+    "description": "Trendy round-leaved plant that produces \"pups\" at its base. Easy to grow and share. One of the most beloved and recognisable plants in Italian homes today.",
+    "moistureNotes": "Water when the top 2–3 cm of soil are dry. It droops slightly when thirsty then perks back up quickly. Never leave in standing water. Good drainage is essential.",
+    "lightNotes": "Needs bright indirect light. Rotate the pot weekly to prevent asymmetric leaning toward the light. Avoid direct sun which scorches the round leaves.",
+    "waterTips": "Somewhat sensitive to hard water minerals over time. Leaves may develop white spots. In Rimini, filtered or rainwater is preferred. Wipe leaves with a damp cloth to remove mineral dust.",
+    "commonProblems": [
+      "Yellow leaves → overwatering or waterlogged soil",
+      "Curling leaves → underwatering or too much sun",
+      "White mineral spots on leaves → hard water deposits. Wipe with damp cloth",
+      "Leaning heavily to one side → rotate pot regularly toward the light source"
+    ]
+  },
+  {
+    "speciesId": "strelitzia",
+    "lang": "en",
+    "name": "Bird of Paradise",
+    "description": "Bold tropical plant with large paddle-shaped leaves and iconic orange and blue flowers. Slow-growing but impressively dramatic. A statement piece for bright rooms.",
+    "moistureNotes": "Water thoroughly then allow the top 3–4 cm of soil to dry before watering again. Reduce watering in winter. Tolerates some drought but grows best with consistent moisture in summer.",
+    "lightNotes": "Needs as much light as possible — ideally a few hours of direct sun daily. A south or west-facing window is ideal. Insufficient light prevents flowering and slows growth significantly.",
+    "waterTips": "Tolerant of average tap water. Not particularly sensitive to water hardness. In Rimini, tap water is fine. Avoid waterlogging as root rot is the main concern.",
+    "commonProblems": [
+      "Splitting leaves → normal outdoors from wind; indoors means very dry air or physical damage",
+      "No flowers → insufficient light or pot too small (it blooms best when root-bound)",
+      "Yellow leaves → overwatering or poor drainage",
+      "Brown leaf edges → low humidity or fluoride in tap water"
+    ]
+  },
+  {
+    "speciesId": "begonia-maculata",
+    "lang": "en",
+    "name": "Polka Dot Begonia",
+    "description": "Stunning cane begonia with olive-green leaves spotted in silver and deep red undersides. Highly sought after and surprisingly rewarding once you understand its needs.",
+    "moistureNotes": "Let the top 2–3 cm of soil dry out between waterings. Sensitive to both overwatering and drought. Do not let it sit in soggy soil — root rot develops quickly.",
+    "lightNotes": "Thrives in bright indirect light. Direct sun bleaches the leaves and burns the spots. A north-east or east-facing window is ideal. Good light keeps the silver spots vivid.",
+    "waterTips": "Prefers soft or filtered water. Hard water can cause brown leaf edges over time. In Rimini, use filtered or rainwater when possible. Avoid wetting the leaves — water at soil level to prevent mildew.",
+    "commonProblems": [
+      "Brown leaf edges → hard water minerals, low humidity, or underwatering",
+      "Powdery mildew → poor air circulation or wet leaves",
+      "Leaf drop → sudden temperature change, cold draft, or overwatering",
+      "Leggy growth → not enough light"
+    ]
+  },
+  {
+    "speciesId": "begonia-ferox",
+    "lang": "en",
+    "name": "Fierce Begonia",
+    "description": "Rare collector begonia from China with dramatic dark green leaves covered in long cone-shaped teeth. A slow-growing showpiece that demands precise care and rewards patience.",
+    "moistureNotes": "Keep the soil consistently moist but never waterlogged. It hates drying out completely but also cannot tolerate standing water. Check every few days and water when the surface just starts to feel dry.",
+    "lightNotes": "Prefers medium to bright indirect light. Avoid direct sun which scorches the leaves. Consistent lighting without dramatic fluctuations is important for steady growth.",
+    "waterTips": "Sensitive to water quality. Soft or filtered water is strongly preferred. Hard tap water causes tip burn and browning over time. In Rimini, use filtered or rainwater. Never let cold water sit on the leaves.",
+    "commonProblems": [
+      "Brown leaf tips → hard water, low humidity, or underwatering",
+      "Stem rot → overwatering or poor drainage",
+      "Slow or stunted growth → low light or incorrect watering",
+      "Leaf crisping → very low humidity; place on a pebble tray with water"
+    ]
+  },
+  {
+    "speciesId": "phalaenopsis",
+    "lang": "en",
+    "name": "Moth Orchid",
+    "description": "The most popular orchid for homes. Produces long-lasting elegant blooms in white, pink, or purple. Easier than its reputation suggests once you understand its rhythm.",
+    "moistureNotes": "Water by soaking the pot for a few minutes then letting it drain completely. Water every 7–10 days in summer, every 14 days in winter. Never let roots sit in standing water. The roots should look green when moist and silvery-white when dry.",
+    "lightNotes": "Needs bright indirect light — no direct sun which scorches leaves. An east-facing window is ideal. Leaves should be a mid-green; dark green means too little light, yellowish means too much.",
+    "waterTips": "Sensitive to mineral salt buildup from hard water, which can damage roots and cause leaf spotting. In Rimini, filtered or rainwater is strongly recommended. Always use room-temperature water — never cold tap water directly.",
+    "commonProblems": [
+      "No flowers → not enough light or temperature drop at night needed to trigger reblooming",
+      "Yellow leaves → overwatering, too much sun, or root rot",
+      "Shrivelled roots → underwatering or very low humidity",
+      "White mineral crust on pot → salt buildup from hard water; flush with filtered water"
+    ]
+  },
+  {
+    "speciesId": "delosperma",
+    "lang": "en",
+    "name": "Delosperma",
+    "description": "Spreading succulent groundcover with bright daisy-like flowers in vivid pink, orange, or yellow. Thrives in full sun and very well-drained soil. Surprisingly frost-hardy.",
+    "moistureNotes": "Water sparingly — let the soil dry out completely between waterings. Extremely drought-tolerant. In pots, water even less frequently in winter. Overwatering is the only real risk.",
+    "lightNotes": "Needs full sun for at least 6 hours a day. More sun means more abundant flowering. Shade causes leggy growth and no flowers. A south-facing windowsill or sunny outdoor space is ideal.",
+    "waterTips": "Very tolerant of any water type. Hard tap water is fine. The key variable is drainage, not water quality — plant in sandy, well-draining cactus mix.",
+    "commonProblems": [
+      "No flowers → insufficient sun",
+      "Soft, rotting stems → overwatering or poor drainage; repot into dry, gritty substrate",
+      "Pale, washed-out colour → too little light",
+      "Leggy growth → needs more direct sun"
+    ]
+  },
+  {
+    "speciesId": "carpobrotus-edulis",
+    "lang": "en",
+    "name": "Hottentot Fig",
+    "description": "Vigorous coastal succulent with thick triangular leaves and large showy yellow or magenta flowers. Extremely tough, salt-tolerant, and suited to harsh sunny conditions.",
+    "moistureNotes": "Very drought-tolerant. Water deeply and infrequently, letting the soil dry out completely. In pots indoors, water every 3–4 weeks in summer, once a month or less in winter.",
+    "lightNotes": "Needs maximum direct sun. In its natural habitat it grows on exposed coastal cliffs. Indoors it requires the sunniest spot available. Insufficient light completely prevents flowering.",
+    "waterTips": "Highly tolerant of hard water, salt, and minerals. Any water type is fine. Drainage and sun are the only variables that matter for this plant.",
+    "commonProblems": [
+      "Rotting stems → overwatering, poor drainage, or too much shade",
+      "No flowers → insufficient light",
+      "Wrinkled leaves → excessive drought (though it tolerates significant dry spells)",
+      "Invasive spreading outdoors → keep in pots outside its native range"
+    ]
+  },
+  {
+    "speciesId": "basil",
+    "lang": "en",
+    "name": "Basil",
+    "description": "The quintessential Italian herb. Fragrant, fast-growing, and deeply rewarding on a sunny windowsill. Best used fresh throughout summer.",
+    "moistureNotes": "Keep the soil consistently moist but not waterlogged. Basil wilts dramatically when thirsty but recovers quickly after watering. Check daily in warm weather. Never let it dry out completely.",
+    "lightNotes": "Needs at least 6 hours of direct sun per day. A south-facing windowsill is ideal. Insufficient light causes pale, sparse, flavourless leaves.",
+    "waterTips": "Not sensitive to water quality. Tap water is fine. Water at the base, not the leaves, to prevent fungal issues. Avoid cold water straight from the tap.",
+    "commonProblems": [
+      "Wilting despite moist soil → root rot from waterlogging; ensure good drainage",
+      "Pale or yellow leaves → insufficient light",
+      "Leaves turning black → cold damage or fungal disease from wet leaves",
+      "Bolting (flowers forming) → pinch off flower buds to extend the harvest"
+    ]
+  },
+  {
+    "speciesId": "rosemary",
+    "lang": "en",
+    "name": "Rosemary",
+    "description": "Woody Mediterranean herb with needle-like leaves and a powerful aroma. Extremely drought-tolerant once established. Loves sun and good airflow.",
+    "moistureNotes": "Water deeply then allow the soil to dry out completely before watering again. Rosemary hates soggy soil — it is much easier to kill with too much water than too little. Reduce watering significantly in winter.",
+    "lightNotes": "Requires full direct sun — at least 6 hours per day. On a bright south-facing windowsill it will thrive. Insufficient light causes sparse, leggy growth and reduces fragrance.",
+    "waterTips": "Tolerant of tap water and water hardness. In Rimini, tap water is fine. The bigger risk is always overwatering, not water quality.",
+    "commonProblems": [
+      "Brown, mushy stems → root rot from overwatering; repot into dry, gritty soil",
+      "Grey powdery coating on leaves → powdery mildew from poor airflow",
+      "Leaf drop → overwatering, cold draft, or transplant shock",
+      "Sparse flavourless growth → not enough light"
+    ]
+  },
+  {
+    "speciesId": "parsley",
+    "lang": "en",
+    "name": "Parsley",
+    "description": "Versatile biennial herb used in Italian cooking. Both flat-leaf (Italian) and curly varieties are easy to grow on a bright windowsill.",
+    "moistureNotes": "Keep the soil evenly moist. Parsley does not like to dry out but equally dislikes waterlogging. Water when the top centimetre of soil feels dry. More frequent watering needed in warm weather.",
+    "lightNotes": "Grows best in bright indirect to some direct light — 4–6 hours per day. Can tolerate less light than most herbs but growth will be slower.",
+    "waterTips": "Not sensitive to water hardness. Tap water is fine. Water at the base to keep leaves dry and reduce the risk of fungal spots.",
+    "commonProblems": [
+      "Yellowing leaves → overwatering, nutrient deficiency, or end of biennial cycle",
+      "Slow germination → parsley is notoriously slow to germinate (3–4 weeks)",
+      "Bolting → natural in heat or second year; harvest frequently to delay it",
+      "Fungal spots on leaves → overhead watering; always water at the base"
+    ]
+  },
+  {
+    "speciesId": "thyme",
+    "lang": "en",
+    "name": "Thyme",
+    "description": "Low-growing woody herb with tiny fragrant leaves. One of the most drought-tolerant culinary herbs. Thrives outdoors but does well on a sunny windowsill too.",
+    "moistureNotes": "Allow the soil to dry out between waterings. Thyme is very drought-tolerant and prefers dry conditions. Overwatering is the main risk indoors.",
+    "lightNotes": "Needs full sun — at least 6 hours of direct light per day. A south-facing windowsill is ideal. Grows leggy and loses flavour in low light.",
+    "waterTips": "Not sensitive to water quality at all. Tap water is perfectly fine. Good drainage matters far more than water quality.",
+    "commonProblems": [
+      "Woody, sparse growth → normal with age; prune regularly to encourage bushy growth",
+      "Root rot → overwatering; thyme needs fast-draining soil",
+      "Loss of fragrance → insufficient light",
+      "Powdery mildew → poor airflow or overhead watering"
+    ]
+  },
+  {
+    "speciesId": "dill",
+    "lang": "en",
+    "name": "Dill",
+    "description": "Feathery annual herb with a distinctive anise-like flavour. Fast-growing and best harvested young. Adds a fresh flavour to fish, potatoes, and salads.",
+    "moistureNotes": "Keep the soil lightly moist. Dill does not like to dry out but is also prone to root rot if waterlogged. Water when the top 1–2 cm of soil feel dry.",
+    "lightNotes": "Needs full sun — 6+ hours per day. A south-facing windowsill is ideal. In low light it becomes tall, leggy, and loses its flavour.",
+    "waterTips": "Not sensitive to water quality. Tap water is fine. Water at the base to keep the feathery foliage dry.",
+    "commonProblems": [
+      "Bolting → normal in heat or long days; bolt-resistant varieties help",
+      "Yellowing lower leaves → natural as plant matures, or overwatering",
+      "Falling over → insufficient light causing leggy growth; needs staking or more sun",
+      "Poor germination → dill dislikes being transplanted; sow directly in final pot"
+    ]
+  },
+  {
+    "speciesId": "mint",
+    "lang": "en",
+    "name": "Mint",
+    "description": "Vigorous spreading herb with a refreshing cool flavour. Grows rapidly and can be harvested repeatedly throughout the season. Best contained in its own pot.",
+    "moistureNotes": "Likes consistently moist soil. Do not let it dry out completely — mint wilts quickly and recovers slowly. Check every day or two in summer. Never leave in standing water.",
+    "lightNotes": "Tolerates partial shade better than most herbs. Bright indirect light or a few hours of direct sun is ideal indoors. Too much direct sun can scorch the leaves.",
+    "waterTips": "Not sensitive to water hardness. Tap water is perfectly fine. Mint appreciates regular watering and will show stress quickly if neglected.",
+    "commonProblems": [
+      "Rust (orange spots) → fungal disease; remove affected leaves and improve airflow",
+      "Leggy, pale growth → not enough light",
+      "Rapid wilting → dried out; water immediately and it usually recovers",
+      "Invasive spreading → always grow in its own contained pot"
+    ]
+  },
+  {
+    "speciesId": "oregano",
+    "lang": "en",
+    "name": "Oregano",
+    "description": "The defining herb of Italian and Mediterranean cooking. Hardy and drought-tolerant. Flavour is most intense when grown in full sun with lean, dry soil.",
+    "moistureNotes": "Allow the soil to dry out fully between waterings. Oregano is drought-tolerant and does much better slightly dry than wet. Reduce watering in winter almost entirely.",
+    "lightNotes": "Needs full sun — at least 6 hours per day. The more sun, the more intense the flavour. A bright south-facing window works well indoors.",
+    "waterTips": "Very tolerant of any water type. Tap water, hard or soft, is fine. Good drainage is the key factor, not water quality.",
+    "commonProblems": [
+      "Root rot → overwatering; plant in gritty well-draining soil",
+      "Loss of flavour → insufficient sun; move to brighter location",
+      "Woody, bare stems → normal with age; cut back hard in spring",
+      "Powdery mildew → poor airflow; space plants well and avoid wetting leaves"
+    ]
+  },
+  {
+    "speciesId": "sage",
+    "lang": "en",
+    "name": "Sage",
+    "description": "Soft-leaved woody herb with a distinctive earthy, peppery flavour. A kitchen staple in Italian cooking, particularly with pasta and meat dishes.",
+    "moistureNotes": "Allow the top half of the soil to dry out before watering. Sage is drought-tolerant and dislikes soggy soil. Water thoroughly then wait. Reduce watering in winter.",
+    "lightNotes": "Needs full sun — 6+ hours per day. On a bright south-facing windowsill it will produce the most flavourful, aromatic leaves. Low light weakens the plant and reduces flavour.",
+    "waterTips": "Not sensitive to water quality. Tap water is fine. Avoid overhead watering as wet leaves can lead to mildew on sage.",
+    "commonProblems": [
+      "Root rot → overwatering or compacted soil with poor drainage",
+      "Powdery mildew → wet leaves or poor airflow",
+      "Woody, sparse growth → prune in spring to keep compact and productive",
+      "Yellow leaves → overwatering or nutrient-depleted soil"
+    ]
+  },
+  {
+    "speciesId": "monstera-deliciosa",
+    "lang": "it",
+    "name": "Monstera",
+    "description": "L'iconico filodendro dalle foglie spaccate. Una delle piante da appartamento più popolari. Scenografica, a crescita rapida e tollerante.",
+    "moistureNotes": "Lascia asciugare i primi 2–3 cm di terreno tra un'annaffiatura e l'altra. L'eccesso d'acqua è il killer numero 1. Le radici marciscono rapidamente in un terreno fradicio.",
+    "lightNotes": "Prospera in luce brillante indiretta. Tollera luce più bassa ma la crescita rallenterà. Evita il sole diretto intenso che brucia le foglie.",
+    "waterTips": "Tollera acqua moderatamente dura ma beneficia di acqua filtrata o piovana nel tempo. A Rimini (acqua molto dura ~400 mg/L) considera l'uso di acqua filtrata o lascia riposare l'acqua per una notte per far evaporare il cloro.",
+    "commonProblems": [
+      "Foglie gialle → innaffiatura eccessiva o troppo sole diretto",
+      "Punte brune → umidità bassa o fluoro nell'acqua dura",
+      "Nessuna spaccatura nelle foglie nuove → luce insufficiente",
+      "Marciume radicale → terreno allagato"
+    ]
+  },
+  {
+    "speciesId": "pothos",
+    "lang": "it",
+    "name": "Pothos",
+    "description": "Rampicante quasi indistruttibile. Perfetto per i principianti. Tollera la negligenza, poca luce e annaffiature irregolari.",
+    "moistureNotes": "Annaffia quando la metà superiore del terreno è asciutta. Molto tollerante alla siccità. È molto meglio annaffiare poco che troppo.",
+    "lightNotes": "Si adatta a quasi qualsiasi livello di luce, inclusa la poca luce. La variegatura dorata sbiadisce con poca luce.",
+    "waterTips": "Molto tollerante all'acqua dura. L'acqua di Rimini va benissimo, anche se le foglie possono occasionalmente mostrare macchie bianche di minerali. Pulisci con un panno umido.",
+    "commonProblems": [
+      "Foglie gialle → innaffiatura eccessiva o radici intasate",
+      "Foglie pallide/sbiadite → troppo sole diretto",
+      "Crescita filante e rada → poca luce"
+    ]
+  },
+  {
+    "speciesId": "fiddle-leaf-fig",
+    "lang": "it",
+    "name": "Fico Lyrata",
+    "description": "Pianta da esposizione con foglie grandi e spettacolari. Notoriamente capricciosa. Detesta essere spostata ed è sensibile alle correnti d'aria e ai cambi di temperatura.",
+    "moistureNotes": "Mantieni il terreno uniformemente umido ma mai allagato. Annaffia abbondantemente poi lascia asciugare i primi 2–3 cm prima di annaffiare di nuovo. Usa un misuratore di umidità. Non tirare ad indovinare.",
+    "lightNotes": "Ha bisogno di luce brillante indiretta. Posizionala vicino a una finestra ma lontana dal sole diretto intenso. Una volta trovato il suo posto ideale, NON spostarla.",
+    "waterTips": "Molto sensibile al fluoro e all'accumulo di sali dall'acqua dura. Può causare macchie brune e caduta delle foglie. A Rimini, si raccomanda vivamente di usare acqua filtrata o distillata. Come minimo, lascia riposare l'acqua del rubinetto overnight.",
+    "commonProblems": [
+      "Macchie brune → marciume radicale da innaffiatura eccessiva, o tossicità da fluoro nell'acqua dura",
+      "Caduta delle foglie → corrente fredda, posizione cambiata, o disidratazione",
+      "Bordi bruni → umidità bassa o minerali nell'acqua dura",
+      "Ingiallimento foglie inferiori → innaffiatura eccessiva"
+    ]
+  },
+  {
+    "speciesId": "peace-lily",
+    "lang": "it",
+    "name": "Giglio della Pace",
+    "description": "Elegante pianta fiorita bianca che si abbassa vistosamente quando ha sete. Un ottimo indicatore di annaffiatura autonoma.",
+    "moistureNotes": "Mantieni costantemente umido ma non fradicio. La pianta si abbassa visibilmente quando ha bisogno d'acqua. Un segnale inequivocabile. Annaffia subito quando lo vedi.",
+    "lightNotes": "Una delle migliori piante per poca luce. Tollera bene l'ombra. La luce indiretta brillante favorisce la fioritura.",
+    "waterTips": "Sensibile al cloro e al fluoro nell'acqua dura, che causa punte brune. A Rimini, usa acqua filtrata o lascia l'acqua del rubinetto per 24 ore prima dell'uso.",
+    "commonProblems": [
+      "Punte brune → fluoro/cloro dall'acqua dura, o umidità bassa",
+      "Foglie gialle → innaffiatura eccessiva o troppo sole diretto",
+      "Abbassamento nonostante terreno umido → marciume radicale",
+      "Niente fiori → luce insufficiente"
+    ]
+  },
+  {
+    "speciesId": "snake-plant",
+    "lang": "it",
+    "name": "Sansevieria",
+    "description": "Pianta praticamente immortale simile a una succulenta. Estremamente tollerante alla siccità e prospera con la negligenza. Perfetta per principianti o chi dimentica di annaffiare.",
+    "moistureNotes": "Lascia asciugare il terreno COMPLETAMENTE tra un'annaffiatura e l'altra. Annaffia molto raramente in inverno (una volta al mese è sufficiente). Il marciume radicale da innaffiatura eccessiva è quasi l'unico modo per uccidere questa pianta.",
+    "lightNotes": "Si adatta a qualsiasi luce, dalla poca alla brillante indiretta. Cresce più velocemente in luce media o brillante.",
+    "waterTips": "Estremamente tollerante all'acqua dura. L'acqua del rubinetto di Rimini va assolutamente bene.",
+    "commonProblems": [
+      "Base molle → marciume radicale da innaffiatura eccessiva (problema più comune)",
+      "Foglie avvizzite → disidratazione molto grave (raro)",
+      "Punte brune → innaffiatura irregolare o umidità molto bassa"
+    ]
+  },
+  {
+    "speciesId": "calathea",
+    "lang": "it",
+    "name": "Calatea",
+    "description": "Foglie dal pattern spettacolare che si chiudono di notte. Bellissima ma esigente. Molto sensibile alla qualità dell'acqua e all'umidità.",
+    "moistureNotes": "Mantieni il terreno costantemente umido ma mai allagato. Molto intollerante sia alla disidratazione che all'eccesso d'acqua. Controlla l'umidità ogni 2–3 giorni.",
+    "lightNotes": "Preferisce luce indiretta da media a brillante. Mai sole diretto. Sbiadisce e brucia le foglie decorative.",
+    "waterTips": "Estremamente sensibile all'acqua dura, al cloro e al fluoro. L'acqua di Rimini (molto dura, ~400 mg/L) CAUSERÀ bordi croccanti e danni alle foglie. Usa sempre acqua distillata o filtrata. L'acqua piovana è ideale.",
+    "commonProblems": [
+      "Bordi croccanti bruni → minerali dell'acqua dura, umidità bassa (mantieni sopra il 50%)",
+      "Foglie gialle → innaffiatura eccessiva",
+      "Foglie arricciate → disidratazione o umidità bassa",
+      "Pattern sbiadito → troppa luce",
+      "Foglie ferme → temperatura troppo fredda o pianta stressata"
+    ]
+  },
+  {
+    "speciesId": "rubber-plant",
+    "lang": "it",
+    "name": "Ficus Elastica",
+    "description": "Albero dalle foglie lucide e decise che cresce in altezza. Una delle specie Ficus più facili. Più tollerante del Fico Lyrata.",
+    "moistureNotes": "Lascia asciugare la metà superiore del terreno tra un'annaffiatura e l'altra. Pulisci occasionalmente le foglie con un panno umido per mantenerle pulite e favorire la fotosintesi.",
+    "lightNotes": "Preferisce luce indiretta brillante. Le varietà variegate hanno bisogno di più luce per mantenere la colorazione.",
+    "waterTips": "Abbastanza tollerante all'acqua dura. A Rimini, potresti notare depositi bianchi di minerali sul bordo del vaso. Puliscili. Considera l'acqua filtrata per mantenere la lucentezza delle foglie ed evitare l'imbrunimento delle punte.",
+    "commonProblems": [
+      "Foglie gialle → innaffiatura eccessiva o cambio improvviso di temperatura",
+      "Caduta delle foglie → correnti d'aria, freddo, o posizione cambiata",
+      "Macchie brune → shock da acqua fredda o scottatura solare",
+      "Crescita filante → luce insufficiente"
+    ]
+  },
+  {
+    "speciesId": "spider-plant",
+    "lang": "it",
+    "name": "Pianta Ragno",
+    "description": "Allegra pianta arcuata che produce \"ragnetti\" a cascata. Estremamente facile, adattabile e ottima per i cestini pensili.",
+    "moistureNotes": "Annaffia quando i primi 3–4 cm di terreno sono asciutti. Molto tollerante alle annaffiature occasionalmente mancate.",
+    "lightNotes": "Cresce con qualsiasi luce, dalla poca alla brillante indiretta. La luce indiretta brillante produce i ragnetti più vigorosi.",
+    "waterTips": "Leggermente sensibile al fluoro nell'acqua dura. Può causare punte brune. A Rimini, l'uso di acqua filtrata manterrà le punte verdi. Tuttavia la pianta sopravvive anche con l'acqua del rubinetto; taglia semplicemente le punte brune quando compaiono.",
+    "commonProblems": [
+      "Punte brune → sensibilità al fluoro dell'acqua dura (il più comune)",
+      "Foglie pallide → troppo sole diretto",
+      "Niente ragnetti → ha bisogno di essere leggermente a radici strette"
+    ]
+  },
+  {
+    "speciesId": "aloe-vera",
+    "lang": "it",
+    "name": "Aloe Vera",
+    "description": "Succulenta dalle foglie carnose piene di gel. Una delle piante da appartamento più resistenti. Tollera la negligenza, la siccità ed è praticamente indistruttibile.",
+    "moistureNotes": "Annaffia abbondantemente ma raramente. Lascia asciugare completamente il terreno tra un'annaffiatura e l'altra. In inverno, una volta al mese è sufficiente. L'eccesso d'acqua è la principale causa di morte.",
+    "lightNotes": "Ama la luce intensa e un po' di sole diretto. Un davanzale esposto a sud o ovest è ideale. Sopravvive con meno luce ma non prospererà. Le foglie diventeranno pallide e flaccide.",
+    "waterTips": "Molto tollerante all'acqua dura. L'acqua di Rimini è assolutamente adatta. Le foglie spesse la proteggono dalla sensibilità ai minerali.",
+    "commonProblems": [
+      "Foglie molli o base bruna → eccesso d'acqua o marciume radicale",
+      "Foglie raggrinzite → disidratazione grave (annaffia immediatamente)",
+      "Punte che imbruniscono → troppo sole diretto o aria molto secca",
+      "Pianta pallida e allungata → luce insufficiente"
+    ]
+  },
+  {
+    "speciesId": "zz-plant",
+    "lang": "it",
+    "name": "Pianta ZZ",
+    "description": "Bellezza dalle foglie lucide e scure che prospera in quasi tutte le condizioni. Accumula acqua nei rizomi. Quasi impossibile da uccidere per negligenza.",
+    "moistureNotes": "Lascia asciugare completamente il terreno tra un'annaffiatura e l'altra. Annaffia ogni 2–4 settimane in stagione di crescita, mensilmente in inverno. I rizomi conservano l'acqua. L'eccesso è il rischio principale.",
+    "lightNotes": "Si adatta a poca luce. Ideale per stanze buie e uffici. Cresce meglio con luce indiretta media. Tollera persino gli ambienti illuminati al neon.",
+    "waterTips": "Non risente dell'acqua dura. L'acqua di Rimini va benissimo.",
+    "commonProblems": [
+      "Foglie gialle → eccesso d'acqua (problema più comune)",
+      "Caduta delle foglie → eccesso d'acqua o freddo improvviso",
+      "Crescita filante → luce insufficiente",
+      "Crescita lenta → normale. Questa pianta cresce semplicemente piano"
+    ]
+  },
+  {
+    "speciesId": "weeping-fig",
+    "lang": "it",
+    "name": "Ficus Benjamina",
+    "description": "Albero classico dalle foglie delicate e lucide. Perde le foglie vistosamente quando è stressato. Soprattutto quando viene spostato. Una volta ambientato, è elegante e longevo.",
+    "moistureNotes": "Lascia asciugare i primi 2–3 cm di terreno tra un'annaffiatura e l'altra. L'umidità costante è fondamentale. Sia troppa che troppo poca acqua causano la caduta delle foglie.",
+    "lightNotes": "Ha bisogno di luce indiretta brillante. Le finestre esposte a sud o ovest sono ideali. Evita di spostarlo. Anche un piccolo cambiamento di posizione provoca la caduta delle foglie.",
+    "waterTips": "Tollera l'acqua dura ma si trova meglio con acqua filtrata nel tempo. A Rimini, risciacqua abbondantemente il terreno ogni qualche mese per rimuovere i depositi di minerali.",
+    "commonProblems": [
+      "Caduta improvvisa delle foglie → posizione cambiata, correnti, sbalzi termici o aria secca",
+      "Foglie gialle → eccesso d'acqua o luce insufficiente",
+      "Foglie brune e croccanti → disidratazione o aria molto secca",
+      "Insetti scudetto → controlla i nodi del fusto per piccole protuberanze brune"
+    ]
+  },
+  {
+    "speciesId": "jade-plant",
+    "lang": "it",
+    "name": "Pianta di Giada",
+    "description": "Albero succulento longevo dalle foglie spesse e carnose. Si crede porti fortuna. Un classico nelle case italiane da generazioni. Può vivere per decenni.",
+    "moistureNotes": "Annaffia abbondantemente poi lascia asciugare completamente il terreno. In inverno, riduci a una volta al mese. Foglie grasse e turgide indicano una pianta felice. Quelle raggrinzite indicano sete.",
+    "lightNotes": "Preferisce luce intensa con un po' di sole diretto. Le finestre a sud sono ideali. Senza luce sufficiente i fusti diventano filanti e pallidi.",
+    "waterTips": "Tollera bene l'acqua dura. L'acqua di Rimini è accettabile, anche se l'acqua filtrata previene i depositi bianchi di minerali sulle foglie.",
+    "commonProblems": [
+      "Fusto molle o marciume radicale → eccesso d'acqua",
+      "Foglie raggrinzite e avvizzite → disidratazione grave",
+      "Crescita filante e pallida → luce insufficiente",
+      "Caduta delle foglie → sbalzo termico improvviso o eccesso d'acqua"
+    ]
+  },
+  {
+    "speciesId": "dragon-tree",
+    "lang": "it",
+    "name": "Dracena Marginata",
+    "description": "Albero dall'aspetto scenografico con foglie strette dai bordi rossi. Poca manutenzione, molto d'effetto. Una delle piante da appartamento italiane più popolari.",
+    "moistureNotes": "Annaffia quando la metà superiore del terreno è asciutta. Non esagerare. Le radici restano nel vaso per anni e marciscono facilmente in un terreno zuppo.",
+    "lightNotes": "Si adatta dalla luce indiretta a quella indiretta brillante. Colori migliori con più luce, ma tollera livelli più bassi. Evita il sole diretto intenso che brucia le foglie strette.",
+    "waterTips": "Sensibile al fluoro e ai sali dell'acqua dura. Sintomo classico: punte brune. A Rimini si raccomanda acqua filtrata o piovana. Come minimo, lascia riposare l'acqua del rubinetto overnight.",
+    "commonProblems": [
+      "Punte brune → tossicità da fluoro dell'acqua dura (molto comune a Rimini)",
+      "Foglie gialle → eccesso d'acqua o marciume radicale",
+      "Caduta delle foglie → corrente fredda o temperatura sotto i 15°C",
+      "Foglie pallide → luce insufficiente"
+    ]
+  },
+  {
+    "speciesId": "heartleaf-philodendron",
+    "lang": "it",
+    "name": "Filodendro Cordato",
+    "description": "Pianta rampicante classica con foglie a forma di cuore. A crescita rapida, poco esigente e perfetta per mensole o cestini pensili. Parente stretto del Pothos.",
+    "moistureNotes": "Annaffia quando i primi 2–3 cm di terreno sono asciutti. Molto più tollerante alla siccità che all'eccesso d'acqua. Le foglie gialle sono quasi sempre segno di troppa acqua.",
+    "lightNotes": "Prospera con luce indiretta da media a brillante. Tollera luce più bassa meglio di molte altre ma cresce più velocemente con luce brillante indiretta. Si etiolizza con poca luce.",
+    "waterTips": "Tollera bene l'acqua dura. L'acqua di Rimini va bene. Pulire occasionalmente le foglie con un panno umido previene l'accumulo di polvere minerale.",
+    "commonProblems": [
+      "Foglie gialle → eccesso d'acqua o marciume radicale",
+      "Foglie brune e croccanti → disidratazione o umidità molto bassa",
+      "Tralci filanti → luce insufficiente",
+      "Foglie nuove piccole → ha bisogno di fertilizzante o più luce"
+    ]
+  },
+  {
+    "speciesId": "syngonium",
+    "lang": "it",
+    "name": "Syngonium",
+    "description": "Pianta compatta a crescita rapida con foglie a forma di freccia che cambiano con la maturità. Si arrampica o ricade con grazia. Un'italiana preferita versatile e popolare.",
+    "moistureNotes": "Mantieni il terreno costantemente umido ma non allagato. Lascia asciugare solo il primo centimetro. In inverno tollera condizioni leggermente più secche.",
+    "lightNotes": "Meglio con luce indiretta da media a brillante. Tollera poca luce ma cresce lentamente. Le varietà variegate necessitano di più luce per mantenere il colore.",
+    "waterTips": "Abbastanza tollerante all'acqua dura. L'acqua di Rimini è accettabile, anche se l'acqua filtrata mantiene meglio il colore delle foglie nel lungo periodo.",
+    "commonProblems": [
+      "Foglie gialle → eccesso d'acqua",
+      "Bordi bruni → umidità bassa o fluoro nell'acqua dura",
+      "Foglie pallide → troppo sole diretto",
+      "Pianta filante → luce insufficiente"
+    ]
+  },
+  {
+    "speciesId": "dieffenbachia",
+    "lang": "it",
+    "name": "Dieffenbachia",
+    "description": "Pianta tropicale dall'impatto con grandi foglie variegate. Molto comune in case e uffici italiani. Maneggiala con guanti. La linfa è irritante per la pelle e tossica se ingerita.",
+    "moistureNotes": "Mantieni costantemente umido, lasciando asciugare solo il primo centimetro. Evita il terreno zuppo. Le foglie gialle inferiori segnalano quasi sempre eccesso d'acqua.",
+    "lightNotes": "Preferisce luce indiretta da media a brillante. Tollera poca luce ma i bellissimi pattern delle foglie sbiadiscono. Evita il sole diretto che brucia le foglie.",
+    "waterTips": "Tollera acqua moderatamente dura. A Rimini, risciacqua il terreno ogni qualche mese per rimuovere i depositi di minerali che possono causare imbrunimento delle punte.",
+    "commonProblems": [
+      "Foglie inferiori gialle → eccesso d'acqua o invecchiamento naturale",
+      "Punte brune → aria secca, minerali dell'acqua dura o correnti",
+      "Foglie ricadenti → disidratazione o radici intasate",
+      "Foglie pallide e sbiadite → troppo sole diretto"
+    ]
+  },
+  {
+    "speciesId": "aglaonema",
+    "lang": "it",
+    "name": "Aglaonema",
+    "description": "Foglie dai bellissimi pattern in verde, argento e rosso. Una delle piante da appartamento più adattabili. Tollera poca luce, siccità e la quasi totale negligenza.",
+    "moistureNotes": "Annaffia quando la metà superiore del terreno è asciutta. Molto tollerante alle annaffiature irregolari. Evita l'eccesso d'acqua, specialmente in inverno quando la crescita rallenta.",
+    "lightNotes": "Ottima pianta per poca luce. Le varietà verdi prosperano quasi all'ombra; le variegate e rosse necessitano di luce indiretta più brillante per mantenere il colore.",
+    "waterTips": "Tollera bene l'acqua dura. L'acqua di Rimini va bene. Pulisci occasionalmente le foglie per rimuovere la polvere minerale e mantenerle lucide.",
+    "commonProblems": [
+      "Foglie gialle → eccesso d'acqua o marciume radicale",
+      "Punte brune → aria secca, correnti fredde o fluoro nell'acqua",
+      "Colore sbiadito → luce insufficiente (soprattutto le varietà rosse)",
+      "Marciume radicale → terreno freddo e zuppo in inverno"
+    ]
+  },
+  {
+    "speciesId": "kentia-palm",
+    "lang": "it",
+    "name": "Palma Kentia",
+    "description": "Palma elegante a crescita lenta con fronde arcuate graziose. Un classico senza tempo nelle case e negli hotel italiani. Una delle palme da appartamento più tolleranti.",
+    "moistureNotes": "Lascia asciugare i primi centimetri di terreno tra un'annaffiatura e l'altra. Annaffia abbondantemente ma non lasciare mai acqua stagnante. Le fronde gialle segnalano quasi sempre eccesso d'acqua.",
+    "lightNotes": "Si adatta a luce indiretta media ma cresce meglio con luce indiretta brillante. Tollera bene livelli di luce più bassi. Ideale per spazi lontani dalle finestre. Evita il sole diretto intenso.",
+    "waterTips": "Sensibile al fluoro e al cloro nell'acqua dura. Causa punte brune sulle fronde. A Rimini si preferisce acqua filtrata o piovana. Come minimo, lascia riposare l'acqua overnight.",
+    "commonProblems": [
+      "Punte brune sulle fronde → sensibilità al fluoro, aria secca o innaffiatura irregolare",
+      "Fronde gialle → eccesso d'acqua o marciume radicale",
+      "Fronde inferiori brune → invecchiamento naturale. Rimuovi alla base",
+      "Crescita molto lenta → normale per la Kentia, sii paziente"
+    ]
+  },
+  {
+    "speciesId": "yucca",
+    "lang": "it",
+    "name": "Yucca",
+    "description": "Pianta architettonica d'impatto con foglie a spada su un fusto robusto. Prospera in luoghi soleggiati con cure minime. Una delle piante da appartamento più resistenti alla siccità.",
+    "moistureNotes": "Lascia asciugare completamente il terreno tra un'annaffiatura e l'altra. Molto resistente alla siccità. Annaffia ogni 2–4 settimane in estate, ancora meno in inverno. L'eccesso d'acqua causa marciume radicale.",
+    "lightNotes": "Ama la luce intensa e il sole diretto. Le finestre a sud o ovest sono ideali. Tollera meno luce ma cresce lentamente e può apparire pallida e ricadente.",
+    "waterTips": "Molto tollerante all'acqua dura. L'acqua di Rimini va assolutamente bene.",
+    "commonProblems": [
+      "Punte brune → estetiche, causate dall'aria secca. Taglia con forbici pulite",
+      "Fusto molle o base → eccesso d'acqua e marciume radicale",
+      "Foglie gialle → eccesso d'acqua o caduta naturale delle foglie inferiori",
+      "Foglie pallide e ricadenti → luce insufficiente"
+    ]
+  },
+  {
+    "speciesId": "schefflera",
+    "lang": "it",
+    "name": "Schefflera",
+    "description": "Foglie composte lucide che si aprono a ombrello. A crescita rapida e tollerante. Un classico delle sale italiane che può diventare un albero imponente.",
+    "moistureNotes": "Lascia asciugare la metà superiore del terreno tra un'annaffiatura e l'altra. Detesta il terreno allagato. Controlla con un dito prima di annaffiare. In caso di dubbio, aspetta ancora un giorno.",
+    "lightNotes": "Meglio con luce indiretta brillante. Tollera luce media ma la crescita rallenta e la variegatura sbiadisce. Evita il sole diretto intenso che brucia le foglie.",
+    "waterTips": "Tollera bene l'acqua dura. L'acqua di Rimini va bene. Risciacqua il terreno occasionalmente per prevenire l'accumulo di sali intorno alle radici.",
+    "commonProblems": [
+      "Caduta delle foglie → eccesso d'acqua, corrente fredda o cambio di posizione improvviso",
+      "Foglie gialle → eccesso d'acqua o marciume radicale",
+      "Bordi bruni → aria secca o disidratazione",
+      "Crescita pallida e filante → luce insufficiente"
+    ]
+  },
+  {
+    "speciesId": "anthurium",
+    "lang": "it",
+    "name": "Anthurium",
+    "description": "Pianta tropicale spettacolare con fiori a forma di cuore lucidi in rosso, rosa o bianco. A fioritura prolungata e molto amata nelle case italiane per il suo colore continuo.",
+    "moistureNotes": "Mantieni umido ma non zuppo. Lascia asciugare solo il primo centimetro. L'anthurium è sensibile sia all'eccesso che alla carenza d'acqua. Un buon drenaggio è essenziale.",
+    "lightNotes": "La luce indiretta brillante produce più fiori. Tollera luce media. Evita il sole diretto che sbianca e brucia le spate cerose.",
+    "waterTips": "Sensibile all'accumulo di sali e minerali dall'acqua dura. Causa punte brune e indebolisce la fioritura. A Rimini usa acqua filtrata o piovana e risciacqua il terreno ogni qualche mese.",
+    "commonProblems": [
+      "Punte brune → minerali dell'acqua dura, umidità bassa o correnti fredde",
+      "Foglie gialle → eccesso d'acqua o marciume radicale",
+      "Nessun fiore → luce insufficiente o temperatura troppo bassa",
+      "Spate verdi → normale invecchiamento dei fiori più vecchi"
+    ]
+  },
+  {
+    "speciesId": "tradescantia",
+    "lang": "it",
+    "name": "Tradescantia",
+    "description": "Pianta ricadente a crescita rapida con foglie a strisce viola e argento. Facile e gratificante. Una delle piante più colorate e a bassa manutenzione che puoi coltivare in casa.",
+    "moistureNotes": "Annaffia quando i primi 2–3 cm di terreno sono asciutti. Abbastanza resistente alla siccità. Tollera le annaffiature mancate. L'eccesso d'acqua causa marciume e fusti molli.",
+    "lightNotes": "Colori migliori con luce indiretta brillante. L'intensità del viola sbiadisce con poca luce. Tollera luce media. Un po' di sole mattutino esalta i toni viola.",
+    "waterTips": "Tollera bene l'acqua dura. L'acqua di Rimini va bene. La pianta cresce così velocemente che la sensibilità ai minerali è raramente un problema visibile.",
+    "commonProblems": [
+      "Colore sbiadito → luce insufficiente (serve luce indiretta brillante per il viola migliore)",
+      "Fusti filanti e spogli → normale. Taglia regolarmente e propaga le talee",
+      "Fusti molli → eccesso d'acqua",
+      "Punte brune → aria secca o disidratazione"
+    ]
+  },
+  {
+    "speciesId": "ceropegia",
+    "lang": "it",
+    "name": "Catena di Cuori",
+    "description": "Succulenta ricadente con foglie a forma di cuore fantasia argento e verde. Cresce velocemente, è bellissima in vasi pensili e molto semplice da curare.",
+    "moistureNotes": "Lascia asciugare completamente il terreno tra un'annaffiatura e l'altra. Trattala come una succulenta — accumula acqua nelle radici tuberose e nelle foglie. Il rischio principale è l'eccesso d'acqua.",
+    "lightNotes": "Ama la luce indiretta intensa. Tollera qualche ora di sole diretto leggero che intensifica il disegno argentato delle foglie. Evita la penombra che causa una crescita rada.",
+    "waterTips": "Molto tollerante all'acqua del rubinetto. Non è esigente sulla qualità dell'acqua. A Rimini l'acqua del rubinetto va benissimo. Annaffia con parsimonia — meno è meglio.",
+    "commonProblems": [
+      "Steli gialli e molli → eccesso d'acqua o terreno allagato",
+      "Foglie pallide e sbiadite → poca luce",
+      "Foglie molto distanziate tra loro → luce insufficiente o troppa siccità",
+      "Foglie raggrinzite → disidratazione o aria troppo secca"
+    ]
+  },
+  {
+    "speciesId": "pilea",
+    "lang": "it",
+    "name": "Pilea",
+    "description": "Pianta di tendenza dalle foglie rotonde che produce 'cuccioli' alla base. Facile da coltivare e condividere. Una delle piante più amate e riconoscibili nelle case italiane di oggi.",
+    "moistureNotes": "Annaffia quando i primi 2–3 cm di terreno sono asciutti. Si abbassa leggermente quando ha sete poi si riprende subito dopo l'annaffiatura. Non lasciare mai in acqua stagnante. Il drenaggio è essenziale.",
+    "lightNotes": "Ha bisogno di luce indiretta brillante. Ruota il vaso settimanalmente per evitare la crescita asimmetrica verso la luce. Evita il sole diretto che brucia le foglie rotonde.",
+    "waterTips": "Leggermente sensibile ai minerali dell'acqua dura nel tempo. Le foglie possono sviluppare macchie bianche. A Rimini si preferisce acqua filtrata o piovana. Pulisci le foglie con un panno umido per rimuovere i depositi.",
+    "commonProblems": [
+      "Foglie gialle → eccesso d'acqua o terreno allagato",
+      "Foglie arriccidate → disidratazione o troppo sole",
+      "Macchie bianche sulle foglie → depositi dall'acqua dura. Pulisci con panno umido",
+      "Pianta molto inclinata → ruota regolarmente il vaso verso la fonte di luce"
+    ]
+  },
+  {
+    "speciesId": "strelitzia",
+    "lang": "it",
+    "name": "Uccello del Paradiso",
+    "description": "Pianta tropicale imponente con grandi foglie a forma di pagaia e iconici fiori arancioni e blu. A crescita lenta ma dal fascino straordinario. Un elemento scenografico per ambienti luminosi.",
+    "moistureNotes": "Annaffia abbondantemente poi lascia asciugare i primi 3–4 cm di terreno prima di annaffiare di nuovo. Riduci le annaffiature in inverno. Tollera qualche siccità ma cresce meglio con umidità costante in estate.",
+    "lightNotes": "Ha bisogno di quanta più luce possibile — idealmente qualche ora di sole diretto al giorno. Una finestra esposta a sud o ovest è l'ideale. La luce insufficiente impedisce la fioritura e rallenta notevolmente la crescita.",
+    "waterTips": "Tollerante all'acqua del rubinetto. Non è particolarmente sensibile alla durezza. A Rimini l'acqua del rubinetto va bene. Evita il ristagno idrico che è il principale rischio.",
+    "commonProblems": [
+      "Foglie spaccate → normale all'aperto per il vento; in casa indica aria molto secca o danni fisici",
+      "Nessun fiore → luce insufficiente o vaso troppo grande (fiorisce meglio con le radici strette)",
+      "Foglie gialle → eccesso d'acqua o drenaggio scarso",
+      "Bordi fogliari marroni → bassa umidità o fluoro nell'acqua del rubinetto"
+    ]
+  },
+  {
+    "speciesId": "begonia-maculata",
+    "lang": "it",
+    "name": "Begonia Maculata",
+    "description": "Splendida begonia a canna con foglie verde oliva macchiate di argento e rovescio rosso scuro. Molto ricercata e sorprendentemente gratificante una volta compresi i suoi bisogni.",
+    "moistureNotes": "Lascia asciugare i primi 2–3 cm di terreno tra le annaffiature. Sensibile sia all'eccesso che alla siccità. Non lasciare il terreno fradicio — il marciume radicale si sviluppa rapidamente.",
+    "lightNotes": "Ama la luce indiretta intensa. Il sole diretto sbiadisce le foglie e brucia le macchie. Una finestra esposta a nord-est o est è ideale. La buona luce mantiene vivide le macchie argentate.",
+    "waterTips": "Preferisce acqua dolce o filtrata. L'acqua dura può causare bordi marroni nel tempo. A Rimini usa acqua filtrata o piovana quando possibile. Evita di bagnare le foglie — annaffia al livello del terreno per prevenire la muffa.",
+    "commonProblems": [
+      "Bordi fogliari marroni → minerali dell'acqua dura, bassa umidità o siccità",
+      "Oidio → scarsa circolazione d'aria o foglie bagnate",
+      "Caduta delle foglie → sbalzo di temperatura, correnti fredde o eccesso d'acqua",
+      "Crescita allungata → luce insufficiente"
+    ]
+  },
+  {
+    "speciesId": "begonia-ferox",
+    "lang": "it",
+    "name": "Begonia Ferox",
+    "description": "Rara begonia da collezione proveniente dalla Cina con foglie verde scuro ricoperte di lunghi denti a forma di cono. A crescita lenta, è un esemplare spettacolare che richiede cure precise.",
+    "moistureNotes": "Mantieni il terreno costantemente umido ma mai allagato. Odia asciugarsi completamente ma non tollera l'acqua stagnante. Controlla ogni qualche giorno e annaffia quando la superficie inizia ad asciugarsi.",
+    "lightNotes": "Preferisce luce indiretta media o intensa. Evita il sole diretto che brucia le foglie. Una luce costante senza forti fluttuazioni è importante per una crescita regolare.",
+    "waterTips": "Sensibile alla qualità dell'acqua. Si preferisce acqua dolce o filtrata. L'acqua dura causa bruciature e imbrunimento nel tempo. A Rimini usa acqua filtrata o piovana. Non lasciare mai acqua fredda sulle foglie.",
+    "commonProblems": [
+      "Punte fogliari marroni → acqua dura, bassa umidità o siccità",
+      "Marciume del fusto → eccesso d'acqua o drenaggio insufficiente",
+      "Crescita lenta o stentata → poca luce o irrigazione scorretta",
+      "Foglie che si accartocciano → umidità molto bassa; posiziona su un vassoio con ghiaia e acqua"
+    ]
+  },
+  {
+    "speciesId": "phalaenopsis",
+    "lang": "it",
+    "name": "Orchidea Falena",
+    "description": "L'orchidea più diffusa nelle case. Produce fiori eleganti e duraturi in bianco, rosa o viola. Più semplice da coltivare di quanto si pensi, una volta capita la sua routine.",
+    "moistureNotes": "Annaffia immergendo il vaso per qualche minuto nell'acqua poi lascialo scolare completamente. Annaffia ogni 7–10 giorni in estate, ogni 14 giorni in inverno. Non lasciare mai le radici in acqua stagnante. Le radici devono essere verdi quando umide e bianco-argentate quando asciutte.",
+    "lightNotes": "Ha bisogno di luce indiretta brillante — niente sole diretto che brucia le foglie. Una finestra esposta a est è ideale. Le foglie devono essere verde medio; verde scuro significa poca luce, giallastre significa troppa.",
+    "waterTips": "Sensibile all'accumulo di sali minerali dall'acqua dura, che può danneggiare le radici e causare macchie fogliari. A Rimini si raccomanda acqua filtrata o piovana. Usa sempre acqua a temperatura ambiente — mai acqua fredda del rubinetto.",
+    "commonProblems": [
+      "Nessun fiore → luce insufficiente o mancanza di sbalzo termico notturno per stimolare la riffioritura",
+      "Foglie gialle → eccesso d'acqua, troppo sole o marciume radicale",
+      "Radici raggrinzite → siccità o umidità molto bassa",
+      "Crosta bianca sul vaso → accumulo di sali dall'acqua dura; sciacqua con acqua filtrata"
+    ]
+  },
+  {
+    "speciesId": "delosperma",
+    "lang": "it",
+    "name": "Delosperma",
+    "description": "Succulenta tappezzante resistente con fiori brillanti simili a margherite in vivido rosa, arancione o giallo. Prospera in pieno sole e terreno molto drenante. Sorprendentemente resistente al gelo.",
+    "moistureNotes": "Annaffia con parsimonia — lascia asciugare completamente il terreno tra le annaffiature. Estremamente resistente alla siccità. In vaso, annaffia ancora meno frequentemente in inverno. L'eccesso d'acqua è l'unico vero rischio.",
+    "lightNotes": "Richiede pieno sole per almeno 6 ore al giorno. Più sole equivale a più fioritura abbondante. L'ombra causa crescita allungata e assenza di fiori. Un davanzale esposto a sud o uno spazio esterno soleggiato è l'ideale.",
+    "waterTips": "Molto tollerante a qualsiasi tipo d'acqua. L'acqua dura del rubinetto va benissimo. La variabile chiave è il drenaggio, non la qualità dell'acqua — pianta in substrato sabbioso e drenante per cactus.",
+    "commonProblems": [
+      "Nessun fiore → sole insufficiente",
+      "Steli molli e marci → eccesso d'acqua o ristagno; rinvasa in substrato asciutto e ghiaioso",
+      "Colore pallido e sbiadito → poca luce",
+      "Crescita allungata → ha bisogno di più sole diretto"
+    ]
+  },
+  {
+    "speciesId": "carpobrotus-edulis",
+    "lang": "it",
+    "name": "Fico degli Ottentotti",
+    "description": "Succulenta costiera vigorosa con foglie triangolari spesse e grandi fiori vistosi gialli o magenta. Estremamente robusta, resistente al sale e adatta a condizioni difficili e soleggiate.",
+    "moistureNotes": "Molto resistente alla siccità. Annaffia abbondantemente e raramente, lasciando asciugare completamente il terreno. In vaso all'interno, annaffia ogni 3–4 settimane in estate, una volta al mese o meno in inverno.",
+    "lightNotes": "Ha bisogno del massimo di sole diretto. Nel suo habitat naturale cresce su scogliere costiere esposte. In casa richiede il posto più soleggiato disponibile. La luce insufficiente impedisce completamente la fioritura.",
+    "waterTips": "Altamente tollerante all'acqua dura, al sale e ai minerali. Qualsiasi tipo d'acqua va bene. Il drenaggio e il sole sono le uniche variabili che contano per questa pianta.",
+    "commonProblems": [
+      "Steli marci → eccesso d'acqua, drenaggio scarso o troppa ombra",
+      "Nessun fiore → luce insufficiente",
+      "Foglie raggrinzite → siccità eccessiva (anche se tollera periodi di siccità significativi)",
+      "Diffusione invasiva all'aperto → tieni in vaso fuori dal suo areale nativo"
+    ]
+  },
+  {
+    "speciesId": "basil",
+    "lang": "it",
+    "name": "Basilico",
+    "description": "L'erba aromatica italiana per eccellenza. Profumata, a rapida crescita e molto gratificante su un davanzale soleggiato. Migliore consumato fresco durante l'estate.",
+    "moistureNotes": "Mantieni il terreno costantemente umido ma non allagato. Il basilico appassisce drammaticamente quando ha sete ma si riprende velocemente dopo l'annaffiatura. Controlla ogni giorno con il caldo. Non lasciarlo mai asciugare completamente.",
+    "lightNotes": "Ha bisogno di almeno 6 ore di sole diretto al giorno. Un davanzale esposto a sud è l'ideale. La luce insufficiente causa foglie pallide, rade e insapore.",
+    "waterTips": "Non è sensibile alla qualità dell'acqua. L'acqua del rubinetto va bene. Annaffia alla base, non sulle foglie, per prevenire problemi fungini. Evita l'acqua fredda diretta dal rubinetto.",
+    "commonProblems": [
+      "Appassimento nonostante il terreno umido → marciume radicale da ristagno; assicurati un buon drenaggio",
+      "Foglie pallide o gialle → luce insufficiente",
+      "Foglie che anneriscono → danno da freddo o malattia fungina da foglie bagnate",
+      "Fioritura precoce (bolting) → rimuovi i boccioli per prolungare il raccolto"
+    ]
+  },
+  {
+    "speciesId": "rosemary",
+    "lang": "it",
+    "name": "Rosmarino",
+    "description": "Erba aromatica mediterranea con foglie aghiformi e un aroma potente. Estremamente resistente alla siccità una volta radicata. Ama il sole e la buona circolazione d'aria.",
+    "moistureNotes": "Annaffia abbondantemente poi lascia asciugare completamente il terreno prima di annaffiare di nuovo. Il rosmarino odia il terreno fradicio — è molto più facile ucciderlo con troppa acqua che troppo poca. Riduci significativamente le annaffiature in inverno.",
+    "lightNotes": "Richiede pieno sole — almeno 6 ore al giorno. Su un luminoso davanzale esposto a sud crescerà benissimo. La luce insufficiente causa crescita rada e riduce la fragranza.",
+    "waterTips": "Tollerante all'acqua del rubinetto e alla durezza. A Rimini l'acqua del rubinetto va benissimo. Il rischio principale è sempre l'eccesso d'acqua, non la qualità dell'acqua.",
+    "commonProblems": [
+      "Steli marroni e molli → marciume radicale da eccesso d'acqua; rinvasa in substrato secco e sabbioso",
+      "Rivestimento grigio polveroso sulle foglie → oidio da scarsa circolazione d'aria",
+      "Caduta delle foglie → eccesso d'acqua, correnti fredde o shock da trapianto",
+      "Crescita rada e insapore → luce insufficiente"
+    ]
+  },
+  {
+    "speciesId": "parsley",
+    "lang": "it",
+    "name": "Prezzemolo",
+    "description": "Erba biennale versatile fondamentale nella cucina italiana. Sia la varietà a foglia piatta (italiano) che quella riccioluta sono facili da coltivare su un davanzale luminoso.",
+    "moistureNotes": "Mantieni il terreno uniformemente umido. Il prezzemolo non ama asciugarsi ma anche il ristagno è dannoso. Annaffia quando il primo centimetro di terreno si asciuga. Richiede annaffiature più frequenti con il caldo.",
+    "lightNotes": "Cresce meglio con luce indiretta intensa o qualche ora di sole diretto — 4–6 ore al giorno. Tollera meno luce rispetto alla maggior parte delle erbe ma la crescita sarà più lenta.",
+    "waterTips": "Non è sensibile alla durezza dell'acqua. L'acqua del rubinetto va bene. Annaffia alla base per tenere le foglie asciutte e ridurre il rischio di macchie fungine.",
+    "commonProblems": [
+      "Foglie ingiallite → eccesso d'acqua, carenza di nutrienti o fine del ciclo biennale",
+      "Germinazione lenta → il prezzemolo è notoriamente lento a germinare (3–4 settimane)",
+      "Fioritura precoce → naturale con il caldo o nel secondo anno; raccogli frequentemente per ritardarla",
+      "Macchie fungine sulle foglie → annaffiatura dall'alto; annaffia sempre alla base"
+    ]
+  },
+  {
+    "speciesId": "thyme",
+    "lang": "it",
+    "name": "Timo",
+    "description": "Erba aromatica legnosa a portamento basso con foglioline profumatissime. Una delle erbe culinarie più resistenti alla siccità. Ama il sole e si adatta bene a un davanzale soleggiato.",
+    "moistureNotes": "Lascia asciugare completamente il terreno tra le annaffiature. Il timo è molto resistente alla siccità e preferisce condizioni asciutte. L'eccesso d'acqua è il principale rischio in casa.",
+    "lightNotes": "Ha bisogno di pieno sole — almeno 6 ore di luce diretta al giorno. Un davanzale esposto a sud è l'ideale. Con poca luce diventa allungato e perde il sapore.",
+    "waterTips": "Non è sensibile alla qualità dell'acqua. L'acqua del rubinetto va benissimo. Il drenaggio conta molto più della qualità dell'acqua.",
+    "commonProblems": [
+      "Crescita legnosa e rada → normale con l'età; pota regolarmente per stimolare la crescita compatta",
+      "Marciume radicale → eccesso d'acqua; il timo ha bisogno di substrato a rapido drenaggio",
+      "Perdita di profumo → luce insufficiente",
+      "Oidio → scarsa circolazione d'aria o annaffiatura dall'alto"
+    ]
+  },
+  {
+    "speciesId": "dill",
+    "lang": "it",
+    "name": "Aneto",
+    "description": "Erba annuale con foglie piumose e un caratteristico sapore di anice. A rapida crescita, migliore da raccogliere giovane. Aggiunge freschezza a pesce, patate e insalate.",
+    "moistureNotes": "Mantieni il terreno leggermente umido. L'aneto non ama asciugarsi ma è anche soggetto al marciume radicale se allagato. Annaffia quando il primo centimetro di terreno si asciuga.",
+    "lightNotes": "Ha bisogno di pieno sole — 6+ ore al giorno. Un davanzale esposto a sud è l'ideale. Con poca luce diventa alto, allungato e perde il sapore.",
+    "waterTips": "Non è sensibile alla qualità dell'acqua. L'acqua del rubinetto va bene. Annaffia alla base per mantenere asciutto il fogliame piumoso.",
+    "commonProblems": [
+      "Fioritura precoce → normale con il caldo o le giornate lunghe; le varietà resistenti alla bolting aiutano",
+      "Foglie inferiori ingiallite → naturale con la maturazione della pianta, o eccesso d'acqua",
+      "Pianta che si piega → luce insufficiente causa crescita allungata; serve tutore o più sole",
+      "Scarsa germinazione → l'aneto non ama essere trapiantato; semina direttamente nel vaso definitivo"
+    ]
+  },
+  {
+    "speciesId": "mint",
+    "lang": "it",
+    "name": "Menta",
+    "description": "Erba vigorosa e diffusiva con un sapore fresco e rinfrescante. Cresce rapidamente e può essere raccolta più volte durante la stagione. È meglio tenerla in un vaso separato.",
+    "moistureNotes": "Preferisce il terreno costantemente umido. Non lasciarla asciugare completamente — la menta appassisce velocemente e si riprende lentamente. Controlla ogni giorno o due in estate. Non lasciare mai in acqua stagnante.",
+    "lightNotes": "Tollera la penombra meglio della maggior parte delle erbe. La luce indiretta brillante o qualche ora di sole diretto è l'ideale in casa. Troppo sole diretto può scottare le foglie.",
+    "waterTips": "Non è sensibile alla durezza dell'acqua. L'acqua del rubinetto va benissimo. La menta apprezza annaffiature regolari e mostra stress rapidamente se trascurata.",
+    "commonProblems": [
+      "Ruggine (macchie arancioni) → malattia fungina; rimuovi le foglie colpite e migliora la circolazione",
+      "Crescita allungata e pallida → luce insufficiente",
+      "Appassimento rapido → terreno asciutto; annaffia subito, di solito si riprende",
+      "Diffusione invasiva → coltiva sempre in un vaso contenuto separato"
+    ]
+  },
+  {
+    "speciesId": "oregano",
+    "lang": "it",
+    "name": "Origano",
+    "description": "L'erba definitiva della cucina italiana e mediterranea. Rustica e resistente alla siccità. Il sapore è più intenso quando coltivata in pieno sole con un terreno povero e asciutto.",
+    "moistureNotes": "Lascia asciugare completamente il terreno tra le annaffiature. L'origano è resistente alla siccità e sta molto meglio leggermente asciutto che bagnato. Riduci le annaffiature in inverno quasi completamente.",
+    "lightNotes": "Ha bisogno di pieno sole — almeno 6 ore al giorno. Più sole c'è, più il sapore è intenso. Una finestra luminosa esposta a sud funziona bene in casa.",
+    "waterTips": "Molto tollerante a qualsiasi tipo d'acqua. L'acqua del rubinetto, dura o dolce, va bene. Il drenaggio è il fattore chiave, non la qualità dell'acqua.",
+    "commonProblems": [
+      "Marciume radicale → eccesso d'acqua; pianta in substrato sabbioso e ben drenante",
+      "Perdita di sapore → sole insufficiente; sposta in una posizione più luminosa",
+      "Steli legnosi e spogli → normale con l'età; pota energicamente in primavera",
+      "Oidio → scarsa circolazione d'aria; distanzia le piante ed evita di bagnare le foglie"
+    ]
+  },
+  {
+    "speciesId": "sage",
+    "lang": "it",
+    "name": "Salvia",
+    "description": "Erba aromatica dalla foglia morbida con un caratteristico sapore terroso e pepato. Fondamentale nella cucina italiana, particolarmente con pasta e secondi di carne.",
+    "moistureNotes": "Lascia asciugare la metà superiore del terreno prima di annaffiare. La salvia è resistente alla siccità e non ama il terreno fradicio. Annaffia abbondantemente poi aspetta. Riduci le annaffiature in inverno.",
+    "lightNotes": "Ha bisogno di pieno sole — 6+ ore al giorno. Su un luminoso davanzale esposto a sud produrrà le foglie più saporite e aromatiche. La poca luce indebolisce la pianta e riduce il sapore.",
+    "waterTips": "Non è sensibile alla qualità dell'acqua. L'acqua del rubinetto va bene. Evita l'annaffiatura dall'alto poiché le foglie bagnate favoriscono la muffa sulla salvia.",
+    "commonProblems": [
+      "Marciume radicale → eccesso d'acqua o terreno compatto con scarso drenaggio",
+      "Oidio → foglie bagnate o scarsa circolazione d'aria",
+      "Crescita legnosa e rada → pota in primavera per mantenere la pianta compatta e produttiva",
+      "Foglie gialle → eccesso d'acqua o terreno povero di nutrienti"
+    ]
+  }
+]

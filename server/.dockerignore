@@ -1,0 +1,5 @@
+.env
+plant-care.db
+plant-care.db-shm
+plant-care.db-wal
+node_modules/

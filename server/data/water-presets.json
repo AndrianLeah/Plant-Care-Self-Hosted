@@ -1,0 +1,965 @@
+[
+  {
+    "name": "Aosta",
+    "region": "Valle d'Aosta",
+    "level": "very-soft",
+    "hardnessMgL": 15,
+    "ph": 7,
+    "caMgL": 3,
+    "mgMgL": 1
+  },
+  {
+    "name": "Alessandria",
+    "region": "Piemonte",
+    "level": "moderately-hard",
+    "hardnessMgL": 110,
+    "ph": 7.3,
+    "caMgL": 27,
+    "mgMgL": 9
+  },
+  {
+    "name": "Asti",
+    "region": "Piemonte",
+    "level": "soft",
+    "hardnessMgL": 80,
+    "ph": 7.3,
+    "caMgL": 19,
+    "mgMgL": 6
+  },
+  {
+    "name": "Biella",
+    "region": "Piemonte",
+    "level": "very-soft",
+    "hardnessMgL": 20,
+    "ph": 7,
+    "caMgL": 4,
+    "mgMgL": 1
+  },
+  {
+    "name": "Cuneo",
+    "region": "Piemonte",
+    "level": "very-soft",
+    "hardnessMgL": 30,
+    "ph": 7,
+    "caMgL": 7,
+    "mgMgL": 2
+  },
+  {
+    "name": "Novara",
+    "region": "Piemonte",
+    "level": "soft",
+    "hardnessMgL": 50,
+    "ph": 7.1,
+    "caMgL": 12,
+    "mgMgL": 4
+  },
+  {
+    "name": "Torino",
+    "region": "Piemonte",
+    "level": "very-soft",
+    "hardnessMgL": 22,
+    "ph": 7.1,
+    "caMgL": 5,
+    "mgMgL": 2
+  },
+  {
+    "name": "Verbania",
+    "region": "Piemonte",
+    "level": "very-soft",
+    "hardnessMgL": 15,
+    "ph": 6.9,
+    "caMgL": 3,
+    "mgMgL": 1
+  },
+  {
+    "name": "Vercelli",
+    "region": "Piemonte",
+    "level": "very-soft",
+    "hardnessMgL": 35,
+    "ph": 7.1,
+    "caMgL": 8,
+    "mgMgL": 3
+  },
+  {
+    "name": "Genova",
+    "region": "Liguria",
+    "level": "moderately-hard",
+    "hardnessMgL": 130,
+    "ph": 7.3,
+    "caMgL": 30,
+    "mgMgL": 10
+  },
+  {
+    "name": "Imperia",
+    "region": "Liguria",
+    "level": "moderately-hard",
+    "hardnessMgL": 150,
+    "ph": 7.4,
+    "caMgL": 37,
+    "mgMgL": 12
+  },
+  {
+    "name": "La Spezia",
+    "region": "Liguria",
+    "level": "soft",
+    "hardnessMgL": 80,
+    "ph": 7.2,
+    "caMgL": 19,
+    "mgMgL": 6
+  },
+  {
+    "name": "Savona",
+    "region": "Liguria",
+    "level": "moderately-hard",
+    "hardnessMgL": 90,
+    "ph": 7.2,
+    "caMgL": 22,
+    "mgMgL": 7
+  },
+  {
+    "name": "Bergamo",
+    "region": "Lombardia",
+    "level": "soft",
+    "hardnessMgL": 80,
+    "ph": 7.2,
+    "caMgL": 19,
+    "mgMgL": 6
+  },
+  {
+    "name": "Brescia",
+    "region": "Lombardia",
+    "level": "hard",
+    "hardnessMgL": 220,
+    "ph": 7.5,
+    "caMgL": 55,
+    "mgMgL": 18
+  },
+  {
+    "name": "Como",
+    "region": "Lombardia",
+    "level": "very-soft",
+    "hardnessMgL": 30,
+    "ph": 7,
+    "caMgL": 7,
+    "mgMgL": 2
+  },
+  {
+    "name": "Cremona",
+    "region": "Lombardia",
+    "level": "hard",
+    "hardnessMgL": 250,
+    "ph": 7.5,
+    "caMgL": 62,
+    "mgMgL": 21
+  },
+  {
+    "name": "Lecco",
+    "region": "Lombardia",
+    "level": "soft",
+    "hardnessMgL": 40,
+    "ph": 7.1,
+    "caMgL": 10,
+    "mgMgL": 3
+  },
+  {
+    "name": "Lodi",
+    "region": "Lombardia",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.4,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Mantova",
+    "region": "Lombardia",
+    "level": "very-hard",
+    "hardnessMgL": 310,
+    "ph": 7.7,
+    "caMgL": 80,
+    "mgMgL": 27
+  },
+  {
+    "name": "Milano",
+    "region": "Lombardia",
+    "level": "very-soft",
+    "hardnessMgL": 18,
+    "ph": 7,
+    "caMgL": 4,
+    "mgMgL": 1
+  },
+  {
+    "name": "Monza",
+    "region": "Lombardia",
+    "level": "soft",
+    "hardnessMgL": 60,
+    "ph": 7.1,
+    "caMgL": 14,
+    "mgMgL": 5
+  },
+  {
+    "name": "Pavia",
+    "region": "Lombardia",
+    "level": "moderately-hard",
+    "hardnessMgL": 150,
+    "ph": 7.3,
+    "caMgL": 37,
+    "mgMgL": 12
+  },
+  {
+    "name": "Sondrio",
+    "region": "Lombardia",
+    "level": "very-soft",
+    "hardnessMgL": 15,
+    "ph": 6.9,
+    "caMgL": 3,
+    "mgMgL": 1
+  },
+  {
+    "name": "Varese",
+    "region": "Lombardia",
+    "level": "very-soft",
+    "hardnessMgL": 25,
+    "ph": 7,
+    "caMgL": 6,
+    "mgMgL": 2
+  },
+  {
+    "name": "Bolzano",
+    "region": "Trentino-A.A.",
+    "level": "very-soft",
+    "hardnessMgL": 20,
+    "ph": 7,
+    "caMgL": 4,
+    "mgMgL": 1
+  },
+  {
+    "name": "Trento",
+    "region": "Trentino-A.A.",
+    "level": "soft",
+    "hardnessMgL": 60,
+    "ph": 7.2,
+    "caMgL": 14,
+    "mgMgL": 5
+  },
+  {
+    "name": "Belluno",
+    "region": "Veneto",
+    "level": "very-soft",
+    "hardnessMgL": 30,
+    "ph": 7,
+    "caMgL": 7,
+    "mgMgL": 2
+  },
+  {
+    "name": "Padova",
+    "region": "Veneto",
+    "level": "hard",
+    "hardnessMgL": 270,
+    "ph": 7.5,
+    "caMgL": 66,
+    "mgMgL": 22
+  },
+  {
+    "name": "Rovigo",
+    "region": "Veneto",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.4,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Treviso",
+    "region": "Veneto",
+    "level": "moderately-hard",
+    "hardnessMgL": 150,
+    "ph": 7.3,
+    "caMgL": 37,
+    "mgMgL": 12
+  },
+  {
+    "name": "Venezia",
+    "region": "Veneto",
+    "level": "soft",
+    "hardnessMgL": 65,
+    "ph": 7.3,
+    "caMgL": 15,
+    "mgMgL": 5
+  },
+  {
+    "name": "Verona",
+    "region": "Veneto",
+    "level": "hard",
+    "hardnessMgL": 245,
+    "ph": 7.5,
+    "caMgL": 60,
+    "mgMgL": 20
+  },
+  {
+    "name": "Vicenza",
+    "region": "Veneto",
+    "level": "moderately-hard",
+    "hardnessMgL": 120,
+    "ph": 7.3,
+    "caMgL": 29,
+    "mgMgL": 10
+  },
+  {
+    "name": "Gorizia",
+    "region": "Friuli-V.G.",
+    "level": "hard",
+    "hardnessMgL": 180,
+    "ph": 7.4,
+    "caMgL": 45,
+    "mgMgL": 15
+  },
+  {
+    "name": "Pordenone",
+    "region": "Friuli-V.G.",
+    "level": "soft",
+    "hardnessMgL": 80,
+    "ph": 7.2,
+    "caMgL": 19,
+    "mgMgL": 6
+  },
+  {
+    "name": "Trieste",
+    "region": "Friuli-V.G.",
+    "level": "hard",
+    "hardnessMgL": 175,
+    "ph": 7.4,
+    "caMgL": 44,
+    "mgMgL": 15
+  },
+  {
+    "name": "Udine",
+    "region": "Friuli-V.G.",
+    "level": "soft",
+    "hardnessMgL": 90,
+    "ph": 7.2,
+    "caMgL": 22,
+    "mgMgL": 7
+  },
+  {
+    "name": "Bologna",
+    "region": "Emilia-Romagna",
+    "level": "very-hard",
+    "hardnessMgL": 375,
+    "ph": 7.7,
+    "caMgL": 96,
+    "mgMgL": 32
+  },
+  {
+    "name": "Ferrara",
+    "region": "Emilia-Romagna",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.5,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Forlì-Cesena",
+    "region": "Emilia-Romagna",
+    "level": "very-hard",
+    "hardnessMgL": 350,
+    "ph": 7.6,
+    "caMgL": 90,
+    "mgMgL": 30
+  },
+  {
+    "name": "Modena",
+    "region": "Emilia-Romagna",
+    "level": "very-hard",
+    "hardnessMgL": 300,
+    "ph": 7.6,
+    "caMgL": 77,
+    "mgMgL": 26
+  },
+  {
+    "name": "Parma",
+    "region": "Emilia-Romagna",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.5,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Piacenza",
+    "region": "Emilia-Romagna",
+    "level": "hard",
+    "hardnessMgL": 220,
+    "ph": 7.5,
+    "caMgL": 55,
+    "mgMgL": 18
+  },
+  {
+    "name": "Ravenna",
+    "region": "Emilia-Romagna",
+    "level": "very-hard",
+    "hardnessMgL": 320,
+    "ph": 7.6,
+    "caMgL": 82,
+    "mgMgL": 27
+  },
+  {
+    "name": "Reggio Emilia",
+    "region": "Emilia-Romagna",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.5,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Rimini",
+    "region": "Emilia-Romagna",
+    "level": "very-hard",
+    "hardnessMgL": 400,
+    "ph": 7.8,
+    "caMgL": 108,
+    "mgMgL": 36
+  },
+  {
+    "name": "Arezzo",
+    "region": "Toscana",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.5,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Firenze",
+    "region": "Toscana",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.6,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Grosseto",
+    "region": "Toscana",
+    "level": "hard",
+    "hardnessMgL": 250,
+    "ph": 7.5,
+    "caMgL": 62,
+    "mgMgL": 21
+  },
+  {
+    "name": "Livorno",
+    "region": "Toscana",
+    "level": "hard",
+    "hardnessMgL": 170,
+    "ph": 7.4,
+    "caMgL": 42,
+    "mgMgL": 14
+  },
+  {
+    "name": "Lucca",
+    "region": "Toscana",
+    "level": "moderately-hard",
+    "hardnessMgL": 120,
+    "ph": 7.3,
+    "caMgL": 29,
+    "mgMgL": 10
+  },
+  {
+    "name": "Massa-Carrara",
+    "region": "Toscana",
+    "level": "soft",
+    "hardnessMgL": 80,
+    "ph": 7.2,
+    "caMgL": 19,
+    "mgMgL": 6
+  },
+  {
+    "name": "Pisa",
+    "region": "Toscana",
+    "level": "hard",
+    "hardnessMgL": 180,
+    "ph": 7.4,
+    "caMgL": 45,
+    "mgMgL": 15
+  },
+  {
+    "name": "Pistoia",
+    "region": "Toscana",
+    "level": "moderately-hard",
+    "hardnessMgL": 150,
+    "ph": 7.4,
+    "caMgL": 37,
+    "mgMgL": 12
+  },
+  {
+    "name": "Prato",
+    "region": "Toscana",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.5,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Siena",
+    "region": "Toscana",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.6,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Perugia",
+    "region": "Umbria",
+    "level": "hard",
+    "hardnessMgL": 220,
+    "ph": 7.5,
+    "caMgL": 55,
+    "mgMgL": 18
+  },
+  {
+    "name": "Terni",
+    "region": "Umbria",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.6,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Ancona",
+    "region": "Marche",
+    "level": "hard",
+    "hardnessMgL": 250,
+    "ph": 7.5,
+    "caMgL": 62,
+    "mgMgL": 21
+  },
+  {
+    "name": "Ascoli Piceno",
+    "region": "Marche",
+    "level": "very-hard",
+    "hardnessMgL": 300,
+    "ph": 7.6,
+    "caMgL": 77,
+    "mgMgL": 26
+  },
+  {
+    "name": "Fermo",
+    "region": "Marche",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.6,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Macerata",
+    "region": "Marche",
+    "level": "hard",
+    "hardnessMgL": 260,
+    "ph": 7.5,
+    "caMgL": 64,
+    "mgMgL": 21
+  },
+  {
+    "name": "Pesaro-Urbino",
+    "region": "Marche",
+    "level": "hard",
+    "hardnessMgL": 240,
+    "ph": 7.5,
+    "caMgL": 59,
+    "mgMgL": 20
+  },
+  {
+    "name": "Frosinone",
+    "region": "Lazio",
+    "level": "very-hard",
+    "hardnessMgL": 350,
+    "ph": 7.7,
+    "caMgL": 90,
+    "mgMgL": 30
+  },
+  {
+    "name": "Latina",
+    "region": "Lazio",
+    "level": "very-hard",
+    "hardnessMgL": 300,
+    "ph": 7.6,
+    "caMgL": 77,
+    "mgMgL": 26
+  },
+  {
+    "name": "Rieti",
+    "region": "Lazio",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.6,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Roma",
+    "region": "Lazio",
+    "level": "very-hard",
+    "hardnessMgL": 310,
+    "ph": 7.6,
+    "caMgL": 82,
+    "mgMgL": 28
+  },
+  {
+    "name": "Viterbo",
+    "region": "Lazio",
+    "level": "very-hard",
+    "hardnessMgL": 300,
+    "ph": 7.6,
+    "caMgL": 77,
+    "mgMgL": 26
+  },
+  {
+    "name": "L'Aquila",
+    "region": "Abruzzo",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.5,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Chieti",
+    "region": "Abruzzo",
+    "level": "hard",
+    "hardnessMgL": 250,
+    "ph": 7.5,
+    "caMgL": 62,
+    "mgMgL": 21
+  },
+  {
+    "name": "Pescara",
+    "region": "Abruzzo",
+    "level": "hard",
+    "hardnessMgL": 230,
+    "ph": 7.5,
+    "caMgL": 57,
+    "mgMgL": 19
+  },
+  {
+    "name": "Teramo",
+    "region": "Abruzzo",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.5,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Campobasso",
+    "region": "Molise",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.6,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Isernia",
+    "region": "Molise",
+    "level": "hard",
+    "hardnessMgL": 250,
+    "ph": 7.5,
+    "caMgL": 62,
+    "mgMgL": 21
+  },
+  {
+    "name": "Avellino",
+    "region": "Campania",
+    "level": "hard",
+    "hardnessMgL": 180,
+    "ph": 7.4,
+    "caMgL": 45,
+    "mgMgL": 15
+  },
+  {
+    "name": "Benevento",
+    "region": "Campania",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.4,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Caserta",
+    "region": "Campania",
+    "level": "hard",
+    "hardnessMgL": 220,
+    "ph": 7.5,
+    "caMgL": 55,
+    "mgMgL": 18
+  },
+  {
+    "name": "Napoli",
+    "region": "Campania",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.4,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Salerno",
+    "region": "Campania",
+    "level": "hard",
+    "hardnessMgL": 180,
+    "ph": 7.4,
+    "caMgL": 45,
+    "mgMgL": 15
+  },
+  {
+    "name": "Bari",
+    "region": "Puglia",
+    "level": "very-hard",
+    "hardnessMgL": 350,
+    "ph": 7.6,
+    "caMgL": 90,
+    "mgMgL": 30
+  },
+  {
+    "name": "Barletta",
+    "region": "Puglia",
+    "level": "very-hard",
+    "hardnessMgL": 360,
+    "ph": 7.7,
+    "caMgL": 94,
+    "mgMgL": 31
+  },
+  {
+    "name": "Brindisi",
+    "region": "Puglia",
+    "level": "very-hard",
+    "hardnessMgL": 380,
+    "ph": 7.7,
+    "caMgL": 100,
+    "mgMgL": 33
+  },
+  {
+    "name": "Foggia",
+    "region": "Puglia",
+    "level": "very-hard",
+    "hardnessMgL": 320,
+    "ph": 7.6,
+    "caMgL": 82,
+    "mgMgL": 27
+  },
+  {
+    "name": "Lecce",
+    "region": "Puglia",
+    "level": "very-hard",
+    "hardnessMgL": 400,
+    "ph": 7.8,
+    "caMgL": 108,
+    "mgMgL": 36
+  },
+  {
+    "name": "Taranto",
+    "region": "Puglia",
+    "level": "very-hard",
+    "hardnessMgL": 370,
+    "ph": 7.7,
+    "caMgL": 96,
+    "mgMgL": 32
+  },
+  {
+    "name": "Matera",
+    "region": "Basilicata",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.6,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Potenza",
+    "region": "Basilicata",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.5,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Catanzaro",
+    "region": "Calabria",
+    "level": "hard",
+    "hardnessMgL": 180,
+    "ph": 7.4,
+    "caMgL": 45,
+    "mgMgL": 15
+  },
+  {
+    "name": "Cosenza",
+    "region": "Calabria",
+    "level": "moderately-hard",
+    "hardnessMgL": 150,
+    "ph": 7.3,
+    "caMgL": 37,
+    "mgMgL": 12
+  },
+  {
+    "name": "Crotone",
+    "region": "Calabria",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.4,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Reggio Calabria",
+    "region": "Calabria",
+    "level": "moderately-hard",
+    "hardnessMgL": 150,
+    "ph": 7.3,
+    "caMgL": 37,
+    "mgMgL": 12
+  },
+  {
+    "name": "Vibo Valentia",
+    "region": "Calabria",
+    "level": "hard",
+    "hardnessMgL": 170,
+    "ph": 7.4,
+    "caMgL": 42,
+    "mgMgL": 14
+  },
+  {
+    "name": "Agrigento",
+    "region": "Sicilia",
+    "level": "very-hard",
+    "hardnessMgL": 380,
+    "ph": 7.7,
+    "caMgL": 100,
+    "mgMgL": 33
+  },
+  {
+    "name": "Caltanissetta",
+    "region": "Sicilia",
+    "level": "very-hard",
+    "hardnessMgL": 350,
+    "ph": 7.6,
+    "caMgL": 90,
+    "mgMgL": 30
+  },
+  {
+    "name": "Catania",
+    "region": "Sicilia",
+    "level": "very-hard",
+    "hardnessMgL": 400,
+    "ph": 7.8,
+    "caMgL": 108,
+    "mgMgL": 36
+  },
+  {
+    "name": "Enna",
+    "region": "Sicilia",
+    "level": "very-hard",
+    "hardnessMgL": 320,
+    "ph": 7.6,
+    "caMgL": 82,
+    "mgMgL": 27
+  },
+  {
+    "name": "Messina",
+    "region": "Sicilia",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.4,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Palermo",
+    "region": "Sicilia",
+    "level": "very-hard",
+    "hardnessMgL": 360,
+    "ph": 7.7,
+    "caMgL": 94,
+    "mgMgL": 31
+  },
+  {
+    "name": "Ragusa",
+    "region": "Sicilia",
+    "level": "very-hard",
+    "hardnessMgL": 350,
+    "ph": 7.6,
+    "caMgL": 90,
+    "mgMgL": 30
+  },
+  {
+    "name": "Siracusa",
+    "region": "Sicilia",
+    "level": "very-hard",
+    "hardnessMgL": 380,
+    "ph": 7.7,
+    "caMgL": 100,
+    "mgMgL": 33
+  },
+  {
+    "name": "Trapani",
+    "region": "Sicilia",
+    "level": "very-hard",
+    "hardnessMgL": 350,
+    "ph": 7.6,
+    "caMgL": 90,
+    "mgMgL": 30
+  },
+  {
+    "name": "Cagliari",
+    "region": "Sardegna",
+    "level": "hard",
+    "hardnessMgL": 250,
+    "ph": 7.5,
+    "caMgL": 62,
+    "mgMgL": 21
+  },
+  {
+    "name": "Nuoro",
+    "region": "Sardegna",
+    "level": "moderately-hard",
+    "hardnessMgL": 150,
+    "ph": 7.3,
+    "caMgL": 37,
+    "mgMgL": 12
+  },
+  {
+    "name": "Oristano",
+    "region": "Sardegna",
+    "level": "hard",
+    "hardnessMgL": 280,
+    "ph": 7.5,
+    "caMgL": 68,
+    "mgMgL": 23
+  },
+  {
+    "name": "Sassari",
+    "region": "Sardegna",
+    "level": "hard",
+    "hardnessMgL": 200,
+    "ph": 7.4,
+    "caMgL": 50,
+    "mgMgL": 17
+  },
+  {
+    "name": "Sud Sardegna",
+    "region": "Sardegna",
+    "level": "hard",
+    "hardnessMgL": 260,
+    "ph": 7.5,
+    "caMgL": 64,
+    "mgMgL": 21
+  }
+]

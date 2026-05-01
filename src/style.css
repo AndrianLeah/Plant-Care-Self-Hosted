@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Frosted glass card — lets the gradient bleed through */
+  .card-glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.06),
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* ── Safe-area helpers ─────────────────────────────────────────────────────── */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* ── Base layout ─────────────────────────────────────────────────────────── */
+html {
+  font-size: 17px;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: 'Nunito', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--bg-base, #eef7ee);
+  transition: background 0.6s ease;
+}
+
+#app {
+  min-height: 100dvh;
+  position: relative;
+}
+
+/* Fixed gradient canvas — sits behind everything, never scrolls */
+#app::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: background 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  background:
+    radial-gradient(ellipse 100% 80% at -10% 0%, var(--grad-a) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 110% 100%, var(--grad-b) 0%, transparent 55%), var(--bg-base);
+}
+
+/* Everything inside #app stacks above the gradient */
+#app > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Route transitions ───────────────────────────────────────────────────── */
+
+/* Tab swipe — navigating forward (left) */
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.slide-left-enter-active,
+.slide-right-enter-active {
+  z-index: 11;
+}
+
+.slide-left-enter-from {
+  transform: translateX(100%);
+}
+.slide-left-leave-to {
+  transform: translateX(-100%);
+}
+.slide-left-enter-to,
+.slide-left-leave-from {
+  transform: translateX(0);
+}
+
+/* Tab swipe — navigating backward (right) */
+.slide-right-enter-from {
+  transform: translateX(-100%);
+}
+.slide-right-leave-to {
+  transform: translateX(100%);
+}
+.slide-right-enter-to,
+.slide-right-leave-from {
+  transform: translateX(0);
+}
+
+/* Detail overlay slides UP over the current view */
+.slide-up-enter-active {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  transition: transform 0.42s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: transform;
+}
+.slide-up-enter-from {
+  transform: translateY(100%);
+}
+.slide-up-enter-to {
+  transform: translateY(0);
+}
+
+/* Background view stays put while overlay comes in */
+.slide-up-leave-active {
+  transition: none;
+}
+
+/* Detail overlay slides DOWN on back navigation */
+.slide-down-leave-active {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: transform;
+}
+.slide-down-leave-from {
+  transform: translateY(0);
+}
+.slide-down-leave-to {
+  transform: translateY(100%);
+}
+
+/* Underlying view appears instantly on back */
+.slide-down-enter-active {
+  transition: none;
+}
+
+/* Quick fade for small UI elements (filter clear button etc.) */
+.fade-fast-enter-active,
+.fade-fast-leave-active {
+  transition: opacity 0.15s ease;
+}
+.fade-fast-enter-from,
+.fade-fast-leave-to {
+  opacity: 0;
+}
+
+/* Fade for dropdowns */
+.fade-enter-active,
+.fade-leave-active {
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+/* Expand/collapse for filter panel */
+.expand-enter-active,
+.expand-leave-active {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  transform-origin: top;
+}
+.expand-enter-from,
+.expand-leave-to {
+  opacity: 0;
+  transform: scaleY(0.92);
+}
