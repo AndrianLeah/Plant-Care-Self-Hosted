@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server:dev": "cd server && bun run dev",
     "build": "vue-tsc --noEmit && vite build",
     "build:web": "vue-tsc --noEmit && vite build --base=/Plant-Care-Self-Hosted/",
     "preview": "vite preview",

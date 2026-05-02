@@ -24,29 +24,54 @@ const authStore = useAuthStore()
 const catalogStore = useCatalogStore()
 const plantsStore = usePlantsStore()
 const waterProfileStore = useWaterProfileStore()
+let appMounted = false
+let appDataLoadedForSession = false
+let appDataLoadPromise: Promise<void> | null = null
 
-function fetchAppData() {
-  Promise.all([
+function fetchAppData(): Promise<void> {
+  if (!authStore.isLoggedIn) return Promise.resolve()
+  if (appDataLoadedForSession) return Promise.resolve()
+  if (appDataLoadPromise) return appDataLoadPromise
+
+  appDataLoadPromise = Promise.all([
     catalogStore.fetchCatalog().catch(() => {}),
     plantsStore.init().catch(() => {}),
     waterProfileStore.fetchPresets().catch(() => {}),
   ])
+    .then(() => {
+      appDataLoadedForSession = true
+    })
+    .finally(() => {
+      appDataLoadPromise = null
+    })
+
+  return appDataLoadPromise
 }
 
 authStore.restoreSession().then(() => {
   // Unblock the router guard NOW — auth state is known
   markSessionReady()
   app.mount('#app')
+  appMounted = true
   // Fetch data in the background after mount, errors here don't affect auth
   if (authStore.isLoggedIn) {
-    fetchAppData()
+    void fetchAppData()
   }
 })
 
 // Re-fetch all data whenever the user logs in (e.g. after login/register)
 watch(
   () => authStore.isLoggedIn,
-  (loggedIn) => {
-    if (loggedIn) fetchAppData()
+  (loggedIn, wasLoggedIn) => {
+    if (!loggedIn) {
+      appDataLoadedForSession = false
+      appDataLoadPromise = null
+      return
+    }
+
+    // During initial session restore, wait for the mount path above to trigger the first load.
+    if (!appMounted && !wasLoggedIn) return
+
+    void fetchAppData()
   },
 )

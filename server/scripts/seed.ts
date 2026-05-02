@@ -11,6 +11,7 @@
 
 import { readdir, readFile } from 'node:fs/promises'
 import { extname, join, resolve } from 'node:path'
+import { eq } from 'drizzle-orm'
 import { db } from '../src/db/client'
 import { species, speciesImages, speciesTranslations, waterPresets } from '../src/db/schema'
 
@@ -104,11 +105,37 @@ async function seedWaterPresets() {
     mgMgL: number
   }>
 
-  for (const r of rows) {
-    await db.insert(waterPresets).values(r).onConflictDoNothing()
+  const existingRows = await db.select().from(waterPresets)
+  const existingKeys = new Set<string>()
+  let deletedDuplicates = 0
+
+  for (const row of existingRows) {
+    const key = waterPresetKey(row)
+    if (existingKeys.has(key)) {
+      await db.delete(waterPresets).where(eq(waterPresets.id, row.id))
+      deletedDuplicates++
+      continue
+    }
+
+    existingKeys.add(key)
   }
 
-  console.log(`  ✓ ${rows.length} water presets inserted`)
+  let inserted = 0
+  for (const r of rows) {
+    const key = waterPresetKey(r)
+    if (existingKeys.has(key)) {
+      continue
+    }
+
+    await db.insert(waterPresets).values(r)
+    existingKeys.add(key)
+    inserted++
+  }
+
+  const alreadyPresent = rows.length - inserted
+  console.log(
+    `  ✓ ${rows.length} water presets ensured (${inserted} inserted, ${alreadyPresent} already present, ${deletedDuplicates} duplicates removed)`,
+  )
 }
 
 async function seedTranslations() {
@@ -163,3 +190,23 @@ main().catch((err) => {
   console.error('Seed failed:', err)
   process.exit(1)
 })
+
+function waterPresetKey(preset: {
+  name: string
+  region: string
+  level: string
+  hardnessMgL: number
+  ph: number
+  caMgL: number
+  mgMgL: number
+}) {
+  return [
+    preset.name,
+    preset.region,
+    preset.level,
+    preset.hardnessMgL,
+    preset.ph,
+    preset.caMgL,
+    preset.mgMgL,
+  ].join('|')
+}

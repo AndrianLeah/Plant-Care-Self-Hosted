@@ -1,45 +1,125 @@
-# Plant Care — Backend Server
+# Plant Care Backend Server
 
-Hono + Bun + Drizzle ORM + SQLite backend for the Plant Care app.
+Hono + Bun + SQLite API for the Plant Care app.
+
+This README reflects the backend as it is currently implemented in `server/`.
+
+## What This Service Does
+
+- JWT auth with access tokens and refresh-token rotation
+- User profile endpoints
+- User plant CRUD
+- Moisture logs, watering history, and plant photo storage
+- Public species catalog with translated content and binary images
+- Public water-preset endpoint
+- Admin endpoints for catalog, translations, images, and water presets
+
+## Runtime Behavior
+
+On every server start:
+
+- Drizzle migrations are applied automatically from `server/drizzle/`
+- expired refresh tokens are purged once at boot and then every 6 hours
+- CORS is enabled from `CORS_ORIGIN`
+- secure headers and request logging are enabled
+
+Database connection behavior:
+
+- SQLite
+- `PRAGMA journal_mode = WAL`
+- `PRAGMA foreign_keys = ON`
+- `PRAGMA synchronous = NORMAL`
+
+Health endpoint:
+
+- `GET /health` -> `{ "status": "ok" }`
 
 ## Requirements
 
-- [Bun](https://bun.sh) ≥ 1.1
+- [Bun](https://bun.sh) `1.1+`
 
-## Setup
+## Environment Variables
+
+Use [`server/.env.example`](.env.example) as the template.
+This file is for backend runtime only. Frontend build configuration belongs in the repository-root `.env`.
+
+| Variable | Default | Description |
+|---|---|---|
+| `PORT` | `3000` | HTTP port |
+| `DB_PATH` | `./plant-care.db` | SQLite database file path |
+| `JWT_SECRET` | required | HS256 secret for 15-minute access tokens |
+| `JWT_REFRESH_SECRET` | required | HS256 secret for 7-day refresh tokens |
+| `ADMIN_SECRET` | required | Value required in the `X-Admin-Secret` header |
+| `CORS_ORIGIN` | `http://localhost:1420` | Comma-separated allowed origins |
+
+Notes:
+
+- The server will refuse to start without `JWT_SECRET` and `JWT_REFRESH_SECRET`.
+- In the Docker image, `DB_PATH` is overridden to `/data/plant-care.db`.
+- `CORS_ORIGIN` accepts multiple origins separated by commas.
+
+Generate strong secrets with:
 
 ```bash
-# 1. Install dependencies
+openssl rand -base64 32
+```
+
+## Local Development
+
+From `server/`:
+
+```bash
 bun install
-
-# 2. Configure environment
 cp .env.example .env
-# Edit .env — JWT_SECRET, JWT_REFRESH_SECRET and ADMIN_SECRET are required.
-# Generate them with: openssl rand -base64 32
-
-# 3. Seed DB with species, images, translations and water presets
-#    (migrations are applied automatically on first start)
-bun run db:seed
-
-# 4. Start development server (restarts on file changes)
 bun run dev
 ```
 
-> **Note:** migrations are applied automatically every time the server starts,
-> so you never need to run `db:migrate` manually.
+The API starts on `http://localhost:3000` by default.
 
-The server starts on `http://localhost:3000` by default (configurable via `PORT` in `.env`).
+Notes:
 
-## Production deploy with Docker
+- `bun run dev` now runs migrations, seeds the local database, and then starts the watch server.
+- `bun run dev` restarts on file changes.
+- `bun run dev:watch` starts only the watch server if you want to skip the bootstrap step.
+- `bun run start` runs the same app without watch mode.
+- Migrations also run automatically during normal startup, so `bun run db:migrate` is optional for day-to-day development.
+- `bun run db:seed` is safe to rerun manually.
+
+## Seed Data
+
+The checked-in seed data currently contains:
+
+- `38` species
+- `38` catalog images in `server/data/compressed/*.webp`
+- `76` translations (`38` English, `38` Italian)
+- `107` water presets
+
+The seed script reads:
+
+- `server/data/species.json`
+- `server/data/translations.json`
+- `server/data/water-presets.json`
+- `server/data/compressed/*.webp`
+
+Important seed caveats:
+
+- Species, translations, and species images are upserted.
+- Water presets still do not have a database-level uniqueness constraint, but the seed script removes exact duplicates and skips presets that already match the checked-in seed data.
+- The seed script imports only `.webp` images from `server/data/compressed/`.
+
+## Docker
+
+Build the API image from `server/`:
 
 ```bash
-# 1. Build the image
 docker build -t plant-care-server .
+```
 
-# 2. Create a persistent volume for the SQLite database
+Run it with a persistent volume for SQLite:
+
+```bash
 docker volume create plant-care-db
 
-# 3. Run (replace the secret values with strong random strings)
 docker run -d \
   --name plant-care-server \
   -p 3000:3000 \
@@ -49,155 +129,192 @@ docker run -d \
   -e ADMIN_SECRET="$(openssl rand -base64 32)" \
   -e CORS_ORIGIN="https://yourdomain.com" \
   plant-care-server
+```
 
-# 4. Seed species data (first deploy only)
+First deployment still needs a manual seed:
+
+```bash
 docker exec plant-care-server bun run db:seed
 ```
 
-The container applies migrations automatically on startup, so upgrades are just:
-```bash
-docker pull plant-care-server   # or rebuild
-docker restart plant-care-server
-```
+Notes:
+
+- Migrations run automatically when the container starts.
+- The image does not seed automatically.
+- The top-level `docker-compose.yml` uses root `.env` for the frontend build URL and `server/.env` for backend runtime variables.
 
 ## Scripts
 
 | Script | Description |
 |---|---|
-| `bun run dev` | Start with `--watch` (auto-restart) |
+| `bun run dev` | Apply migrations, seed the local database, and start the API with `--watch` |
+| `bun run dev:watch` | Start the API with `--watch` only |
 | `bun run start` | Start without watch |
 | `bun run db:generate` | Generate Drizzle migration SQL from schema changes |
-| `bun run db:migrate` | Apply pending migrations (also runs automatically on startup) |
-| `bun run db:seed` | Seed species, images, translations and water presets from `server/data/` |
+| `bun run db:migrate` | Apply pending migrations manually |
+| `bun run db:seed` | Seed species, images, translations, and water presets |
 
-## Environment variables
+## Data Model
 
-| Variable | Default | Description |
-|---|---|---|
-| `PORT` | `3000` | HTTP port |
-| `DB_PATH` | `./plant-care.db` | Path to the SQLite database file |
-| `JWT_SECRET` | **required** | Secret for signing access tokens (15 min expiry) |
-| `JWT_REFRESH_SECRET` | **required** | Secret for signing refresh tokens (7 day expiry) |
-| `ADMIN_SECRET` | **required** | Value expected in the `X-Admin-Secret` header for admin routes |
-| `CORS_ORIGIN` | `http://localhost:1420` | Comma-separated list of allowed CORS origins |
+Main tables:
 
-Generate strong secrets with:
-```bash
-openssl rand -base64 32
-```
+- `users`
+- `refresh_tokens`
+- `species`
+- `species_translations`
+- `species_images`
+- `water_presets`
+- `plants`
+- `plant_photos`
+- `moisture_logs`
+- `watering_dates`
 
-## API reference
+Binary images are stored inside SQLite:
+
+- catalog images in `species_images`
+- user plant photos in `plant_photos`
+
+## API Reference
 
 ### Auth
 
-> Login and register are rate-limited to 10 requests per 15 minutes per IP.
+Login and register are rate-limited in memory to `10 requests / 15 minutes / IP`.
 
-| Method | Path | Auth | Description |
+| Method | Path | Auth | Notes |
 |---|---|---|---|
-| `POST` | `/auth/register` | — | Create account → returns token pair |
-| `POST` | `/auth/login` | — | Login → returns token pair |
-| `POST` | `/auth/refresh` | — | Rotate refresh token → new token pair |
-| `POST` | `/auth/logout` | Bearer | Revoke refresh token |
+| `POST` | `/auth/register` | — | Body: `email`, `password >= 8`, optional `name` |
+| `POST` | `/auth/login` | — | Body: `email`, `password` |
+| `POST` | `/auth/refresh` | — | Body: `{ "refreshToken": "..." }` |
+| `POST` | `/auth/logout` | Bearer | Body: `{ "refreshToken": "..." }`; revokes that refresh token if valid |
 
 ### User
 
-| Method | Path | Auth | Description |
+| Method | Path | Auth | Notes |
 |---|---|---|---|
-| `GET` | `/user/me` | Bearer | Get profile (name, lang, waterProfile) |
-| `PATCH` | `/user/me` | Bearer | Update name, lang, and/or waterProfile |
-| `PATCH` | `/user/me/credentials` | Bearer | Change email and/or password (requires `currentPassword`) |
+| `GET` | `/user/me` | Bearer | Returns `id`, `email`, `name`, `lang`, `waterProfile` |
+| `PATCH` | `/user/me` | Bearer | Supports `name`, `lang`, `waterProfile` |
+| `PATCH` | `/user/me/credentials` | Bearer | Requires `currentPassword` and at least one of `newEmail`, `newPassword` |
 
 ### Plants
 
-| Method | Path | Auth | Description |
+| Method | Path | Auth | Notes |
 |---|---|---|---|
-| `GET` | `/plants` | Bearer | List all user plants with logs |
-| `POST` | `/plants` | Bearer | Add a plant |
-| `PATCH` | `/plants/:id` | Bearer | Update a plant |
-| `DELETE` | `/plants/:id` | Bearer | Delete a plant |
-| `POST` | `/plants/:id/moisture` | Bearer | Log a moisture reading |
-| `POST` | `/plants/:id/watering` | Bearer | Log a watering event |
-| `GET` | `/plants/:id/photo` | Bearer | Get plant photo (binary) |
-| `PUT` | `/plants/:id/photo` | Bearer | Upload/replace plant photo (`multipart/form-data`, field: `photo`, max 5 MB) |
-| `DELETE` | `/plants/:id/photo` | Bearer | Delete plant photo |
+| `GET` | `/plants` | Bearer | Returns all plants for the current user, including logs and `hasPhoto` |
+| `POST` | `/plants` | Bearer | Body: `speciesId`, `nickname`, optional `location`, `notes`, `photoUrl` |
+| `PATCH` | `/plants/:id` | Bearer | Partial update of plant fields |
+| `DELETE` | `/plants/:id` | Bearer | Deletes the plant and cascaded child rows |
+| `POST` | `/plants/:id/moisture` | Bearer | Body: `level`, optional `note`; timestamp is always server-generated |
+| `POST` | `/plants/:id/watering` | Bearer | Optional body field `date` as ISO datetime |
+| `GET` | `/plants/:id/photo` | Bearer | Returns binary photo if present |
+| `PUT` | `/plants/:id/photo` | Bearer | `multipart/form-data`, field `photo`, types `jpeg/png/webp`, max `5 MB` |
+| `DELETE` | `/plants/:id/photo` | Bearer | Deletes custom plant photo |
 
-### Catalog (public)
+### Catalog
 
-| Method | Path | Auth | Description |
+Public endpoints.
+
+| Method | Path | Auth | Notes |
 |---|---|---|---|
-| `GET` | `/catalog?lang=en` | — | List all species with translations (`lang` defaults to `en`) |
-| `GET` | `/catalog/:id/image` | — | Get species image (binary, `Cache-Control: immutable`) |
+| `GET` | `/catalog?lang=en` | — | Supported langs: `en`, `it`; unsupported values fall back to `en` |
+| `GET` | `/catalog/:id/image` | — | Returns binary catalog image |
 
-### Water presets (public)
+Cache behavior:
 
-| Method | Path | Auth | Description |
+- `/catalog` responses: `Cache-Control: public, max-age=3600`
+- `/catalog/:id/image`: `Cache-Control: public, max-age=604800, immutable`
+
+### Water Presets
+
+Public endpoint.
+
+| Method | Path | Auth | Notes |
 |---|---|---|---|
-| `GET` | `/water-presets` | — | List all Italian city water presets |
+| `GET` | `/water-presets` | — | Returns preset values without database IDs |
+
+Cache behavior:
+
+- `/water-presets`: `Cache-Control: public, max-age=86400`
 
 ### Admin
 
-All admin routes require the `X-Admin-Secret` header.
+All admin routes require:
 
-| Method | Path | Description |
+- header `X-Admin-Secret: <ADMIN_SECRET>`
+
+| Method | Path | Notes |
 |---|---|---|
-| `POST` | `/admin/catalog` | Add a new species |
-| `PATCH` | `/admin/catalog/:id` | Update species fields |
-| `DELETE` | `/admin/catalog/:id` | Delete a species |
-| `PUT` | `/admin/catalog/:id/image` | Upload species image (`multipart/form-data`, field: `image`) |
-| `PUT` | `/admin/catalog/:id/translations/:lang` | Upsert a translation |
-| `DELETE` | `/admin/catalog/:id/translations/:lang` | Delete a translation |
-| `POST` | `/admin/water-presets` | Add a water preset |
-| `PATCH` | `/admin/water-presets/:id` | Update a water preset |
-| `DELETE` | `/admin/water-presets/:id` | Delete a water preset |
+| `POST` | `/admin/catalog` | Create species metadata |
+| `PATCH` | `/admin/catalog/:id` | Update species metadata |
+| `DELETE` | `/admin/catalog/:id` | Delete species |
+| `PUT` | `/admin/catalog/:id/image` | `multipart/form-data`, field `image`, types `webp/png/jpeg` |
+| `PUT` | `/admin/catalog/:id/translations/:lang` | Upsert translation row |
+| `DELETE` | `/admin/catalog/:id/translations/:lang` | Delete translation row |
+| `POST` | `/admin/water-presets` | Create preset; response includes new numeric ID |
+| `PATCH` | `/admin/water-presets/:id` | Partial update |
+| `DELETE` | `/admin/water-presets/:id` | Delete preset |
 
-## Project structure
+## Adding or Updating Catalog Content
 
+You currently have two practical paths:
+
+### 1. Use the admin API
+
+This is the most direct and format-flexible path.
+
+1. Create or update the species metadata with `/admin/catalog`.
+2. Upload an image with `/admin/catalog/:id/image`.
+3. Upsert translations with `/admin/catalog/:id/translations/:lang`.
+
+### 2. Seed from files
+
+If you want the content committed in the repository:
+
+1. Add or edit rows in:
+   - `server/data/species.json`
+   - `server/data/translations.json`
+2. Place the catalog image in `server/data/compressed/` as:
+   - `<species-id>.webp`
+3. Run:
+
+```bash
+bun run db:seed
 ```
+
+Important:
+
+- The root image helper `npm run optimize-images` currently writes `.jpg`, not `.webp`.
+- That means the helper script is not aligned with the current seed script.
+- If you want to seed images from files today, convert them to `.webp` yourself or upload them through the admin API instead.
+
+## Project Structure
+
+```text
 server/
 ├── data/
-│   ├── compressed/       Species images (WebP/JPEG) — read by seed script
-│   ├── originals/        Original high-res images — gitignored
-│   ├── species.json      Species data
-│   ├── translations.json Species translations (en, it)
-│   └── water-presets.json Italian city water profiles
-├── drizzle/              Generated migration SQL files (committed)
+│   ├── compressed/         Seeded catalog images read by the seed script
+│   ├── species.json        Species metadata
+│   ├── translations.json  English and Italian species text
+│   └── water-presets.json Water presets
+├── drizzle/                SQL migrations
 ├── scripts/
-│   └── seed.ts           Seed script — reads from server/data/
+│   └── seed.ts             Seed loader
 └── src/
-    ├── index.ts          App entry point, middleware, route mounting
+    ├── index.ts            Startup, middleware, route mounting
     ├── db/
-    │   ├── schema.ts     Drizzle table definitions
-    │   ├── client.ts     SQLite connection (WAL mode, FK enforcement)
-    │   └── migrate.ts    Migration runner
+    │   ├── client.ts       SQLite connection and pragmas
+    │   ├── migrate.ts      Manual migration runner
+    │   └── schema.ts       Drizzle schema
     ├── lib/
-    │   └── jwt.ts        Access + refresh token helpers (jose)
+    │   ├── jwt.ts          Token helpers
+    │   └── rateLimit.ts    In-memory IP rate limiter
     ├── middleware/
-    │   ├── auth.ts       requireAuth — validates Bearer access token
-    │   └── admin.ts      requireAdmin — validates X-Admin-Secret header
+    │   ├── admin.ts        X-Admin-Secret validation
+    │   └── auth.ts         Bearer token validation
     └── routes/
+        ├── admin.ts
         ├── auth.ts
-        ├── user.ts
-        ├── plants.ts
         ├── catalog.ts
-        ├── waterPresets.ts
-        └── admin.ts
+        ├── plants.ts
+        ├── user.ts
+        └── waterPresets.ts
 ```
-
-## Adding a new species
-
-1. Place the original image in `server/data/originals/` and run `npm run optimize-images` from the project root to compress it into `server/data/compressed/`.
-2. Use the admin API to insert the species and upload the image:
-   ```bash
-   # Add species metadata
-   curl -X POST http://localhost:3000/admin/catalog \
-     -H "X-Admin-Secret: <secret>" \
-     -H "Content-Type: application/json" \
-     -d '{...}'
-
-   # Upload image
-   curl -X PUT http://localhost:3000/admin/catalog/<id>/image \
-     -H "X-Admin-Secret: <secret>" \
-     -F "image=@server/data/compressed/<id>.jpg"
-   ```
-3. Add translations via `PUT /admin/catalog/:id/translations/en` and `/it`.
-

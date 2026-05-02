@@ -4,118 +4,310 @@
   <img src="public/app-icon.svg" width="96" height="96" alt="Plant Care Self-Hosted icon" />
 </p>
 
-A full-stack app for tracking and caring for your houseplants, built with Vue 3, Tauri, and a Hono + Bun backend.
+Self-hosted plant tracker with a Vue 3 frontend, a Bun + Hono API, SQLite storage, and an optional Tauri desktop shell.
 
-## Features
+This README describes the code currently in the repository, including the parts that are fully wired up and the parts that are only partial.
 
-- **Plant collection** — add plants from a catalog of 40+ species, give them a nickname, location, and custom photo
-- **Plant photos** — upload a photo per plant (auto-compressed to 900×675 JPEG client-side before upload)
-- **Watering log** — log waterings and see a chart of your history; get an estimated next-watering date
-- **Moisture log** — track soil moisture level over time with per-species guidance
-- **Species catalog** — browse all species with photos, care details, light and water requirements; images load lazily as you scroll
-- **Water quality guide** — configure your local tap water profile and get per-plant compatibility advice
-- **Auth** — account-based with JWT access tokens (15 min) + refresh tokens (7 days)
-- **Bilingual** — English and Italian interface
-- **Dark-friendly** — glassmorphism UI that adapts to the OS theme
+## Overview
+
+The project is split into three runtime pieces:
+
+- `src/`: a Vue 3 single-page app for browser and Tauri
+- `server/`: a Bun + Hono API with SQLite via Drizzle ORM
+- `src-tauri/`: a thin desktop wrapper around the same frontend
+
+The deployed Docker setup serves the built SPA with Nginx and reverse-proxies `/api/*` to the Bun server.
+
+## What Is Implemented
+
+- Account registration, login, logout, session restore, and refresh-token rotation
+- Plant collection management: add, edit, delete, and browse your plants
+- Per-plant moisture logs and watering history
+- Estimated next-watering date based on species baseline, recent watering intervals, seasonality, and latest moisture reading
+- Plant photo upload, replacement, fetch, and delete
+- Species catalog with seeded images, translated content, search, and filters
+- Water guide based on species water-hardness tolerance and a user-selected water profile
+- English and Italian UI translations
+- Settings for language, password/email change, JSON export, JSON import, and logout
+- Admin API endpoints for managing catalog species, translations, images, and water presets
+
+## Current Data Set
+
+The checked-in seed data contains:
+
+- `38` species
+- `76` species translations (`38` English, `38` Italian)
+- `107` water presets
+
+Catalog data and images are stored in the database after seeding.
+
+## How It Works
+
+### App bootstrap
+
+On startup the frontend:
+
+1. Restores the auth session from tokens stored in `localStorage`
+2. Waits for that auth check before allowing private routes
+3. If the user is logged in, fetches catalog data, user plants, and water presets in parallel
+
+The router uses hash history (`/#/...`), and the API client automatically retries a request once after refreshing the access token on `401`.
+
+### Auth
+
+- Access tokens expire after `15 minutes`
+- Refresh tokens expire after `7 days`
+- Refresh tokens are stored in SQLite and rotated on refresh
+- Login and register are rate-limited in memory to `10 requests / 15 minutes / IP`
+
+### Plant data
+
+Each user plant stores:
+
+- selected species
+- nickname
+- location
+- notes
+- watering dates
+- moisture logs
+- optional photo stored as binary in SQLite
+
+Plant photos are uploaded separately from plant creation. In the UI, species images are the fallback when a custom plant photo does not exist.
+
+### Catalog
+
+The catalog is public on the API side and is seeded from:
+
+- `server/data/species.json`
+- `server/data/translations.json`
+- `server/data/compressed/`
+
+The frontend lazily requests species images and caches them as object URLs.
+
+### Water guide
+
+The water guide compares a plant's `waterHardnessTolerance` against the user's selected water profile and shows:
+
+- a warning banner when the profile is too hard for that species
+- recommended water-source badges
+- general water-use guidance for the selected hardness level
+
+Important: the current UI stores the water profile locally in `localStorage`. The backend schema and `/user/me` API can store `waterProfile`, but the frontend does not currently sync that field.
+
+### Import and export
+
+The settings screen supports a simple JSON backup flow:
+
+- Export writes the current plant list from the frontend store to a local JSON file
+- Import creates new plants through the API and replays saved logs
+
+Current behavior to be aware of:
+
+- Import is additive; it does not delete existing server plants first
+- Plant photos are not included in the export
+- Watering dates are replayed with their saved timestamps
+- Moisture logs are recreated with new timestamps because the current moisture API does not accept a custom date
 
 ## Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Frontend | [Vue 3](https://vuejs.org/) + TypeScript |
-| Build | [Vite](https://vitejs.dev/) |
-| Desktop shell | [Tauri v2](https://tauri.app/) (Rust) |
-| Styling | [Tailwind CSS](https://tailwindcss.com/) |
-| State | [Pinia](https://pinia.vuejs.org/) |
-| Routing | [Vue Router](https://router.vuejs.org/) |
-| i18n | [Vue I18n](https://vue-i18n.intlify.dev/) |
-| Charts | [Chart.js](https://www.chartjs.org/) + [vue-chartjs](https://vue-chartjs.org/) |
-| Backend | [Hono](https://hono.dev/) + [Bun](https://bun.sh/) |
-| Database | SQLite via [Drizzle ORM](https://orm.drizzle.team/) |
+| Frontend | Vue 3 + TypeScript |
+| State | Pinia |
+| Routing | Vue Router |
+| i18n | Vue I18n |
+| Styling | Tailwind CSS |
+| Charts | Chart.js + vue-chartjs |
+| Backend | Hono + Bun |
+| Database | SQLite + Drizzle ORM |
+| Desktop shell | Tauri v2 |
+| Reverse proxy | Nginx |
 
-## Prerequisites
+## Local Development
 
-- [Node.js](https://nodejs.org/) v18+
-- [Bun](https://bun.sh) ≥ 1.1 (for the backend)
-- [Rust](https://www.rust-lang.org/tools/install) (for Tauri desktop builds)
-- [Tauri system dependencies](https://tauri.app/start/prerequisites/) for your OS
+### Prerequisites
 
-## Getting Started
+- Node.js `18+`
+- Bun `1.1+`
+- Rust and Tauri prerequisites only if you want the desktop build
 
-### 1. Backend
+### 1. Configure environment
 
-See [server/README.md](server/README.md) for full setup instructions.
+Frontend env in the repo root:
+
+```bash
+cp .env.example .env
+```
+
+Example:
+
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+Backend env in `server/`:
+
+```bash
+cd server
+cp .env.example .env
+```
+
+Example:
+
+```env
+PORT=3000
+DB_PATH=./local-plant-care.db
+JWT_SECRET=replace_with_a_long_random_secret
+JWT_REFRESH_SECRET=replace_with_a_different_long_random_secret
+ADMIN_SECRET=replace_with_a_random_admin_secret
+CORS_ORIGIN=http://localhost:1420
+```
+
+### 2. Start the backend
 
 ```bash
 cd server
 bun install
-cp .env.example .env   # fill in JWT_SECRET, JWT_REFRESH_SECRET, ADMIN_SECRET
-bun run db:migrate
-bun run db:seed
 bun run dev
 ```
 
-### 2. Frontend
+Notes:
+
+- `bun run dev` now runs migrations, seeds the local database, and then starts the watch server
+- if you are already in the repository root, `npm run server:dev` does the same thing
+- `src/index.ts` also applies migrations automatically on every server start
+- `bun run db:seed` is safe to rerun if you want to refresh the seeded catalog data manually
+- the API listens on `http://localhost:3000` by default
+- `GET /health` returns a simple health response
+
+### 3. Start the frontend
+
+From the repository root:
 
 ```bash
 npm install
+npm run dev
 ```
 
-Create a `.env` file in the project root:
+Vite runs on `http://localhost:1420`.
 
-```
-VITE_API_URL=http://localhost:3000
-```
+### 4. Run the Tauri shell
 
 ```bash
-# Run in the browser
-npm run dev
-
-# Run as a desktop app
 npm run tauri dev
 ```
 
-### Build
+The Tauri app does not embed or start the backend for you. The Bun API still needs to be running separately.
+
+## Docker Deployment
+
+The repository includes a two-container deployment:
+
+- `server`: Bun API + SQLite database stored in a Docker volume
+- `frontend`: static Vite build served by Nginx, with `/api/*` proxied to the server container
+
+### First deploy
 
 ```bash
-# Web only
-npm run build
-
-# Desktop (produces a native installer)
-npm run tauri build
+cp .env.example .env
 ```
 
-### Other scripts
+Set the frontend build URL in the root `.env`:
+
+```env
+VITE_API_URL=http://<host>/api
+```
+
+Then create `server/.env` from `server/.env.example` and set at least:
+
+```env
+PORT=3000
+DB_PATH=./plant-care.db
+JWT_SECRET=replace_with_a_long_random_secret
+JWT_REFRESH_SECRET=replace_with_a_different_long_random_secret
+ADMIN_SECRET=replace_with_a_random_admin_secret
+CORS_ORIGIN=http://<host>
+```
+
+Then build and start:
 
 ```bash
-npm run format          # Prettier — formats src/**/*.{ts,vue,css}
-npm run optimize-images # Compress/resize originals from server/data/originals → server/data/compressed
+docker compose up -d --build
 ```
+
+Seed the database once after the server container is up:
+
+```bash
+docker compose exec server bun run db:seed
+```
+
+### Update deploy
+
+`deploy.sh` does:
+
+```bash
+git pull --ff-only
+docker compose up -d --build
+docker image prune -f
+```
+
+### Current deploy notes
+
+- The supplied Nginx config listens on `80`
+- `docker-compose.yml` also exposes `443`, but HTTPS is not configured in `nginx/default.conf` yet
+- The backend port `3000` is only exposed inside the Docker network
+
+## Admin and Catalog Maintenance
+
+There is no admin UI in the frontend. Catalog and water-preset maintenance currently happens through the API:
+
+- `POST/PATCH/DELETE /admin/catalog...`
+- `PUT /admin/catalog/:id/image`
+- `PUT/DELETE /admin/catalog/:id/translations/:lang`
+- `POST/PATCH/DELETE /admin/water-presets...`
+
+All admin routes require the `X-Admin-Secret` header.
+
+### Image pipeline note
+
+The repository currently contains seeded catalog images as `.webp` files in `server/data/compressed/`.
+
+The checked-in helper script:
+
+```bash
+npm run optimize-images
+```
+
+currently writes `.jpg` files, while `server/scripts/seed.ts` only imports `.webp` files. That means the image optimization helper and the seed script are not fully aligned right now.
 
 ## Project Structure
 
+```text
+src/                 Vue SPA
+  components/        UI building blocks
+  composables/       Theme and water-guide helpers
+  i18n/              English and Italian strings
+  lib/               API client with token refresh
+  router/            Route config and auth guard
+  stores/            Pinia stores for auth, plants, catalog, water profile
+  views/             Login, home, catalog, detail, water guide, settings
+server/              Bun + Hono API
+  data/              Seed JSON and catalog images
+  drizzle/           SQL migrations
+  scripts/           Seed script
+  src/               routes, middleware, DB schema, JWT helpers
+src-tauri/           Tauri desktop wrapper
+nginx/               Reverse-proxy config for Docker deploy
+scripts/             Root maintenance scripts
 ```
-src/
-  views/          # Page-level components (Home, Catalog, PlantDetail, ...)
-  components/     # Reusable UI components
-  composables/    # Vue composables (useWaterOptions, useWaterWarning, ...)
-  stores/         # Pinia stores (auth, plants, catalog, waterProfile)
-  i18n/           # Locale files (en, it)
-  router/         # Vue Router config (hash history + session-ready guard)
-  types/          # Shared TypeScript types
-src-tauri/        # Tauri / Rust shell
-server/           # Hono + Bun backend (see server/README.md)
-scripts/
-  optimize-images.mjs  # sharp-based image compression tool
-```
 
-## Recommended IDE Setup
+## Known Gaps
 
-[VS Code](https://code.visualstudio.com/) with the following extensions:
-
-- [Vue - Official (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
-- [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode)
-- [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+- Water profile persistence is local-only in the current frontend
+- Import/export is not a full-fidelity restore mechanism
+- HTTPS is not configured in the provided Nginx config
+- The image optimization helper and image seed script expect different output formats
+- There are no app-level automated tests in this repository at the moment
 
 ## License
 

@@ -1,18 +1,21 @@
-# Dependencies
-node_modules
+# Server dependencies
+/node_modules
 
-# Build output
-dist
+# Optional build output
+/dist
 
-# Environment variables (contain JWT secrets and other credentials)
-.env
-.env.local
-.env.*.local
+# Server runtime environment files
+/.env
+/.env.*
+!/.env.example
 
-# SQLite database files (runtime data, not source)
-*.db
-*.db-shm
-*.db-wal
+# SQLite runtime data
+/*.db
+/*.db-shm
+/*.db-wal
+
+# Local-only source assets
+/data/originals
 
 # Logs
-*.log
+/*.log

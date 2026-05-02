@@ -1,33 +1,39 @@
+# Frontend / workspace dependencies
+/node_modules
+
+# Frontend build output
+/dist
+/dist-ssr
+
+# Tauri generated and build output
+/src-tauri/target
+/src-tauri/gen
+
+# Frontend local environment files
+/.env
+/.env.*
+!/.env.example
+
+# Local infrastructure / private notes
+/SERVER.md
+/nginx/certs
+
 # Logs
-logs
-*.log
+/logs
+/*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Environment variables (may contain secrets)
-.env
-.env.local
-.env.*.local
-
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+/.vscode/*
+!/.vscode/extensions.json
+/.idea
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-# Server
-SERVER.md
-server/data/originals

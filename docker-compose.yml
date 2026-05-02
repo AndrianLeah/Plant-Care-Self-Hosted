@@ -4,13 +4,11 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
+    env_file:
+      - ./server/.env
     restart: unless-stopped
     environment:
       DB_PATH: /data/plant-care.db
-      JWT_SECRET: ${JWT_SECRET}
-      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
-      ADMIN_SECRET: ${ADMIN_SECRET}
-      CORS_ORIGIN: ${CORS_ORIGIN}
       PORT: "3000"
     volumes:
       - db_data:/data
@@ -31,7 +29,11 @@ services:
     depends_on:
       - server
     volumes:
-      # Mount Let's Encrypt certs if you enable HTTPS later
+      # Optional TLS certs for HTTPS. If missing, the container generates
+      # a self-signed fallback and still serves plain HTTP on port 80.
+      # Expected filenames when mounted:
+      # - fullchain.pem
+      # - privkey.pem
       - ./nginx/certs:/etc/nginx/certs:ro
 
 volumes:
