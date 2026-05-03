@@ -18,7 +18,7 @@ export interface BackupPlant {
   photo?: BackupPhoto
 }
 
-export interface BackupDocumentV2 {
+export interface BackupDocument {
   version: 2
   createdAt: string
   plants: BackupPlant[]
@@ -87,7 +87,7 @@ function normalizePlant(input: unknown): BackupPlant | null {
 export function buildBackupDocument(
   plants: Plant[],
   photosByPlantId: Record<string, BackupPhoto | undefined>,
-): BackupDocumentV2 {
+): BackupDocument {
   return {
     version: 2,
     createdAt: new Date().toISOString(),

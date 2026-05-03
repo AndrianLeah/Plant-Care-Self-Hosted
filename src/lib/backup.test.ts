@@ -8,7 +8,7 @@ import {
 } from './backup'
 
 describe('backup utilities', () => {
-  it('builds and parses a v2 backup with photo payloads', async () => {
+  it('builds and parses a backup with photo payloads', async () => {
     const plants: Plant[] = [
       {
         id: 'p1',
