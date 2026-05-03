@@ -200,10 +200,11 @@ Login and register are rate-limited in memory to `10 requests / 15 minutes / IP`
 | Method | Path | Auth | Notes |
 |---|---|---|---|
 | `GET` | `/plants` | Bearer | Returns all plants for the current user, including logs and `hasPhoto` |
-| `POST` | `/plants` | Bearer | Body: `speciesId`, `nickname`, optional `location`, `notes`, `photoUrl` |
+| `DELETE` | `/plants` | Bearer | Deletes all plants for the current user (used by full-restore import flow) |
+| `POST` | `/plants` | Bearer | Body: `speciesId`, `nickname`, optional `location`, `notes`, `photoUrl`, `addedDate` |
 | `PATCH` | `/plants/:id` | Bearer | Partial update of plant fields |
 | `DELETE` | `/plants/:id` | Bearer | Deletes the plant and cascaded child rows |
-| `POST` | `/plants/:id/moisture` | Bearer | Body: `level`, optional `note`; timestamp is always server-generated |
+| `POST` | `/plants/:id/moisture` | Bearer | Body: `level`, optional `note`, optional `date` as ISO datetime |
 | `POST` | `/plants/:id/watering` | Bearer | Optional body field `date` as ISO datetime |
 | `GET` | `/plants/:id/photo` | Bearer | Returns binary photo if present |
 | `PUT` | `/plants/:id/photo` | Bearer | `multipart/form-data`, field `photo`, types `jpeg/png/webp`, max `5 MB` |
@@ -282,9 +283,9 @@ bun run db:seed
 
 Important:
 
-- The root image helper `npm run optimize-images` currently writes `.jpg`, not `.webp`.
-- That means the helper script is not aligned with the current seed script.
-- If you want to seed images from files today, convert them to `.webp` yourself or upload them through the admin API instead.
+- The root image helper `npm run optimize-images` writes `.webp` files to `server/data/compressed/`.
+- The seed script reads `.webp` from that same directory.
+- The optimization and seeding formats are aligned.
 
 ## Project Structure
 
