@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
+import AdminDbView from '../views/AdminDbView.vue'
 import CatalogView from '../views/CatalogView.vue'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
@@ -21,6 +22,7 @@ const router = createRouter({
     { path: '/catalog', name: 'catalog', component: CatalogView, meta: { tabIndex: 1 } },
     { path: '/water-guide', name: 'water-guide', component: WaterGuideView, meta: { tabIndex: 2 } },
     { path: '/settings', name: 'settings', component: SettingsView, meta: { tabIndex: 3 } },
+    { path: '/admin/db', name: 'admin-db', component: AdminDbView, meta: { overlay: true } },
   ],
 })
 

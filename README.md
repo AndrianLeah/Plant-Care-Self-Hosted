@@ -30,6 +30,7 @@ The deployed Docker setup serves the built SPA with Nginx and reverse-proxies `/
 - English and Italian UI translations
 - Settings for language, password/email change, JSON export, JSON import, and logout
 - Admin API endpoints for managing catalog species, translations, images, and water presets
+- Admin DB browser UI (sqlite-gui-node) available from Settings with `X-Admin-Secret`
 
 ## Current Data Set
 
@@ -259,14 +260,22 @@ docker image prune -f
 
 ## Admin and Catalog Maintenance
 
-There is no admin UI in the frontend. Catalog and water-preset maintenance currently happens through the API:
+Catalog and water-preset maintenance currently happens through the API:
 
 - `POST/PATCH/DELETE /admin/catalog...`
 - `PUT /admin/catalog/:id/image`
 - `PUT/DELETE /admin/catalog/:id/translations/:lang`
 - `POST/PATCH/DELETE /admin/water-presets...`
 
-All admin routes require the `X-Admin-Secret` header.
+Catalog and preset admin routes require the `X-Admin-Secret` header.
+
+### Admin DB browser UI
+
+The frontend now includes a SQLite admin UI launcher at `/#/admin/db` (reachable from Settings):
+
+- first call creates a signed DB-GUI session through `POST /admin/db/session` with `X-Admin-Secret`
+- then opens the proxied sqlite-gui-node interface at `/admin/db/*`
+- supports full table/query/edit operations
 
 ### Image pipeline note
 
@@ -300,10 +309,6 @@ src-tauri/           Tauri desktop wrapper
 nginx/               Reverse-proxy config for Docker deploy
 scripts/             Root maintenance scripts
 ```
-
-## Known Gaps
-
-- There is still no admin UI in the frontend; catalog and water-preset maintenance is API-only
 
 ## License
 

@@ -16,6 +16,7 @@
     "drizzle-orm": "^0.40.0",
     "hono": "^4.7.5",
     "jose": "^5.10.0",
+    "sqlite-gui-node": "^1.4.0",
     "zod": "^3.24.3"
   },
   "devDependencies": {

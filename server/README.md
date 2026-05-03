@@ -13,6 +13,7 @@ This README reflects the backend as it is currently implemented in `server/`.
 - Public species catalog with translated content and binary images
 - Public water-preset endpoint
 - Admin endpoints for catalog, translations, images, and water presets
+- Proxied `sqlite-gui-node` interface at `/admin/db/*` (session-bootstrapped)
 
 ## Runtime Behavior
 
@@ -50,6 +51,7 @@ This file is for backend runtime only. Frontend build configuration belongs in t
 | `JWT_SECRET` | required | HS256 secret for 15-minute access tokens |
 | `JWT_REFRESH_SECRET` | required | HS256 secret for 7-day refresh tokens |
 | `ADMIN_SECRET` | required | Value required in the `X-Admin-Secret` header |
+| `SQLITE_GUI_PORT` | `3011` | Internal port for `sqlite-gui-node` (proxied through `/admin/db/*`) |
 | `CORS_ORIGIN` | `http://localhost:1420` | Comma-separated allowed origins |
 
 Notes:
@@ -238,12 +240,15 @@ Cache behavior:
 
 ### Admin
 
-All admin routes require:
+Catalog and preset admin routes require:
 
 - header `X-Admin-Secret: <ADMIN_SECRET>`
 
 | Method | Path | Notes |
 |---|---|---|
+| `POST` | `/admin/db/session` | Requires `X-Admin-Secret`; creates signed session cookie for DB GUI |
+| `DELETE` | `/admin/db/session` | Requires `X-Admin-Secret`; clears DB GUI session cookie |
+| `GET/POST/...` | `/admin/db/*` | Proxied `sqlite-gui-node` interface (full DB admin capabilities) |
 | `POST` | `/admin/catalog` | Create species metadata |
 | `PATCH` | `/admin/catalog/:id` | Update species metadata |
 | `DELETE` | `/admin/catalog/:id` | Delete species |

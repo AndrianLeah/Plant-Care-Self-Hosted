@@ -14,12 +14,14 @@ import { catalogRoutes } from './routes/catalog'
 import { plantsRoutes } from './routes/plants'
 import { userRoutes } from './routes/user'
 import { waterPresetsRoutes } from './routes/waterPresets'
+import { startSqliteGui } from './lib/sqliteGui'
 
 // ── Startup: run migrations automatically ─────────────────────────────────────
 const sqlite = new Database(process.env.DB_PATH ?? 'plant-care.db')
 migrate(drizzle(sqlite), { migrationsFolder: './drizzle' })
 sqlite.close()
 console.log('✓ Migrations applied')
+await startSqliteGui()
 
 // ── Periodic cleanup: purge expired refresh tokens every 6 hours ──────────────
 async function purgeExpiredTokens() {
@@ -37,6 +39,7 @@ app.use(
   '*',
   cors({
     origin: (process.env.CORS_ORIGIN ?? 'http://localhost:1420').split(','),
+    credentials: true,
     allowMethods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Authorization', 'X-Admin-Secret'],
     maxAge: 600,

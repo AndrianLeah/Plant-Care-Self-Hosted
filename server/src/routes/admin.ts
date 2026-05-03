@@ -1,9 +1,13 @@
 import { zValidator } from '@hono/zod-validator'
+import { deleteCookie, getSignedCookie, setSignedCookie } from 'hono/cookie'
+import { createMiddleware } from 'hono/factory'
 import { eq, and } from 'drizzle-orm'
 import { Hono } from 'hono'
+import type { Context } from 'hono'
 import { z } from 'zod'
 import { db } from '../db/client'
 import { species, speciesImages, speciesTranslations, waterPresets } from '../db/schema'
+import { SQLITE_GUI_PORT } from '../lib/sqliteGui'
 import { requireAdmin } from '../middleware/admin'
 
 const speciesSchema = z.object({
@@ -34,14 +38,173 @@ const waterPresetSchema = z.object({
   mgMgL: z.number().positive(),
 })
 
+const translationSchema = z.object({
+  name: z.string().min(1),
+  description: z.string().min(1),
+  moistureNotes: z.string().min(1),
+  lightNotes: z.string().min(1),
+  waterTips: z.string().min(1),
+  commonProblems: z.array(z.string()).min(1),
+})
+
+const DB_GUI_SESSION_COOKIE = 'admin_db_session'
+const DB_GUI_SESSION_VALUE = 'ok'
+const DB_GUI_SESSION_MAX_AGE_SECONDS = 8 * 60 * 60
+
+function getPublicPrefix(c: Context): string {
+  const raw = c.req.header('X-Forwarded-Prefix')
+  if (!raw) return ''
+  return raw.endsWith('/') ? raw.slice(0, -1) : raw
+}
+
+function getPublicDbBase(c: Context): string {
+  return `${getPublicPrefix(c)}/admin/db`
+}
+
+function getGuiPathFromAdminPath(pathname: string): string {
+  const trimmed = pathname.startsWith('/admin/db') ? pathname.slice('/admin/db'.length) : pathname
+  if (!trimmed || trimmed === '/') return '/home'
+  return trimmed
+}
+
+function rewritePathLiterals(content: string, from: string, to: string): string {
+  return content
+    .replaceAll(`"${from}`, `"${to}`)
+    .replaceAll(`'${from}`, `'${to}`)
+    .replaceAll(`\`${from}`, `\`${to}`)
+}
+
+function rewriteGuiContent(content: string, publicBase: string): string {
+  const replacements: Array<[string, string]> = [
+    ['/api/tables', `${publicBase}/api/tables`],
+    ['/home', `${publicBase}/home`],
+    ['/query', `${publicBase}/query`],
+    ['/createtable', `${publicBase}/createtable`],
+    ['/insert/', `${publicBase}/insert/`],
+    ['/edit/', `${publicBase}/edit/`],
+    ['/output.sql', `${publicBase}/output.sql`],
+    ['/stylesheets/', `${publicBase}/stylesheets/`],
+    ['/javascripts/', `${publicBase}/javascripts/`],
+    ['/icons/', `${publicBase}/icons/`],
+    ['/img/', `${publicBase}/img/`],
+    ['/import', `${publicBase}/import`],
+  ]
+
+  let rewritten = content
+  for (const [from, to] of replacements) {
+    rewritten = rewritePathLiterals(rewritten, from, to)
+  }
+
+  // sqlite-gui-node scripts assume routes live at '/...'; strip '/admin/db' prefix before splitting.
+  rewritten = rewritten.replaceAll(
+    'window.location.pathname.split("/")',
+    'window.location.pathname.replace(/^(\\/api)?\\/admin\\/db/, "").split("/")',
+  )
+
+  return rewritten
+}
+
+const requireDbGuiSession = createMiddleware(async (c, next) => {
+  const adminSecret = process.env.ADMIN_SECRET
+  if (!adminSecret) {
+    return c.json({ error: 'Admin secret not configured' }, 500)
+  }
+
+  const session = await getSignedCookie(c, adminSecret, DB_GUI_SESSION_COOKIE)
+  if (session !== DB_GUI_SESSION_VALUE) {
+    return c.json({ error: 'Forbidden' }, 403)
+  }
+
+  await next()
+})
+
 export const adminRoutes = new Hono()
 
-adminRoutes.use('*', requireAdmin)
+// ─── SQLite GUI session bootstrap (requires admin header once) ───────────────
+
+adminRoutes.post('/db/session', requireAdmin, async (c) => {
+  const adminSecret = process.env.ADMIN_SECRET
+  if (!adminSecret) {
+    return c.json({ error: 'Admin secret not configured' }, 500)
+  }
+
+  const cookiePath = getPublicDbBase(c)
+  await setSignedCookie(c, DB_GUI_SESSION_COOKIE, DB_GUI_SESSION_VALUE, adminSecret, {
+    path: cookiePath,
+    httpOnly: true,
+    sameSite: 'Lax',
+    secure: c.req.url.startsWith('https://'),
+    maxAge: DB_GUI_SESSION_MAX_AGE_SECONDS,
+  })
+
+  const guiUrl = new URL(`${cookiePath}/home`, c.req.url).toString()
+  return c.json({ ok: true, url: guiUrl })
+})
+
+adminRoutes.delete('/db/session', requireAdmin, (c) => {
+  deleteCookie(c, DB_GUI_SESSION_COOKIE, { path: getPublicDbBase(c) })
+  return c.json({ ok: true })
+})
+
+// ─── SQLite GUI proxy (cookie-authenticated) ─────────────────────────────────
+
+adminRoutes.get('/db', requireDbGuiSession, (c) => {
+  return c.redirect(`${getPublicDbBase(c)}/home`)
+})
+
+adminRoutes.use('/db/*', requireDbGuiSession)
+
+adminRoutes.all('/db/*', async (c) => {
+  const publicBase = getPublicDbBase(c)
+  const url = new URL(c.req.url)
+  const guiPath = getGuiPathFromAdminPath(c.req.path)
+  const target = `http://127.0.0.1:${SQLITE_GUI_PORT}${guiPath}${url.search}`
+
+  const requestHeaders = new Headers(c.req.raw.headers)
+  requestHeaders.delete('host')
+  requestHeaders.delete('content-length')
+
+  const method = c.req.method
+  const body = method === 'GET' || method === 'HEAD' ? undefined : c.req.raw.body
+
+  const upstream = await fetch(target, {
+    method,
+    headers: requestHeaders,
+    body,
+    redirect: 'manual',
+  })
+
+  const responseHeaders = new Headers(upstream.headers)
+  const location = responseHeaders.get('location')
+  if (location?.startsWith('/')) {
+    responseHeaders.set('location', `${publicBase}${location}`)
+  }
+
+  const contentType = responseHeaders.get('content-type') ?? ''
+  const isRewritable =
+    contentType.includes('text/html') ||
+    contentType.includes('application/javascript') ||
+    contentType.includes('text/javascript')
+
+  if (isRewritable) {
+    const rewritten = rewriteGuiContent(await upstream.text(), publicBase)
+    responseHeaders.delete('content-length')
+    return new Response(rewritten, {
+      status: upstream.status,
+      headers: responseHeaders,
+    })
+  }
+
+  return new Response(upstream.body, {
+    status: upstream.status,
+    headers: responseHeaders,
+  })
+})
 
 // ─── Species ──────────────────────────────────────────────────────────────────
 
 // POST /admin/catalog
-adminRoutes.post('/catalog', zValidator('json', speciesSchema), async (c) => {
+adminRoutes.post('/catalog', requireAdmin, zValidator('json', speciesSchema), async (c) => {
   const body = c.req.valid('json')
 
   const existing = await db.query.species.findFirst({ where: eq(species.id, body.id) })
@@ -69,7 +232,7 @@ adminRoutes.post('/catalog', zValidator('json', speciesSchema), async (c) => {
 })
 
 // PATCH /admin/catalog/:id
-adminRoutes.patch('/catalog/:id', zValidator('json', updateSpeciesSchema), async (c) => {
+adminRoutes.patch('/catalog/:id', requireAdmin, zValidator('json', updateSpeciesSchema), async (c) => {
   const speciesId = c.req.param('id')
   const body = c.req.valid('json')
 
@@ -102,7 +265,7 @@ adminRoutes.patch('/catalog/:id', zValidator('json', updateSpeciesSchema), async
 })
 
 // DELETE /admin/catalog/:id
-adminRoutes.delete('/catalog/:id', async (c) => {
+adminRoutes.delete('/catalog/:id', requireAdmin, async (c) => {
   const speciesId = c.req.param('id')
 
   const existing = await db.query.species.findFirst({ where: eq(species.id, speciesId) })
@@ -114,7 +277,7 @@ adminRoutes.delete('/catalog/:id', async (c) => {
 })
 
 // PUT /admin/catalog/:id/image  (multipart/form-data, field: "image")
-adminRoutes.put('/catalog/:id/image', async (c) => {
+adminRoutes.put('/catalog/:id/image', requireAdmin, async (c) => {
   const speciesId = c.req.param('id')
 
   const existing = await db.query.species.findFirst({ where: eq(species.id, speciesId) })
@@ -149,7 +312,7 @@ adminRoutes.put('/catalog/:id/image', async (c) => {
 // ─── Water presets ────────────────────────────────────────────────────────────
 
 // POST /admin/water-presets
-adminRoutes.post('/water-presets', zValidator('json', waterPresetSchema), async (c) => {
+adminRoutes.post('/water-presets', requireAdmin, zValidator('json', waterPresetSchema), async (c) => {
   const body = c.req.valid('json')
 
   const [row] = await db
@@ -171,6 +334,7 @@ adminRoutes.post('/water-presets', zValidator('json', waterPresetSchema), async 
 // PATCH /admin/water-presets/:id
 adminRoutes.patch(
   '/water-presets/:id',
+  requireAdmin,
   zValidator('json', waterPresetSchema.partial()),
   async (c) => {
     const presetId = parseInt(c.req.param('id'), 10)
@@ -190,7 +354,7 @@ adminRoutes.patch(
 )
 
 // DELETE /admin/water-presets/:id
-adminRoutes.delete('/water-presets/:id', async (c) => {
+adminRoutes.delete('/water-presets/:id', requireAdmin, async (c) => {
   const presetId = parseInt(c.req.param('id'), 10)
   if (isNaN(presetId)) return c.json({ error: 'Invalid id' }, 400)
 
@@ -206,18 +370,10 @@ adminRoutes.delete('/water-presets/:id', async (c) => {
 
 // ─── Species translations ─────────────────────────────────────────────────────
 
-const translationSchema = z.object({
-  name: z.string().min(1),
-  description: z.string().min(1),
-  moistureNotes: z.string().min(1),
-  lightNotes: z.string().min(1),
-  waterTips: z.string().min(1),
-  commonProblems: z.array(z.string()).min(1),
-})
-
 // PUT /admin/catalog/:id/translations/:lang  (upsert)
 adminRoutes.put(
   '/catalog/:id/translations/:lang',
+  requireAdmin,
   zValidator('json', translationSchema),
   async (c) => {
     const speciesId = c.req.param('id')
@@ -256,7 +412,7 @@ adminRoutes.put(
 )
 
 // DELETE /admin/catalog/:id/translations/:lang
-adminRoutes.delete('/catalog/:id/translations/:lang', async (c) => {
+adminRoutes.delete('/catalog/:id/translations/:lang', requireAdmin, async (c) => {
   const speciesId = c.req.param('id')
   const lang = c.req.param('lang')
 

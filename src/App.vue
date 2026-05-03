@@ -40,5 +40,5 @@ router.beforeEach((to, from) => {
 
 const authStore = useAuthStore()
 
-const showNav = computed(() => authStore.isLoggedIn && !route.path.startsWith('/plant/'))
+const showNav = computed(() => authStore.isLoggedIn && !route.meta.overlay)
 </script>

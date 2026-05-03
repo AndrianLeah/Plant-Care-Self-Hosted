@@ -257,6 +257,28 @@
       </div>
     </section>
 
+    <!-- Admin tools -->
+    <section class="card-glass rounded-2xl overflow-hidden">
+      <div class="px-4 pt-3 pb-2">
+        <p class="text-xs font-semibold text-slate-500">
+          {{ t('settings.section_admin') }}
+        </p>
+      </div>
+      <div class="px-4 py-4 flex items-center justify-between gap-4">
+        <div class="min-w-0">
+          <p class="text-sm font-semibold text-slate-700">
+            <i class="mdi mdi-database-outline mr-1.5 text-slate-400" />
+            {{ t('settings.db_browser_title') }}
+          </p>
+          <p class="text-xs text-slate-500 mt-0.5">{{ t('settings.db_browser_desc') }}</p>
+        </div>
+        <AppButton variant="glass" color="cyan" size="sm" @click="openDbBrowser">
+          <i class="mdi mdi-arrow-right text-sm" />
+          {{ t('settings.db_browser_open') }}
+        </AppButton>
+      </div>
+    </section>
+
     <!-- About -->
     <section class="card-glass rounded-2xl overflow-hidden">
       <div class="px-4 pt-3 pb-2">
@@ -358,6 +380,10 @@ function setLocale(code: string) {
   dayjs.locale(code)
   localStorage.setItem('locale', code)
   api.patch('/user/me', { lang: code }).catch(() => {})
+}
+
+function openDbBrowser() {
+  router.push('/admin/db')
 }
 
 // ── Import / Export ─────────────────────────────────────────────────────────
