@@ -34,7 +34,16 @@ setInterval(purgeExpiredTokens, 6 * 60 * 60 * 1000)
 const app = new Hono()
 
 app.use('*', logger())
-app.use('*', secureHeaders({ crossOriginResourcePolicy: false }))
+app.use(
+  '*',
+  secureHeaders({
+    crossOriginResourcePolicy: false,
+    // On plain HTTP (no TLS), browsers ignore/complain about these isolation headers.
+    // Disable them for now to avoid noisy console warnings in HTTP-only deployments.
+    crossOriginOpenerPolicy: false,
+    originAgentCluster: false,
+  }),
+)
 app.use(
   '*',
   cors({
