@@ -14,13 +14,13 @@ const files = readdirSync(originalsDir).filter((f) => /\.(jpe?g|png|webp)$/i.tes
 
 for (const file of files) {
   const src = join(originalsDir, file)
-  const dest = join(compressedDir, file.replace(/\.(png|webp)$/i, '.jpg'))
+  const dest = join(compressedDir, file.replace(/\.(jpe?g|png|webp)$/i, '.webp'))
   const tmp = dest + '.tmp'
   const before = statSync(src).size
 
   await sharp(src)
     .resize(900, 675, { fit: 'cover', withoutEnlargement: true })
-    .jpeg({ quality: 75, mozjpeg: true })
+    .webp({ quality: 75 })
     .toFile(tmp)
 
   await rename(tmp, dest)

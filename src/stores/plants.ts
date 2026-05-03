@@ -2,6 +2,12 @@ import { mean, orderBy, takeRight } from 'lodash'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
 import { api } from '../lib/api'
+import {
+  blobToBase64,
+  buildBackupDocument,
+  decodeBase64ToBlob,
+  parseBackupDocument,
+} from '../lib/backup'
 import type { MoistureLevel, MoistureLog, Plant } from '../types'
 import { useCatalogStore } from './catalog'
 
@@ -17,15 +23,29 @@ export const usePlantsStore = defineStore('plants', () => {
 
   // ── Bootstrap ────────────────────────────────────────────────────────────────
 
+  function clearPhotoCache(): void {
+    for (const url of Object.values(photoCache)) {
+      URL.revokeObjectURL(url)
+    }
+    for (const key of Object.keys(photoCache)) {
+      delete photoCache[key]
+    }
+  }
+
+  async function fetchPhotoBlob(plantId: string): Promise<Blob | null> {
+    const res = await fetch(`${BASE}/plants/${plantId}/photo`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` },
+    })
+    if (!res.ok) return null
+    return res.blob()
+  }
+
   async function fetchPhoto(plantId: string): Promise<void> {
     try {
-      const res = await fetch(`${BASE}/plants/${plantId}/photo`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` },
-      })
-      if (res.ok) {
-        if (photoCache[plantId]) URL.revokeObjectURL(photoCache[plantId])
-        photoCache[plantId] = URL.createObjectURL(await res.blob())
-      }
+      const blob = await fetchPhotoBlob(plantId)
+      if (!blob) return
+      if (photoCache[plantId]) URL.revokeObjectURL(photoCache[plantId])
+      photoCache[plantId] = URL.createObjectURL(blob)
     } catch {
       // silently ignore
     }
@@ -35,6 +55,7 @@ export const usePlantsStore = defineStore('plants', () => {
     loading.value = true
     error.value = null
     try {
+      clearPhotoCache()
       plants.value = await api.get<Plant[]>('/plants')
       void Promise.allSettled(plants.value.filter((p) => p.hasPhoto).map((p) => fetchPhoto(p.id)))
     } catch (e) {
@@ -57,6 +78,10 @@ export const usePlantsStore = defineStore('plants', () => {
   async function removePlant(id: string): Promise<void> {
     await api.delete(`/plants/${id}`)
     plants.value = plants.value.filter((p) => p.id !== id)
+    if (photoCache[id]) {
+      URL.revokeObjectURL(photoCache[id])
+      delete photoCache[id]
+    }
   }
 
   async function updatePlant(
@@ -203,8 +228,26 @@ export const usePlantsStore = defineStore('plants', () => {
 
   // ── Export / Import (local JSON) ──────────────────────────────────────────────
 
-  function exportPlants(): void {
-    const payload = JSON.stringify({ version: 1, plants: plants.value }, null, 2)
+  async function exportPlants(): Promise<void> {
+    const photosByPlantId: Record<string, { mimeType: string; base64: string } | undefined> = {}
+    const withPhotos = plants.value.filter((p) => p.hasPhoto)
+
+    await Promise.all(
+      withPhotos.map(async (plant) => {
+        try {
+          const blob = await fetchPhotoBlob(plant.id)
+          if (!blob) return
+          photosByPlantId[plant.id] = {
+            mimeType: blob.type || 'image/jpeg',
+            base64: await blobToBase64(blob),
+          }
+        } catch {
+          // Best effort: keep exporting plant data even if a photo cannot be fetched.
+        }
+      }),
+    )
+
+    const payload = JSON.stringify(buildBackupDocument(plants.value, photosByPlantId), null, 2)
     const blob = new Blob([payload], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -215,32 +258,31 @@ export const usePlantsStore = defineStore('plants', () => {
   }
 
   /** Returns the number of plants imported, or throws on invalid payload. */
-  async function importPlants(json: string): Promise<number> {
-    let parsed: unknown
-    try {
-      parsed = JSON.parse(json)
-    } catch {
-      throw new Error('invalid_json')
-    }
-    if (
-      typeof parsed !== 'object' ||
-      parsed === null ||
-      !('plants' in parsed) ||
-      !Array.isArray((parsed as { plants: unknown }).plants)
-    )
-      throw new Error('invalid_format')
+  async function importPlants(json: string, options: { replace?: boolean } = {}): Promise<number> {
+    const incoming = parseBackupDocument(json)
+    const shouldReplace = options.replace ?? true
 
-    const incoming = (parsed as { plants: Plant[] }).plants
-    // POST each plant individually so they end up server-side
-    plants.value = []
+    if (shouldReplace) {
+      await api.delete('/plants')
+      plants.value = []
+      clearPhotoCache()
+    }
+
+    const mimeToExt: Record<string, string> = {
+      'image/jpeg': 'jpg',
+      'image/png': 'png',
+      'image/webp': 'webp',
+    }
+
     for (const p of incoming) {
       const created = await api.post<Plant>('/plants', {
         speciesId: p.speciesId,
         nickname: p.nickname,
         location: p.location,
         notes: p.notes,
+        addedDate: p.addedDate,
       })
-      // Restore logs
+
       for (const log of p.moistureLogs) {
         await api.post(`/plants/${created.id}/moisture`, {
           level: log.level,
@@ -251,9 +293,17 @@ export const usePlantsStore = defineStore('plants', () => {
       for (const date of p.wateringDates ?? []) {
         await api.post(`/plants/${created.id}/watering`, { date })
       }
+
+      if (p.photo) {
+        const photoBlob = decodeBase64ToBlob(p.photo.base64, p.photo.mimeType)
+        const ext = mimeToExt[p.photo.mimeType] ?? 'jpg'
+        const file = new File([photoBlob], `plant-photo.${ext}`, { type: p.photo.mimeType })
+        await uploadPhoto(created.id, file)
+      }
+
       plants.value.push(created)
     }
-    // Reload to get the full populated data
+
     await init()
     return incoming.length
   }

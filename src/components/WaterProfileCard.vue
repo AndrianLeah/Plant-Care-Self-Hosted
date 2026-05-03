@@ -242,18 +242,26 @@
           </div>
 
           <!-- Action buttons -->
+          <p v-if="saveError" class="text-sm text-red-600 -mt-2">{{ saveError }}</p>
           <div class="flex gap-2 pb-4">
             <AppButton
               variant="primary"
               color="cyan"
               size="md"
               full-width
-              :disabled="!canSave"
+              :disabled="!canSave || savingProfile"
               @click="saveProfile"
             >
+              <i v-if="savingProfile" class="mdi mdi-loading mdi-spin text-sm" />
               {{ t('water_guide.save') }}
             </AppButton>
-            <AppButton variant="outline" color="slate" size="md" @click="cancelEdit">
+            <AppButton
+              variant="outline"
+              color="slate"
+              size="md"
+              :disabled="savingProfile"
+              @click="cancelEdit"
+            >
               {{ t('water_guide.cancel') }}
             </AppButton>
           </div>
@@ -406,6 +414,8 @@ const hardnessBadgeClass = computed(() => {
 
 const editing = ref(false)
 const showAdvanced = ref(false)
+const savingProfile = ref(false)
+const saveError = ref<string | null>(null)
 const editLevel = ref<WaterHardnessLevel | null>(null)
 const editCity = ref('')
 const editMgL = ref<number | undefined>(undefined)
@@ -535,23 +545,33 @@ function startEdit() {
     waterStore.profile.caMgL ||
     waterStore.profile.mgMgL
   )
+  saveError.value = null
   editing.value = true
 }
 
-function saveProfile() {
+async function saveProfile() {
   if (!canSave.value || !editLevel.value) return
-  waterStore.save({
-    level: editLevel.value,
-    cityName: editCity.value.trim() || undefined,
-    hardnessMgL: editMgL.value || undefined,
-    ph: editPh.value || undefined,
-    caMgL: editCa.value || undefined,
-    mgMgL: editMg.value || undefined,
-  })
-  editing.value = false
+  savingProfile.value = true
+  saveError.value = null
+  try {
+    await waterStore.save({
+      level: editLevel.value,
+      cityName: editCity.value.trim() || undefined,
+      hardnessMgL: editMgL.value || undefined,
+      ph: editPh.value || undefined,
+      caMgL: editCa.value || undefined,
+      mgMgL: editMg.value || undefined,
+    })
+    editing.value = false
+  } catch {
+    saveError.value = t('water_guide.save_error')
+  } finally {
+    savingProfile.value = false
+  }
 }
 
 function cancelEdit() {
+  saveError.value = null
   editing.value = false
 }
 

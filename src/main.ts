@@ -37,6 +37,7 @@ function fetchAppData(): Promise<void> {
     catalogStore.fetchCatalog().catch(() => {}),
     plantsStore.init().catch(() => {}),
     waterProfileStore.fetchPresets().catch(() => {}),
+    waterProfileStore.syncFromServer().catch(() => {}),
   ])
     .then(() => {
       appDataLoadedForSession = true
@@ -66,6 +67,7 @@ watch(
     if (!loggedIn) {
       appDataLoadedForSession = false
       appDataLoadPromise = null
+      waterProfileStore.reset()
       return
     }
 

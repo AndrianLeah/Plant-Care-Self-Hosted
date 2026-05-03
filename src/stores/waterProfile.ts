@@ -57,8 +57,12 @@ const DEFAULT_PROFILE: UserWaterProfile = {
   cityName: 'Rimini',
 }
 
+function makeDefaultProfile(): UserWaterProfile {
+  return { ...DEFAULT_PROFILE }
+}
+
 export const useWaterProfileStore = defineStore('waterProfile', () => {
-  const profile = useLocalStorage<UserWaterProfile>(STORAGE_KEY, DEFAULT_PROFILE)
+  const profile = useLocalStorage<UserWaterProfile>(STORAGE_KEY, makeDefaultProfile())
 
   const cityPresets = ref<ItalianCityPreset[]>([])
   const cityPresetsByRegion = computed(() => {
@@ -68,6 +72,11 @@ export const useWaterProfileStore = defineStore('waterProfile', () => {
 
   async function fetchPresets(): Promise<void> {
     cityPresets.value = await api.get<ItalianCityPreset[]>('/water-presets')
+  }
+
+  async function syncFromServer(): Promise<void> {
+    const me = await api.get<{ waterProfile?: UserWaterProfile | null }>('/user/me')
+    profile.value = me.waterProfile ?? makeDefaultProfile()
   }
 
   const displayMgL = computed(
@@ -80,8 +89,13 @@ export const useWaterProfileStore = defineStore('waterProfile', () => {
 
   const displayMg = computed(() => profile.value.mgMgL ?? LEVEL_DEFAULTS[profile.value.level].mg)
 
-  function save(p: UserWaterProfile) {
+  async function save(p: UserWaterProfile): Promise<void> {
+    await api.patch('/user/me', { waterProfile: p })
     profile.value = p
+  }
+
+  function reset(): void {
+    profile.value = makeDefaultProfile()
   }
 
   return {
@@ -89,10 +103,12 @@ export const useWaterProfileStore = defineStore('waterProfile', () => {
     cityPresets,
     cityPresetsByRegion,
     fetchPresets,
+    syncFromServer,
     displayMgL,
     displayPh,
     displayCa,
     displayMg,
     save,
+    reset,
   }
 })

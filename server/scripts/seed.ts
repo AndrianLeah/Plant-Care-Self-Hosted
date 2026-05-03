@@ -82,7 +82,7 @@ async function seedImages() {
       .values({ speciesId, data, mimeType: 'image/webp', updatedAt: now })
       .onConflictDoUpdate({
         target: speciesImages.speciesId,
-        set: { data, updatedAt: now },
+        set: { data, mimeType: 'image/webp', updatedAt: now },
       })
 
     count++

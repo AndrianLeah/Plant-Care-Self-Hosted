@@ -92,21 +92,20 @@ The water guide compares a plant's `waterHardnessTolerance` against the user's s
 - recommended water-source badges
 - general water-use guidance for the selected hardness level
 
-Important: the current UI stores the water profile locally in `localStorage`. The backend schema and `/user/me` API can store `waterProfile`, but the frontend does not currently sync that field.
+The frontend persists the water profile to the backend (`PATCH /user/me`) and restores it from `/user/me` on session bootstrap. A local copy is still kept as a cache/fallback.
 
 ### Import and export
 
 The settings screen supports a simple JSON backup flow:
 
-- Export writes the current plant list from the frontend store to a local JSON file
-- Import creates new plants through the API and replays saved logs
+- Export writes a JSON backup file with plants, logs, watering dates, and plant photos
+- Import restores plants through the API and replays saved history (including timestamps)
 
 Current behavior to be aware of:
 
-- Import is additive; it does not delete existing server plants first
-- Plant photos are not included in the export
-- Watering dates are replayed with their saved timestamps
-- Moisture logs are recreated with new timestamps because the current moisture API does not accept a custom date
+- Import replaces existing plants first (`DELETE /plants`) after user confirmation in settings
+- Plant photos are included in backups as base64 payloads
+- Watering dates and moisture logs preserve their saved timestamps
 
 ## Tech Stack
 
@@ -253,8 +252,9 @@ docker image prune -f
 
 ### Current deploy notes
 
-- The supplied Nginx config listens on `80`
-- `docker-compose.yml` also exposes `443`, but HTTPS is not configured in `nginx/default.conf` yet
+- The supplied Nginx config always serves HTTP on `80`
+- `GET /healthz` on port `80` is kept as a plain-HTTP container health endpoint
+- HTTPS on `443` is enabled only when `nginx/certs/fullchain.pem` and `nginx/certs/privkey.pem` are mounted
 - The backend port `3000` is only exposed inside the Docker network
 
 ## Admin and Catalog Maintenance
@@ -278,7 +278,7 @@ The checked-in helper script:
 npm run optimize-images
 ```
 
-currently writes `.jpg` files, while `server/scripts/seed.ts` only imports `.webp` files. That means the image optimization helper and the seed script are not fully aligned right now.
+writes `.webp` files into `server/data/compressed/`, and `server/scripts/seed.ts` imports that same `.webp` format into SQLite. The optimization/seed pipeline is aligned end-to-end.
 
 ## Project Structure
 
@@ -303,11 +303,7 @@ scripts/             Root maintenance scripts
 
 ## Known Gaps
 
-- Water profile persistence is local-only in the current frontend
-- Import/export is not a full-fidelity restore mechanism
-- HTTPS is not configured in the provided Nginx config
-- The image optimization helper and image seed script expect different output formats
-- There are no app-level automated tests in this repository at the moment
+- There is still no admin UI in the frontend; catalog and water-preset maintenance is API-only
 
 ## License
 

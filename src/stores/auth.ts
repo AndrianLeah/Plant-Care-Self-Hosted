@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { ApiError, api, clearTokens, setTokens } from '../lib/api'
+import type { UserWaterProfile } from '../types'
 
 export interface AuthUser {
   id: string
   email: string
   name: string
   lang: string
+  waterProfile?: UserWaterProfile | null
 }
 
 export const useAuthStore = defineStore('auth', () => {
@@ -56,7 +58,10 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function logout(): Promise<void> {
     try {
-      await api.post('/auth/logout', {})
+      const refreshToken = localStorage.getItem('refresh_token')
+      if (refreshToken) {
+        await api.post('/auth/logout', { refreshToken })
+      }
     } catch {
       // Best-effort: clear tokens even if server call fails
     }

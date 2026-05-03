@@ -29,8 +29,8 @@ services:
     depends_on:
       - server
     volumes:
-      # Optional TLS certs for HTTPS. If missing, the container generates
-      # a self-signed fallback and still serves plain HTTP on port 80.
+      # Optional TLS certs for HTTPS.
+      # If missing, the container serves plain HTTP only on port 80.
       # Expected filenames when mounted:
       # - fullchain.pem
       # - privkey.pem

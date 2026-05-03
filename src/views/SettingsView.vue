@@ -207,8 +207,15 @@
             </p>
             <p class="text-xs text-slate-500 mt-0.5">{{ t('settings.export_desc') }}</p>
           </div>
-          <AppButton variant="glass" color="pink" size="sm" @click="plantsStore.exportPlants()">
-            <i class="mdi mdi-download text-sm" />
+          <AppButton
+            variant="glass"
+            color="pink"
+            size="sm"
+            :disabled="exporting"
+            @click="handleExport"
+          >
+            <i v-if="exporting" class="mdi mdi-loading mdi-spin text-sm" />
+            <i v-else class="mdi mdi-download text-sm" />
             {{ t('settings.export_btn') }}
           </AppButton>
         </div>
@@ -358,7 +365,19 @@ function setLocale(code: string) {
 const fileInput = ref<HTMLInputElement | null>(null)
 const importMessage = ref('')
 const importError = ref(false)
+const exporting = ref(false)
 let messageTimer: ReturnType<typeof setTimeout> | null = null
+
+async function handleExport() {
+  exporting.value = true
+  try {
+    await plantsStore.exportPlants()
+  } catch {
+    showMessage(t('settings.export_error'), true)
+  } finally {
+    exporting.value = false
+  }
+}
 
 function triggerImport() {
   fileInput.value?.click()

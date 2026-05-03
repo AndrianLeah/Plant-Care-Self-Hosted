@@ -9,6 +9,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "build:web": "vue-tsc --noEmit && vite build --base=/Plant-Care-Self-Hosted/",
     "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "tauri": "tauri",
     "format": "prettier --write \"src/**/*.{ts,vue,css}\" \"*.{ts,js,json}\"",
     "optimize-images": "node scripts/optimize-images.mjs",
@@ -41,7 +43,9 @@
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
     "typescript": "~5.6.2",
+    "vitest": "^3.2.4",
     "vite": "^6.0.3",
-    "vue-tsc": "^2.1.10"
+    "vue-tsc": "^2.1.10",
+    "jsdom": "^26.1.0"
   }
 }

@@ -6,22 +6,24 @@ import { db } from '../db/client'
 import { moistureLogs, plantPhotos, plants, wateringDates } from '../db/schema'
 import { requireAuth } from '../middleware/auth'
 
-const createPlantSchema = z.object({
+export const createPlantSchema = z.object({
   speciesId: z.string().min(1),
   nickname: z.string().min(1),
   location: z.string().optional(),
   notes: z.string().optional(),
   photoUrl: z.string().url().optional(),
+  addedDate: z.string().datetime().optional(),
 })
 
-const updatePlantSchema = createPlantSchema.partial()
+export const updatePlantSchema = createPlantSchema.partial()
 
-const moistureLogSchema = z.object({
+export const moistureLogSchema = z.object({
   level: z.enum(['dry', 'slightly-dry', 'moist', 'wet', 'waterlogged']),
   note: z.string().optional(),
+  date: z.string().datetime().optional(),
 })
 
-const wateringSchema = z.object({
+export const wateringSchema = z.object({
   date: z.string().datetime().optional(),
 })
 
@@ -71,6 +73,13 @@ plantsRoutes.get('/', async (c) => {
   return c.json(plantRows.map((p) => assemblePlant(p, moistureRows, wateringRows, photoIds)))
 })
 
+// DELETE /plants  — remove all plants for current user
+plantsRoutes.delete('/', async (c) => {
+  const { sub } = c.get('jwtPayload')
+  await db.delete(plants).where(eq(plants.userId, sub))
+  return c.json({ ok: true })
+})
+
 // POST /plants
 plantsRoutes.post('/', zValidator('json', createPlantSchema), async (c) => {
   const { sub } = c.get('jwtPayload')
@@ -84,7 +93,7 @@ plantsRoutes.post('/', zValidator('json', createPlantSchema), async (c) => {
       speciesId: body.speciesId,
       nickname: body.nickname,
       location: body.location ?? '',
-      addedDate: new Date().toISOString(),
+      addedDate: body.addedDate ?? new Date().toISOString(),
       notes: body.notes ?? null,
       photoUrl: body.photoUrl ?? null,
     })
@@ -151,7 +160,7 @@ plantsRoutes.post('/:id/moisture', zValidator('json', moistureLogSchema), async 
     .values({
       id: crypto.randomUUID(),
       plantId,
-      date: new Date().toISOString(),
+      date: body.date ?? new Date().toISOString(),
       level: body.level,
       note: body.note ?? null,
     })
