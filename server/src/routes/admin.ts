@@ -61,10 +61,25 @@ function getPublicDbBase(c: Context): string {
   return `${getPublicPrefix(c)}/admin/db`
 }
 
+function stripPrefix(pathname: string, prefix: string): string | null {
+  if (pathname === prefix) return '/'
+  if (pathname.startsWith(`${prefix}/`)) return pathname.slice(prefix.length)
+  return null
+}
+
 function getGuiPathFromAdminPath(pathname: string): string {
-  const trimmed = pathname.startsWith('/admin/db') ? pathname.slice('/admin/db'.length) : pathname
-  if (!trimmed || trimmed === '/') return '/home'
-  return trimmed
+  const normalized = pathname.startsWith('/') ? pathname : `/${pathname}`
+
+  // Hono/Nginx can expose different path shapes depending on mount/proxy setup.
+  // Normalize all expected variants to the sqlite-gui root path.
+  for (const prefix of ['/api/admin/db', '/admin/db', '/db']) {
+    const stripped = stripPrefix(normalized, prefix)
+    if (stripped !== null) {
+      return stripped === '/' ? '/home' : stripped
+    }
+  }
+
+  return normalized === '/' ? '/home' : normalized
 }
 
 function rewritePathLiterals(content: string, from: string, to: string): string {
@@ -94,6 +109,12 @@ function rewriteGuiContent(content: string, publicBase: string): string {
   for (const [from, to] of replacements) {
     rewritten = rewritePathLiterals(rewritten, from, to)
   }
+
+  // sqlite-gui-node includes a source map as a stylesheet link; remove it to avoid MIME errors.
+  rewritten = rewritten.replace(
+    /<link[^>]+href=["'`][^"'`]*\/stylesheets\/main\.css\.map["'`][^>]*>\s*/gi,
+    '',
+  )
 
   // sqlite-gui-node scripts assume routes live at '/...'; strip '/admin/db' prefix before splitting.
   rewritten = rewritten.replaceAll(
